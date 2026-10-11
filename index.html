@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>MarketingOS • Interactive AI Voice Guide & QnA Tutor</title>
+  <title>MarketingOS • Google Gemini Powered Digital Marketing Lab</title>
   
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -286,7 +286,6 @@
       box-shadow: 0 0 12px rgba(16, 185, 129, 0.4);
       transition: all 0.2s;
     }
-    .autofix-btn:hover { transform: scale(1.03); box-shadow: 0 0 18px rgba(16, 185, 129, 0.6); }
 
     .input-block { margin-bottom: 16px; }
     .input-block label { display: flex; justify-content: space-between; font-size: 13px; font-weight: 700; color: #cbd5e1; margin-bottom: 6px; }
@@ -360,43 +359,40 @@
     }
     .glow-btn:hover { transform: translateY(-2px); box-shadow: 0 0 28px rgba(6, 182, 212, 0.6); }
 
-    /* ================= FLOATING AI Q&A CHATBOT ================= */
+    /* ================= GEMINI CHATBOT WIDGET ================= */
     .chat-bubble-btn {
       position: fixed;
       bottom: 25px;
       right: 25px;
-      width: 60px;
-      height: 60px;
+      width: 62px;
+      height: 62px;
       border-radius: 50%;
-      background: linear-gradient(135deg, #a855f7, #6366f1);
+      background: linear-gradient(135deg, #2563eb, #a855f7);
       color: white;
-      border: 2px solid #c084fc;
+      border: 2px solid #38bdf8;
       display: flex;
       align-items: center;
       justify-content: center;
       font-size: 26px;
-      box-shadow: 0 8px 30px rgba(168, 85, 247, 0.6);
+      box-shadow: 0 8px 30px rgba(37, 99, 235, 0.6);
       cursor: pointer;
       z-index: 9999;
-      transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+      transition: all 0.3s;
     }
-    .chat-bubble-btn:hover {
-      transform: scale(1.1);
-      box-shadow: 0 12px 35px rgba(168, 85, 247, 0.8);
-    }
+    .chat-bubble-btn:hover { transform: scale(1.1); }
 
     .chat-widget-box {
       display: none;
       position: fixed;
       bottom: 95px;
       right: 25px;
-      width: 360px;
-      max-width: calc(100vw - 40px);
-      height: 480px;
-      background: #0f172a;
-      border: 1.5px solid #a855f7;
+      width: 380px;
+      max-width: calc(100vw - 32px);
+      height: 520px;
+      background: #0b1120;
+      border: 1.5px solid #38bdf8;
       border-radius: 20px;
-      box-shadow: 0 20px 45px rgba(0,0,0,0.6), 0 0 25px rgba(168, 85, 247, 0.3);
+      box-shadow: 0 20px 45px rgba(0,0,0,0.8), 0 0 25px rgba(56, 189, 248, 0.3);
       z-index: 9999;
       flex-direction: column;
       overflow: hidden;
@@ -405,15 +401,31 @@
     @keyframes chatFade { from { opacity: 0; transform: translateY(15px); } to { opacity: 1; transform: translateY(0); } }
 
     .chat-header {
-      background: linear-gradient(135deg, #1e1b4b, #2e1065);
-      padding: 14px 18px;
+      background: linear-gradient(135deg, #1e1b4b, #0f172a);
+      padding: 12px 16px;
       display: flex;
       justify-content: space-between;
       align-items: center;
       border-bottom: 1px solid rgba(255, 255, 255, 0.1);
     }
-    .chat-header h4 { font-size: 14px; font-weight: 800; color: #e9d5ff; display: flex; align-items: center; gap: 8px; }
-    .chat-close-btn { background: transparent; border: none; color: #cbd5e1; font-size: 18px; cursor: pointer; }
+    .chat-header h4 { font-size: 14px; font-weight: 800; color: #38bdf8; display: flex; align-items: center; gap: 8px; }
+    
+    .api-key-panel {
+      background: #1e293b;
+      padding: 10px 14px;
+      display: none;
+      border-bottom: 1px solid rgba(255,255,255,0.1);
+    }
+    .api-key-panel input {
+      width: 100%;
+      background: #0f172a;
+      border: 1px solid #38bdf8;
+      color: white;
+      padding: 7px 10px;
+      border-radius: 6px;
+      font-size: 12px;
+      margin-bottom: 6px;
+    }
 
     .chat-messages {
       flex: 1;
@@ -425,10 +437,10 @@
       font-size: 13px;
     }
     .chat-msg {
-      max-width: 85%;
-      padding: 10px 14px;
+      max-width: 90%;
+      padding: 12px 14px;
       border-radius: 14px;
-      line-height: 1.45;
+      line-height: 1.5;
     }
     .chat-msg.bot {
       background: #1e293b;
@@ -438,7 +450,7 @@
       border-bottom-left-radius: 4px;
     }
     .chat-msg.user {
-      background: linear-gradient(135deg, #6366f1, #4f46e5);
+      background: linear-gradient(135deg, #2563eb, #1d4ed8);
       color: white;
       align-self: flex-end;
       border-bottom-right-radius: 4px;
@@ -449,16 +461,16 @@
       display: flex;
       gap: 6px;
       overflow-x: auto;
-      background: #0b1120;
+      background: #070d18;
       border-top: 1px solid rgba(255, 255, 255, 0.05);
       scrollbar-width: none;
     }
     .chat-tag-pill {
-      background: rgba(168, 85, 247, 0.15);
-      border: 1px solid rgba(168, 85, 247, 0.4);
-      color: #d8b4fe;
+      background: rgba(56, 189, 248, 0.15);
+      border: 1px solid rgba(56, 189, 248, 0.4);
+      color: #7dd3fc;
       font-size: 11px;
-      padding: 4px 10px;
+      padding: 5px 11px;
       border-radius: 15px;
       cursor: pointer;
       white-space: nowrap;
@@ -476,17 +488,17 @@
       background: #1e293b;
       border: 1px solid rgba(255, 255, 255, 0.15);
       border-radius: 20px;
-      padding: 9px 14px;
+      padding: 9px 15px;
       color: white;
       font-size: 13px;
       outline: none;
     }
     .chat-send-btn {
-      background: #8b5cf6;
+      background: #2563eb;
       color: white;
       border: none;
-      width: 36px;
-      height: 36px;
+      width: 38px;
+      height: 38px;
       border-radius: 50%;
       cursor: pointer;
       display: flex;
@@ -511,7 +523,7 @@
     <div class="top-header">
       <div class="brand">
         <i class="fa-solid fa-bolt-lightning" style="color: #38bdf8;"></i> MarketingOS
-        <span style="font-size: 11px; color: #c084fc; border: 1px solid #c084fc; padding: 2px 8px; border-radius: 20px; font-weight: 700;">AI COACH & TUTOR</span>
+        <span style="font-size: 11px; color: #38bdf8; border: 1px solid #38bdf8; padding: 2px 8px; border-radius: 20px; font-weight: 700;">GEMINI AI READY</span>
       </div>
       <div style="display: flex; gap: 10px; align-items: center;">
         <button id="voiceToggleBtn" class="voice-control-btn" onclick="toggleVoiceMute()">
@@ -551,8 +563,8 @@
   <main>
     <div class="lab-banner">
       <div class="banner-text">
-        <h2>🚀 AI Interactive Marketing Lab & Tutor</h2>
-        <p>Aap practice karein, aur AI aawaz mein guide karega! Agar koi sawaal ho toh neeche right side wale <strong>AI Chatbot</strong> par click karke direct question pooch sakte hain!</p>
+        <h2>🚀 AI Live Lab • Powered by Google Gemini</h2>
+        <p>Aap practice karein, aur AI aawaz mein guide karega! Niche right side wale <strong>Gemini Chatbot</strong> par click karke direct Google AI se real question-answer karein!</p>
         <div class="challenge-pills">
           <span style="font-size: 12px; color: #a5b4fc; font-weight: 700; align-self: center;">One-Click Challenges:</span>
           <button class="preset-pill" onclick="loadScenario('mobile')">📱 4 Star Mobile Shop</button>
@@ -562,14 +574,14 @@
       </div>
     </div>
 
-    <!-- ================= TAB 1: SEO STUDIO ================= -->
+    <!-- TAB 1: SEO STUDIO -->
     <section id="pane-seo" class="tab-pane active">
       <div class="ai-radar-card">
         <div class="speaking-pulse" id="seoGauge" style="--score-deg: 324deg;">
           <div class="speaking-inner" id="seoScoreVal">90%</div>
         </div>
         <div class="ai-radar-info">
-          <h4><i class="fa-solid fa-robot"></i> AI SEO Coach Ka Live Guide:</h4>
+          <h4><i class="fa-solid fa-robot"></i> AI SEO Coach Live Guide:</h4>
           <p id="seoRadarMsg">Loading advice...</p>
           <div class="ai-action-row">
             <button class="speak-now-btn" onclick="speakCurrentAdvice('seo')">
@@ -595,10 +607,7 @@
           </div>
 
           <div class="input-block">
-            <label>
-              <span>SEO Title Tag</span>
-              <span id="seoTitleCount">0 / 60 Chars</span>
-            </label>
+            <label><span>SEO Title Tag</span><span id="seoTitleCount">0 / 60 Chars</span></label>
             <input type="text" id="seoTitle" value="Best Mobile Spare Parts Store | 4 Star Mobile" oninput="auditSeo(true)">
           </div>
 
@@ -608,10 +617,7 @@
           </div>
 
           <div class="input-block">
-            <label>
-              <span>Meta Description (Click Hook)</span>
-              <span id="seoDescCount">0 / 158 Chars</span>
-            </label>
+            <label><span>Meta Description</span><span id="seoDescCount">0 / 158 Chars</span></label>
             <textarea id="seoDesc" rows="3" oninput="auditSeo(true)">Buy 100% genuine mobile spare parts, original batteries, 80W fast chargers, and LCD folder combos with express counter testing support.</textarea>
           </div>
         </div>
@@ -636,13 +642,12 @@
               </div>
             </div>
           </div>
-
           <div id="seoDiagnostic" class="ai-diag-card pass"></div>
         </div>
       </div>
     </section>
 
-    <!-- ================= TAB 2: GOOGLE ADS ================= -->
+    <!-- TAB 2: GOOGLE ADS -->
     <section id="pane-gads" class="tab-pane">
       <div class="ai-radar-card">
         <div class="speaking-pulse" id="gadsGauge" style="--score-deg: 360deg;">
@@ -650,7 +655,7 @@
         </div>
         <div class="ai-radar-info">
           <h4><i class="fa-solid fa-robot"></i> Google Ads Policy & CTR Coach:</h4>
-          <p id="gadsRadarMsg">Headlines aur descriptions exact limits ke andar hain. Quality score high rahega!</p>
+          <p id="gadsRadarMsg">Headlines policy standards ke mutabik hain!</p>
           <div class="ai-action-row">
             <button class="speak-now-btn" onclick="speakCurrentAdvice('gads')">
               <i class="fa-solid fa-volume-high"></i> AI Advice Suniye
@@ -667,7 +672,6 @@
           <div class="glass-panel-title">
             <span><i class="fa-solid fa-bullhorn" style="color: #f87171;"></i> Search Ad Creatives</span>
           </div>
-
           <div class="input-block">
             <label><span>Headline 1 (Benefit)</span> <span id="h1Len">0/30</span></label>
             <input type="text" id="gAdH1" value="Genuine Mobile Spare Parts" oninput="auditGAds(true)">
@@ -685,7 +689,7 @@
             <input type="text" id="gAdPath" value="4starmobile.in/offers/parts" oninput="auditGAds(true)">
           </div>
           <div class="input-block">
-            <label><span>Description (Max 90 chars)</span> <span id="descLen">0/90</span></label>
+            <label><span>Description</span> <span id="descLen">0/90</span></label>
             <textarea id="gAdDesc" rows="2" oninput="auditGAds(true)">Get 100% original phone displays, chargers & certified batteries with warranty.</textarea>
           </div>
         </div>
@@ -694,7 +698,6 @@
           <div class="glass-panel-title">
             <span><i class="fa-brands fa-google" style="color: #f87171;"></i> Live Sponsored Search Ad</span>
           </div>
-
           <div class="preview-canvas">
             <div class="google-snippet">
               <div class="gs-head">
@@ -709,180 +712,158 @@
               </div>
             </div>
           </div>
-
           <div id="gadsDiagnostic" class="ai-diag-card pass"></div>
         </div>
       </div>
     </section>
 
-    <!-- ================= TAB 3: META ADS ================= -->
+    <!-- TAB 3: META ADS -->
     <section id="pane-meta" class="tab-pane">
       <div class="studio-grid">
         <div class="glass-panel">
           <div class="glass-panel-title">
             <span><i class="fa-brands fa-meta" style="color: #60a5fa;"></i> Meta / Instagram Campaign</span>
           </div>
-
           <div class="input-block">
-            <label><span>Brand / Page Handle</span></label>
+            <label>Brand Page Name</label>
             <input type="text" id="metaBrand" value="4 STAR MOBILE" oninput="auditMeta()">
           </div>
           <div class="input-block">
-            <label><span>Primary Hook (Scroll Stopper Text)</span></label>
+            <label>Primary Hook Text</label>
             <textarea id="metaCopy" rows="3" oninput="auditMeta()">🔥 Phone display crack ho gaya ya battery drain ho rahi hai? Duplicate ke chakkar mein mat pado! 100% Original tested folder combos & batteries 6-month backup warranty ke saath lein. WhatsApp par rate check karein!</textarea>
           </div>
           <div class="input-block">
-            <label><span>Creative Image URL</span></label>
+            <label>Creative Image URL</label>
             <input type="text" id="metaImg" value="https://images.unsplash.com/photo-1583863788434-e58a36330cf0?w=600&q=80" oninput="auditMeta()">
           </div>
           <div class="input-block">
-            <label><span>Headline</span></label>
+            <label>Headline</label>
             <input type="text" id="metaHeadline" value="Flat 20% OFF on Replacement Combos" oninput="auditMeta()">
           </div>
           <div class="input-block">
-            <label><span>Call-to-Action (CTA) Button</span></label>
+            <label>CTA Button</label>
             <select id="metaCta" onchange="auditMeta()">
               <option value="Send WhatsApp Message">Send WhatsApp Message</option>
               <option value="Shop Now">Shop Now</option>
               <option value="Order Now">Order Now</option>
-              <option value="Get Offer">Get Offer</option>
             </select>
           </div>
         </div>
 
         <div class="glass-panel">
-          <div class="glass-panel-title">
-            <span><i class="fa-solid fa-mobile-screen" style="color: #60a5fa;"></i> Mobile Feed Preview</span>
-          </div>
-
+          <div class="glass-panel-title"><span><i class="fa-solid fa-mobile-screen" style="color: #60a5fa;"></i> Feed Preview</span></div>
           <div class="meta-box">
             <div class="meta-head">
               <div class="meta-avatar"><i class="fa-solid fa-star"></i></div>
-              <div class="meta-author">
-                <h5 id="metaBrandPreview">4 STAR MOBILE</h5>
-                <span>Sponsored • <i class="fa-solid fa-earth-americas"></i></span>
-              </div>
+              <div class="meta-author"><h5 id="metaBrandPreview">4 STAR MOBILE</h5><span>Sponsored</span></div>
             </div>
             <div class="meta-body-text" id="metaCopyPreview"></div>
-            <img class="meta-media-img" id="metaImgPreview" src="" alt="Campaign Media">
+            <img class="meta-media-img" id="metaImgPreview" src="" alt="Media">
             <div class="meta-bottom-bar">
               <div style="max-width: 65%;">
-                <small style="color: #65676b; font-size: 11px; text-transform: uppercase;">4starmobile.in</small>
-                <div style="font-size: 14px; font-weight: 700; color: #050505; white-space: nowrap; overflow: hidden; text-overflow: ellipsis;" id="metaHeadlinePreview"></div>
+                <small style="color: #65676b; font-size: 11px;">4starmobile.in</small>
+                <div style="font-size: 14px; font-weight: 700; color: #050505;" id="metaHeadlinePreview"></div>
               </div>
               <button class="meta-cta-btn" id="metaCtaPreview">Send WhatsApp Message</button>
             </div>
           </div>
-
           <div id="metaDiagnostic" class="ai-diag-card pass"></div>
         </div>
       </div>
     </section>
 
-    <!-- ================= TAB 4: GA4 DASHBOARD ================= -->
+    <!-- TAB 4: GA4 DASHBOARD -->
     <section id="pane-ga4" class="tab-pane">
       <div class="glass-panel">
         <div class="glass-panel-title">
-          <span><i class="fa-solid fa-chart-line" style="color: #fbbf24;"></i> Real-Time GA4 Traffic Simulator</span>
-          <button class="glow-btn" style="padding: 6px 14px; font-size: 12px;" onclick="simulateTraffic()">
-            <i class="fa-solid fa-bolt"></i> Simulate Traffic Spike
-          </button>
+          <span><i class="fa-solid fa-chart-line" style="color: #fbbf24;"></i> GA4 Traffic Simulator</span>
+          <button class="glow-btn" style="padding: 6px 14px; font-size: 12px;" onclick="simulateTraffic()"><i class="fa-solid fa-bolt"></i> Boost Traffic</button>
         </div>
-
-        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(140px, 1fr)); gap: 14px; margin-bottom: 25px;">
-          <div style="background: rgba(3, 7, 18, 0.6); padding: 16px; border-radius: 14px; border: 1px solid var(--card-border); text-align: center;">
-            <div style="font-size: 12px; color: var(--text-muted);">Users (30 Days)</div>
-            <div style="font-size: 1.8rem; font-weight: 800; color: #38bdf8; margin: 4px 0;" id="gaUsers">5,420</div>
+        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(140px, 1fr)); gap: 14px;">
+          <div style="background: rgba(3, 7, 18, 0.6); padding: 16px; border-radius: 14px; text-align: center;">
+            <div style="font-size: 12px; color: var(--text-muted);">Users</div>
+            <div style="font-size: 1.8rem; font-weight: 800; color: #38bdf8;" id="gaUsers">5,420</div>
           </div>
-          <div style="background: rgba(3, 7, 18, 0.6); padding: 16px; border-radius: 14px; border: 1px solid var(--card-border); text-align: center;">
+          <div style="background: rgba(3, 7, 18, 0.6); padding: 16px; border-radius: 14px; text-align: center;">
             <div style="font-size: 12px; color: var(--text-muted);">Real-Time Live</div>
-            <div style="font-size: 1.8rem; font-weight: 800; color: #10b981; margin: 4px 0;" id="gaLive">24</div>
+            <div style="font-size: 1.8rem; font-weight: 800; color: #10b981;" id="gaLive">24</div>
           </div>
-          <div style="background: rgba(3, 7, 18, 0.6); padding: 16px; border-radius: 14px; border: 1px solid var(--card-border); text-align: center;">
-            <div style="font-size: 12px; color: var(--text-muted);">Conversions / Leads</div>
-            <div style="font-size: 1.8rem; font-weight: 800; color: #f59e0b; margin: 4px 0;" id="gaLeads">168</div>
-          </div>
-          <div style="background: rgba(3, 7, 18, 0.6); padding: 16px; border-radius: 14px; border: 1px solid var(--card-border); text-align: center;">
-            <div style="font-size: 12px; color: var(--text-muted);">Avg. Engagement</div>
-            <div style="font-size: 1.8rem; font-weight: 800; color: #a78bfa; margin: 4px 0;">3m 12s</div>
+          <div style="background: rgba(3, 7, 18, 0.6); padding: 16px; border-radius: 14px; text-align: center;">
+            <div style="font-size: 12px; color: var(--text-muted);">Leads</div>
+            <div style="font-size: 1.8rem; font-weight: 800; color: #f59e0b;" id="gaLeads">168</div>
           </div>
         </div>
       </div>
     </section>
 
-    <!-- ================= TAB 5: LANDING FUNNEL CRO ================= -->
+    <!-- TAB 5: LANDING CRO -->
     <section id="pane-landing" class="tab-pane">
       <div class="glass-panel" style="max-width: 600px; margin: 0 auto;">
-        <div class="glass-panel-title">
-          <span><i class="fa-solid fa-bullseye-arrow" style="color: #34d399;"></i> High-Converting Lead Magnet</span>
-        </div>
-        <form onsubmit="handleFunnelSubmit(event)" style="background: rgba(3, 7, 18, 0.7); padding: 22px; border-radius: 14px; border: 1px solid var(--card-border);">
-          <div class="input-block">
-            <label>Customer Full Name</label>
-            <input type="text" id="fname" placeholder="Rahul Sharma" required>
-          </div>
-          <div class="input-block">
-            <label>WhatsApp Contact Number</label>
-            <input type="tel" id="fphone" placeholder="9473371370" required>
-          </div>
-          <button type="submit" class="glow-btn" style="width: 100%; justify-content: center; padding: 13px;">
-            <i class="fa-brands fa-whatsapp"></i> Instant WhatsApp Lead Trigger
-          </button>
+        <div class="glass-panel-title"><span><i class="fa-solid fa-bullseye-arrow" style="color: #34d399;"></i> Lead Funnel</span></div>
+        <form onsubmit="handleFunnelSubmit(event)" style="background: rgba(3, 7, 18, 0.7); padding: 20px; border-radius: 14px;">
+          <div class="input-block"><label>Customer Name</label><input type="text" id="fname" placeholder="Rahul Sharma" required></div>
+          <div class="input-block"><label>WhatsApp Number</label><input type="tel" id="fphone" placeholder="9473371370" required></div>
+          <button type="submit" class="glow-btn" style="width: 100%; justify-content: center; padding: 12px;"><i class="fa-brands fa-whatsapp"></i> Trigger WhatsApp Lead</button>
         </form>
       </div>
     </section>
 
-    <!-- ================= TAB 6: AI COPY ENGINE ================= -->
+    <!-- TAB 6: AI COPY ENGINE -->
     <section id="pane-ai" class="tab-pane">
       <div class="glass-panel">
-        <div class="glass-panel-title">
-          <span><i class="fa-solid fa-wand-magic-sparkles" style="color: #c084fc;"></i> Generative Ad Copy Engine</span>
-        </div>
-        <div class="input-block" style="max-width: 550px;">
-          <label>Enter Business Niche / Product</label>
-          <input type="text" id="aiTopic" value="Mobile Display & Battery Hub">
-        </div>
-        <button class="glow-btn" onclick="generateAiIdeas()">
-          <i class="fa-solid fa-microchip"></i> Auto-Generate High CTR Campaign
-        </button>
-        <div id="aiOutputBlock" style="margin-top: 24px; display: grid; gap: 14px;"></div>
+        <div class="glass-panel-title"><span><i class="fa-solid fa-wand-magic-sparkles" style="color: #c084fc;"></i> Copy Generator</span></div>
+        <div class="input-block" style="max-width: 550px;"><label>Topic / Product</label><input type="text" id="aiTopic" value="Mobile Display & Battery Hub"></div>
+        <button class="glow-btn" onclick="generateAiIdeas()"><i class="fa-solid fa-microchip"></i> Generate Copy</button>
+        <div id="aiOutputBlock" style="margin-top: 20px; display: grid; gap: 14px;"></div>
       </div>
     </section>
   </main>
 
-  <!-- ================= FLOATING AI Q&A ASSISTANT ================= -->
-  <div class="chat-bubble-btn" onclick="toggleChatWidget()" title="Ask AI Marketing Question">
-    <i class="fa-solid fa-comments"></i>
+  <!-- ================= GOOGLE GEMINI CHATBOT WIDGET ================= -->
+  <div class="chat-bubble-btn" onclick="toggleChatWidget()" title="Gemini AI Marketing Tutor">
+    <i class="fa-brands fa-google"></i>
   </div>
 
   <div class="chat-widget-box" id="chatWidget">
     <div class="chat-header">
-      <h4><i class="fa-solid fa-robot" style="color: #c084fc;"></i> AI Marketing Tutor</h4>
-      <button class="chat-close-btn" onclick="toggleChatWidget()">✕</button>
+      <h4><i class="fa-solid fa-brain" style="color: #38bdf8;"></i> Google Gemini Tutor</h4>
+      <div style="display: flex; gap: 10px; align-items: center;">
+        <button onclick="toggleApiKeyInput()" style="background: transparent; border: none; color: #38bdf8; cursor: pointer; font-size: 14px;" title="Set Gemini API Key">🔑 Key</button>
+        <button onclick="toggleChatWidget()" style="background: transparent; border: none; color: #cbd5e1; font-size: 16px; cursor: pointer;">✕</button>
+      </div>
+    </div>
+
+    <!-- API Key Input Panel -->
+    <div class="api-key-panel" id="apiKeyPanel">
+      <input type="password" id="geminiApiKeyInput" placeholder="Google Gemini API Key Paste Karein...">
+      <div style="display: flex; justify-content: space-between;">
+        <button onclick="saveApiKey()" style="background: #2563eb; color: white; border: none; padding: 4px 10px; border-radius: 4px; font-size: 11px; cursor: pointer;">Save Key</button>
+        <a href="https://aistudio.google.com/app/apikey" target="_blank" style="color: #38bdf8; font-size: 11px; text-decoration: none;">Get Free Key ↗</a>
+      </div>
     </div>
     
     <div class="chat-messages" id="chatMsgContainer">
       <div class="chat-msg bot">
-        Namaste! Main aapka AI Digital Marketing Tutor hoon. SEO, Google Ads, Meta Pixel ya kisi bhi topic par koi bhi sawaal pooch sakte hain!
+        Namaste! Main **Google Gemini AI** hoon. Digital marketing, SEO, Google Ads policy ya strategy par jo chahein sawaal poochein! (Agar aapne apni Gemini API Key nahi dali hai toh upar '🔑 Key' par click karke add kar sakte hain).
       </div>
     </div>
 
-    <!-- Quick Question Tags -->
+    <!-- Quick Tags -->
     <div class="chat-quick-tags">
-      <div class="chat-tag-pill" onclick="askQuickQuestion('SEO Title kaisa hona chahiye?')">SEO Title Tips?</div>
-      <div class="chat-tag-pill" onclick="askQuickQuestion('CPC aur CTR kya hota hai?')">CPC vs CTR?</div>
-      <div class="chat-tag-pill" onclick="askQuickQuestion('Facebook Ads se lead kaise laye?')">Facebook Leads?</div>
-      <div class="chat-tag-pill" onclick="askQuickQuestion('Meta Pixel kya kaam karta hai?')">Meta Pixel?</div>
+      <div class="chat-tag-pill" onclick="askQuickQuestion('Quality Score 10/10 kaise karein?')">Quality Score?</div>
+      <div class="chat-tag-pill" onclick="askQuickQuestion('Mobile repair shop ke liye Google Ads strategy batao')">Local Ads Plan?</div>
+      <div class="chat-tag-pill" onclick="askQuickQuestion('Meta Pixel kya hota hai aur kaise kaam karta hai?')">Meta Pixel?</div>
+      <div class="chat-tag-pill" onclick="askQuickQuestion('SEO Title aur Meta Description ka golden formula kya hai?')">SEO Formula?</div>
     </div>
 
     <form class="chat-input-bar" onsubmit="handleUserChat(event)">
-      <input type="text" id="chatUserInput" placeholder="Apna sawaal yahan likhein..." required>
-      <button type="submit" class="chat-send-btn"><i class="fa-solid fa-paper-plane"></i></button>
+      <input type="text" id="chatUserInput" placeholder="Google Gemini se poochhein..." required>
+      <button type="submit" class="chat-send-btn" id="sendBtn"><i class="fa-solid fa-paper-plane"></i></button>
     </form>
   </div>
 
   <footer>
-    MarketingOS Simulator • Designed for Real-World Digital Marketing Mastery
+    MarketingOS Simulator • Powered by Google Gemini AI
   </footer>
 
   <script>
@@ -911,27 +892,20 @@
       } else {
         btn.className = "voice-control-btn";
         btn.innerHTML = `<i class="fa-solid fa-volume-high"></i> AI Voice: ON`;
-        speakText("AI Voice Guide activate ho gaya hai. Ab main aapko har step par guide karunga.");
+        speakText("AI Voice Guide on ho gaya hai.");
       }
     }
 
     function speakCurrentAdvice(type) {
-      if (type === 'seo') {
-        const text = document.getElementById('seoRadarMsg').innerText;
-        speakText(text);
-      } else if (type === 'gads') {
-        const text = document.getElementById('gadsRadarMsg').innerText;
-        speakText(text);
-      }
+      const text = document.getElementById(type === 'seo' ? 'seoRadarMsg' : 'gadsRadarMsg').innerText;
+      speakText(text);
     }
 
     function activateTab(tabKey) {
       document.querySelectorAll('.tab-pane').forEach(p => p.classList.remove('active'));
       document.querySelectorAll('.tab-item').forEach(b => b.classList.remove('active'));
-
       const targetPane = document.getElementById('pane-' + tabKey);
       if (targetPane) targetPane.classList.add('active');
-
       const activeBtn = Array.from(document.querySelectorAll('.tab-item')).find(b => b.getAttribute('onclick').includes(tabKey));
       if (activeBtn) activeBtn.classList.add('active');
     }
@@ -945,7 +919,6 @@
         document.getElementById('gAdH2').value = "Tested LCD Display & Battery";
         document.getElementById('metaBrand').value = "4 STAR MOBILE";
         document.getElementById('metaCopy').value = "🔥 Phone display toot gaya? Duplicate ke chakkar mein mat pado! 100% tested original combos with 6-month warranty.";
-        speakText("Four Star Mobile challenge loaded. Check karein ki target keyword title mein bilkul sahi set hai.");
       } else if (type === 'agency') {
         document.getElementById('seoKw').value = "digital marketing agency bihar";
         document.getElementById('seoTitle').value = "Top Digital Marketing Agency | 10X ROI";
@@ -954,7 +927,6 @@
         document.getElementById('gAdH2').value = "Google & Meta Ads Experts";
         document.getElementById('metaBrand').value = "Growth Marketing Lab";
         document.getElementById('metaCopy').value = "Struggling to get quality sales leads? Get 50+ verified high-intent customer leads every week with our performance marketing system.";
-        speakText("Digital Marketing Agency scenario loaded. Lead generation copy check karein.");
       } else if (type === 'ecommerce') {
         document.getElementById('seoKw').value = "fast chargers online offer";
         document.getElementById('seoTitle').value = "65W & 80W Fast Chargers | Flat 40% Off";
@@ -963,9 +935,7 @@
         document.getElementById('gAdH2').value = "Flat 40% Off Diwali Sale";
         document.getElementById('metaBrand').value = "PowerGear Store";
         document.getElementById('metaCopy').value = "⚡ Charge your phone 0 to 80% in just 25 minutes! Certified heavy duty chargers with overload safety protection. Order now before stock runs out!";
-        speakText("E-Commerce mega sale loaded. Offer hooks aur discount headlines dekhein.");
       }
-
       auditSeo(false);
       auditGAds(false);
       auditMeta();
@@ -992,13 +962,13 @@
       if (title.length > 60) {
         score -= 30;
         currentSeoFixValue = title.substring(0, 56) + "...";
-        speechMessage = "AI Guide: Title 60 characters se lamba hai. Isko 55 characters ke andar rakhein taaki Google ise na kaate.";
+        speechMessage = "AI Guide: Title 60 characters se lamba hai. Isko 55 characters ke andar rakhein.";
         radarMsg.innerHTML = `<strong>AI Guide:</strong> Title 60 char se zyada hai. Solution: Title ko concise banayein.`;
         fixBtn.style.display = "inline-flex";
       } else if (kw && !title.toLowerCase().includes(kw)) {
         score -= 25;
         currentSeoFixValue = `${kw.charAt(0).toUpperCase() + kw.slice(1)} | 4 Star Mobile`;
-        speechMessage = `AI Guide: Focus keyword '${kw}' title mein missing hai. Isko title ke shuru mein lagane se ranking tez hoti hai.`;
+        speechMessage = `AI Guide: Focus keyword '${kw}' title mein missing hai.`;
         radarMsg.innerHTML = `<strong>AI Guide:</strong> Keyword missing! Solution: Title mein <em>'${kw}'</em> shamil karein.`;
         fixBtn.style.display = "inline-flex";
       } else {
@@ -1007,11 +977,8 @@
       }
 
       if (score < 0) score = 0;
-      const gauge = document.getElementById('seoGauge');
-      const val = document.getElementById('seoScoreVal');
-      gauge.style.setProperty('--score-deg', `${(score / 100) * 360}deg`);
-      val.innerText = `${score}%`;
-
+      document.getElementById('seoGauge').style.setProperty('--score-deg', `${(score / 100) * 360}deg`);
+      document.getElementById('seoScoreVal').innerText = `${score}%`;
       diag.className = "ai-diag-card " + (score >= 80 ? "pass" : "fail");
       diag.innerHTML = score >= 80 ? `✓ <strong>Optimal Configuration (${score}%):</strong> Title & snippet ranking ready hain!` : `❌ <strong>Guidance Alert (${score}%):</strong> Title ko optimize karein.`;
 
@@ -1025,7 +992,7 @@
       if (currentSeoFixValue) {
         document.getElementById('seoTitle').value = currentSeoFixValue;
         auditSeo(true);
-        speakText("AI Fix apply kar diya gaya hai! Ab title tag 100% SEO friendly hai.");
+        speakText("AI Fix apply kar diya gaya hai!");
       }
     }
 
@@ -1039,7 +1006,6 @@
       document.getElementById('h2Len').innerText = `${h2.length}/30`;
       document.getElementById('h3Len').innerText = `${h3.length}/30`;
       document.getElementById('descLen').innerText = `${desc.length}/90`;
-
       document.getElementById('gAdTitlePreview').innerText = `${h1} | ${h2} | ${h3}`;
       document.getElementById('gAdDescPreview').innerText = desc;
 
@@ -1051,14 +1017,14 @@
       if (h1.length > 30) {
         currentGadsFixValue = "Genuine Mobile Spares";
         speechMessage = "AI Guide: Headline 1 30 characters se lambi hai. Iski jagah 'Genuine Mobile Spares' likhiye.";
-        radar.innerHTML = `<strong>AI Guide:</strong> Headline 1 30 chars limit cross. Shorten to 30 chars.`;
+        radar.innerHTML = `<strong>AI Guide:</strong> Headline 1 exceeds 30 chars. Shorten to 30 chars.`;
         fixBtn.style.display = "inline-flex";
         diag.className = "ai-diag-card fail";
         diag.innerHTML = "❌ <strong>Policy Violation:</strong> Headline 1 exceeds 30 characters.";
       } else {
         fixBtn.style.display = "none";
         diag.className = "ai-diag-card pass";
-        diag.innerHTML = "✓ <strong>Google Ad Approved:</strong> Character limits respected. High Quality Score expected!";
+        diag.innerHTML = "✓ <strong>Google Ad Approved:</strong> High Quality Score expected!";
         radar.innerText = "AI Guide: Headlines Google policy ke standard par hain. Quality Score 10/10 rahega!";
       }
 
@@ -1095,7 +1061,7 @@
         diag.innerHTML = "💡 <strong>AI Guide:</strong> Pehli line mein sawaal jaise 'Display toot gaya?' likhein taaki scrolling ruk sake.";
       } else {
         diag.className = "ai-diag-card pass";
-        diag.innerHTML = "✓ <strong>High CTR Hook:</strong> Visual question hook active. Feed scrolling stop hogi!";
+        diag.innerHTML = "✓ <strong>High CTR Hook:</strong> Visual question hook active!";
       }
     }
 
@@ -1106,7 +1072,7 @@
       u.innerText = (parseInt(u.innerText.replace(',', '')) + 64).toLocaleString();
       l.innerText = Math.floor(Math.random() * 35) + 20;
       leads.innerText = parseInt(leads.innerText) + 3;
-      speakText("Traffic spike detected! GA4 mein 64 naye visitors aur 3 leads record ho gayi hain.");
+      speakText("Traffic spike detected! GA4 stats updated.");
       alert("🔥 Real-Time Traffic Spike Activated! GA4 stats updated.");
     }
 
@@ -1125,23 +1091,36 @@
 
       block.innerHTML = `
         <div style="background: rgba(99, 102, 241, 0.15); border: 1px solid rgba(99, 102, 241, 0.4); padding: 16px; border-radius: 14px;">
-          <h4 style="color: #a5b4fc; font-size: 14px; margin-bottom: 6px;">💡 Google Search Ad Angles (High Intent):</h4>
-          <p style="font-size: 13px; color: #e2e8f0; line-height: 1.5;">1. "100% Genuine ${topic} | Same Day Express Dispatch"</p>
-          <p style="font-size: 13px; color: #e2e8f0; line-height: 1.5;">2. "Stop Buying Duplicate Spares | Tested Originals with Warranty"</p>
+          <h4 style="color: #a5b4fc; font-size: 14px; margin-bottom: 6px;">💡 Google Search Ad Angles:</h4>
+          <p style="font-size: 13px; color: #e2e8f0;">1. "100% Genuine ${topic} | Same Day Dispatch"</p>
         </div>
         <div style="background: rgba(16, 185, 129, 0.15); border: 1px solid rgba(16, 185, 129, 0.4); padding: 16px; border-radius: 14px;">
           <h4 style="color: #34d399; font-size: 14px; margin-bottom: 6px;">📱 Meta Social Hook:</h4>
-          <p style="font-size: 13px; color: #e2e8f0; line-height: 1.5;">"Phone baar-baar heat ho raha hai ya battery backup weak hai? Upgrade to original certified ${topic} with 6-month warranty. Tap WhatsApp below!"</p>
+          <p style="font-size: 13px; color: #e2e8f0;">"Phone baar-baar heat ho raha hai? Upgrade to certified ${topic} with 6-month warranty. Tap WhatsApp below!"</p>
         </div>
       `;
     }
 
-    /* ================= AI CHATBOT ENGINE ================= */
+    /* ================= REAL GOOGLE GEMINI API INTEGRATION ================= */
     function toggleChatWidget() {
       const chat = document.getElementById('chatWidget');
       chat.style.display = (chat.style.display === 'flex') ? 'none' : 'flex';
       if (chat.style.display === 'flex') {
-        speakText("Poochiye, digital marketing mein aapko kis cheez mein help chahiye?");
+        speakText("Google Gemini AI Tutor hazir hai. Apna sawal poochhein.");
+      }
+    }
+
+    function toggleApiKeyInput() {
+      const panel = document.getElementById('apiKeyPanel');
+      panel.style.display = (panel.style.display === 'block') ? 'none' : 'block';
+    }
+
+    function saveApiKey() {
+      const key = document.getElementById('geminiApiKeyInput').value.trim();
+      if (key) {
+        localStorage.setItem('GEMINI_API_KEY', key);
+        alert("✓ Gemini API Key successfully saved in your browser!");
+        document.getElementById('apiKeyPanel').style.display = 'none';
       }
     }
 
@@ -1152,27 +1131,42 @@
       div.innerHTML = text;
       container.appendChild(div);
       container.scrollTop = container.scrollHeight;
+      return div;
     }
 
-    function getAiMarketingAnswer(q) {
-      const query = q.toLowerCase();
+    // Call Real Google Gemini API with fallback
+    async function queryGoogleGemini(userPrompt) {
+      const apiKey = localStorage.getItem('GEMINI_API_KEY') || "";
 
-      if (query.includes("title") || query.includes("seo title")) {
-        return "SEO Title 50 se 60 characters ka hona chahiye. Hamesha apna main keyword shuru mein rakhein aur aakhri mein brand name lagayein, jaise: <em>'Best Mobile Spare Parts Store | 4 Star Mobile'</em>.";
-      } else if (query.includes("cpc") || query.includes("ctr")) {
-        return "<strong>CPC (Cost Per Click):</strong> Har ek click par aapka kitna paisa kat raha hai.<br><strong>CTR (Click-Through Rate):</strong> 100 logon ne ad dekha aur kitne logon ne click kiya. Achha CTR 4% se 8% mana jata hai.";
-      } else if (query.includes("lead") || query.includes("facebook") || query.includes("meta")) {
-        return "Facebook aur Instagram par lead laane ke liye <strong>'Lead Generation Campaign'</strong> chalayein aur Instant Form ya Direct WhatsApp message CTA button lagayein. Isme conversion sabse fast milta hai!";
-      } else if (query.includes("pixel") || query.includes("meta pixel")) {
-        return "Meta Pixel ek chhota sa code hota hai jo aapki website par aane wale logon ko track karta hai. Iska fayda yeh hai ki jo log website dekh kar bina khareede chale gaye, unhe aap dobara ad dikha (Retargeting kar) sakte hain!";
-      } else if (query.includes("keyword") || query.includes("research")) {
-        return "Keyword research ke liye <strong>Google Keyword Planner</strong>, Ubersuggest ya Google Autocomplete use karein. Local business ke liye location wale keywords (jaise 'mobile shop in Kishanganj') sabse fast rank karte hain!";
-      } else {
-        return "Digital marketing mein is topic par safal hone ke liye pehle apna target audience decide karein, high-converting copy likhein aur Analytics mein roz CTR aur conversions check karein. Aap specific sawaal jaise 'SEO tips' ya 'Google ads policy' bhi pooch sakte hain!";
+      if (!apiKey) {
+        return "⚠️ **Gemini API Key Missing:** براہ کرم اوپر دائیں کونے میں **'🔑 Key'** پر کلک کر کے اپنی مفت گوگل جیمنائی API Key ڈالیں تاکہ لائیو AI جوابات حاصل کر سکیں۔";
+      }
+
+      const systemPrompt = "You are an expert, encouraging Digital Marketing Mentor & Tutor for a practice lab. Answer clearly and practically in Urdu or Hinglish (Roman Urdu/Hindi). Keep your response concise (3-4 bullet points max) so it can be spoken out loud smoothly.";
+
+      try {
+        const response = await fetch(`https://generativelanguage.googleapis.com/v1beta/models/gemini-1.5-flash:generateContent?key=${apiKey}`, {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify({
+            contents: [
+              { role: "user", parts: [{ text: `${systemPrompt}\n\nStudent Question: ${userPrompt}` }] }
+            ]
+          })
+        });
+
+        const data = await response.json();
+        if (data.candidates && data.candidates[0].content.parts[0].text) {
+          return data.candidates[0].content.parts[0].text;
+        } else {
+          return "Google Gemini سے رابطہ نہیں ہو سکا۔ برائے مہربانی API Key چیک کریں یا دوبارہ کوشش کریں۔";
+        }
+      } catch (err) {
+        return "نیٹ ورک یا کنکشن کی خرابی۔ براہ کرم انٹرنیٹ اور اپنی Gemini API Key چیک کریں۔";
       }
     }
 
-    function handleUserChat(e) {
+    async function handleUserChat(e) {
       e.preventDefault();
       const input = document.getElementById('chatUserInput');
       const question = input.value.trim();
@@ -1181,26 +1175,29 @@
       appendChatMessage('user', question);
       input.value = "";
 
-      setTimeout(() => {
-        const answer = getAiMarketingAnswer(question);
-        appendChatMessage('bot', answer);
-        speakText(answer.replace(/<[^>]*>?/gm, ''));
-      }, 500);
+      const thinkingMsg = appendChatMessage('bot', "<em>Gemini AI سوچ رہا ہے...</em>");
+
+      const geminiAnswer = await queryGoogleGemini(question);
+      thinkingMsg.innerHTML = geminiAnswer.replace(/\n/g, '<br>');
+
+      // بول کر بھی سنائے
+      speakText(geminiAnswer.replace(/[*#_]/g, ''));
     }
 
-    function askQuickQuestion(text) {
+    async function askQuickQuestion(text) {
       appendChatMessage('user', text);
-      setTimeout(() => {
-        const answer = getAiMarketingAnswer(text);
-        appendChatMessage('bot', answer);
-        speakText(answer.replace(/<[^>]*>?/gm, ''));
-      }, 400);
+      const thinkingMsg = appendChatMessage('bot', "<em>Gemini AI سوچ رہا ہے...</em>");
+      const geminiAnswer = await queryGoogleGemini(text);
+      thinkingMsg.innerHTML = geminiAnswer.replace(/\n/g, '<br>');
+      speakText(geminiAnswer.replace(/[*#_]/g, ''));
     }
 
     window.addEventListener('DOMContentLoaded', () => {
       auditSeo(false);
       auditGAds(false);
       auditMeta();
+      const savedKey = localStorage.getItem('GEMINI_API_KEY');
+      if (savedKey) document.getElementById('geminiApiKeyInput').value = savedKey;
     });
   </script>
 </body>

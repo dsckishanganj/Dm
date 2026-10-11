@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Digital Marketing Practice Lab & Simulators</title>
+  <title>AI Digital Marketing Practice Lab & Real-Time Audit Coach</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
@@ -24,464 +24,108 @@
       --text-muted: #64748b;
     }
 
-    * {
-      box-sizing: border-box;
-      margin: 0;
-      padding: 0;
-    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body { font-family: 'Plus Jakarta Sans', sans-serif; background: var(--bg); color: var(--text); min-height: 100vh; display: flex; flex-direction: column; }
 
-    body {
-      font-family: 'Plus Jakarta Sans', sans-serif;
-      background: var(--bg);
-      color: var(--text);
-      min-height: 100vh;
+    header { background: #ffffff; border-bottom: 1px solid var(--border); position: sticky; top: 0; z-index: 100; box-shadow: 0 2px 8px rgba(0,0,0,0.04); }
+    .top-header { display: flex; align-items: center; justify-content: space-between; padding: 12px 18px; max-width: 1200px; margin: 0 auto; }
+    .brand-title { font-size: 1.15rem; font-weight: 800; display: flex; align-items: center; gap: 10px; color: var(--primary); }
+    .badge-ai { background: linear-gradient(135deg, #8b5cf6, #6366f1); color: #fff; font-size: 11px; padding: 3px 10px; border-radius: 20px; font-weight: 700; }
+
+    .nav-tabs-wrapper { background: #f1f5f9; padding: 8px 14px; border-bottom: 1px solid var(--border); }
+    .nav-tabs { display: flex; overflow-x: auto; gap: 8px; max-width: 1200px; margin: 0 auto; scrollbar-width: none; -webkit-overflow-scrolling: touch; }
+    .nav-tabs::-webkit-scrollbar { display: none; }
+    .tab-btn { background: #ffffff; border: 1px solid #cbd5e1; color: #475569; padding: 10px 18px; border-radius: 12px; font-size: 13px; font-weight: 700; cursor: pointer; white-space: nowrap; transition: all 0.2s ease; display: flex; align-items: center; gap: 8px; }
+    .tab-btn.active { background: var(--primary); color: #ffffff; border-color: var(--primary); box-shadow: 0 4px 12px rgba(37, 99, 235, 0.35); transform: translateY(-1px); }
+
+    main { flex: 1; max-width: 1140px; width: 100%; margin: 0 auto; padding: 20px 14px 40px 14px; }
+    .tab-content { display: none; animation: fadeIn 0.25s ease; }
+    .tab-content.active { display: block; }
+    @keyframes fadeIn { from { opacity: 0; transform: translateY(5px); } to { opacity: 1; transform: translateY(0); } }
+
+    .lab-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; }
+    @media (max-width: 850px) { .lab-grid { grid-template-columns: 1fr; } }
+
+    .panel { background: var(--card-bg); border: 1px solid var(--border); border-radius: 16px; padding: 20px; box-shadow: 0 4px 16px rgba(0,0,0,0.05); margin-bottom: 20px; }
+    .panel-title { font-size: 1.05rem; font-weight: 800; margin-bottom: 16px; display: flex; align-items: center; gap: 8px; color: var(--dark); border-bottom: 2px solid #f1f5f9; padding-bottom: 10px; }
+
+    /* AI Coach Box */
+    .ai-coach-box {
+      background: #f5f3ff;
+      border: 1.5px solid #ddd6fe;
+      border-radius: 14px;
+      padding: 16px;
+      margin-bottom: 20px;
+      display: flex;
+      gap: 14px;
+      align-items: flex-start;
+    }
+    .ai-coach-icon {
+      background: #8b5cf6;
+      color: white;
+      width: 36px;
+      height: 36px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 16px;
+      flex-shrink: 0;
+    }
+    .ai-coach-text h4 { font-size: 14px; font-weight: 800; color: #5b21b6; margin-bottom: 4px; }
+    .ai-coach-text p { font-size: 13px; color: #4c1d95; line-height: 1.45; }
+
+    /* Live Feedback / Error Alert Badges */
+    .audit-box {
+      border-radius: 12px;
+      padding: 14px 16px;
+      margin-top: 15px;
+      font-size: 13px;
+      line-height: 1.5;
       display: flex;
       flex-direction: column;
-    }
-
-    /* Header */
-    header {
-      background: #ffffff;
-      border-bottom: 1px solid var(--border);
-      position: sticky;
-      top: 0;
-      z-index: 100;
-      box-shadow: 0 2px 8px rgba(0,0,0,0.04);
-    }
-
-    .top-header {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      padding: 12px 18px;
-      max-width: 1200px;
-      margin: 0 auto;
-    }
-
-    .brand-title {
-      font-size: 1.15rem;
-      font-weight: 800;
-      display: flex;
-      align-items: center;
-      gap: 10px;
-      color: var(--primary);
-    }
-
-    .badge-pro {
-      background: #dbeafe;
-      color: #1e40af;
-      font-size: 11px;
-      padding: 3px 9px;
-      border-radius: 20px;
-      font-weight: 700;
-    }
-
-    /* Touch-Friendly Tabs */
-    .nav-tabs-wrapper {
-      background: #f1f5f9;
-      padding: 8px 14px;
-      border-bottom: 1px solid var(--border);
-    }
-
-    .nav-tabs {
-      display: flex;
-      overflow-x: auto;
       gap: 8px;
-      max-width: 1200px;
-      margin: 0 auto;
-      scrollbar-width: none;
-      -webkit-overflow-scrolling: touch;
     }
-    .nav-tabs::-webkit-scrollbar { display: none; }
+    .audit-box.good { background: #ecfdf5; border: 1.5px solid #a7f3d0; color: #065f46; }
+    .audit-box.warn { background: #fffbeb; border: 1.5px solid #fde68a; color: #92400e; }
+    .audit-box.bad { background: #fef2f2; border: 1.5px solid #fecaca; color: #991b1b; }
 
-    .tab-btn {
-      background: #ffffff;
-      border: 1px solid #cbd5e1;
-      color: #475569;
-      padding: 10px 18px;
-      border-radius: 12px;
-      font-size: 13px;
-      font-weight: 700;
-      cursor: pointer;
-      white-space: nowrap;
-      transition: all 0.2s ease;
-      display: flex;
-      align-items: center;
-      gap: 8px;
-      box-shadow: 0 1px 3px rgba(0,0,0,0.04);
+    .form-group { margin-bottom: 14px; }
+    .form-group label { display: block; font-size: 13px; font-weight: 700; color: #334155; margin-bottom: 6px; }
+    .form-group input, .form-group textarea, .form-group select {
+      width: 100%; background: #f8fafc; border: 1.5px solid #cbd5e1; padding: 11px 14px; border-radius: 10px; color: #0f172a; font-size: 14px; font-family: inherit; outline: none; transition: all 0.2s;
     }
+    .form-group input:focus, .form-group textarea:focus, .form-group select:focus {
+      background: #ffffff; border-color: var(--primary); box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.15);
+    }
+    .char-count { font-size: 12px; color: var(--text-muted); margin-top: 4px; font-weight: 600; display: flex; justify-content: space-between; }
 
-    .tab-btn.active {
-      background: var(--primary);
-      color: #ffffff;
-      border-color: var(--primary);
-      box-shadow: 0 4px 12px rgba(37, 99, 235, 0.35);
-      transform: translateY(-1px);
-    }
+    .btn-action { background: linear-gradient(135deg, #2563eb, #1d4ed8); color: white; border: none; padding: 11px 20px; border-radius: 10px; font-size: 14px; font-weight: 700; cursor: pointer; display: inline-flex; align-items: center; gap: 8px; box-shadow: 0 4px 12px rgba(37, 99, 235, 0.25); }
 
-    /* Container */
-    main {
-      flex: 1;
-      max-width: 1140px;
-      width: 100%;
-      margin: 0 auto;
-      padding: 20px 14px 40px 14px;
-    }
+    .preview-wrapper { background: #f1f5f9; border-radius: 14px; padding: 16px; border: 1px dashed #cbd5e1; }
+    .google-preview-box { background: #ffffff; border-radius: 12px; padding: 16px 18px; font-family: 'Roboto', Arial, sans-serif; box-shadow: 0 3px 12px rgba(0,0,0,0.08); color: #202124; border: 1px solid #dadce0; }
+    .google-preview-box .serp-site-info { display: flex; align-items: center; gap: 8px; font-size: 13px; color: #202124; margin-bottom: 4px; }
+    .google-preview-box .serp-favicon { width: 22px; height: 22px; border-radius: 50%; background: #e8f0fe; display: flex; align-items: center; justify-content: center; font-size: 11px; color: #1a73e8; }
+    .google-preview-box .serp-url { font-size: 12px; color: #4d5156; word-break: break-all; }
+    .google-preview-box .serp-title { color: #1a0dab; font-size: 18px; font-weight: 500; text-decoration: none; line-height: 1.35; margin: 4px 0 6px 0; display: block; cursor: pointer; }
+    .google-preview-box .serp-desc { color: #4d5156; font-size: 14px; line-height: 1.45; }
+    .g-ad-badge { font-size: 11px; font-weight: 700; color: #202124; background: #e8eaed; padding: 2px 6px; border-radius: 4px; margin-right: 6px; }
 
-    .tab-content {
-      display: none;
-      animation: fadeIn 0.25s ease;
-    }
-    .tab-content.active {
-      display: block;
-    }
+    /* Meta Cards */
+    .meta-ad-card { background: #ffffff; color: #050505; border-radius: 12px; overflow: hidden; font-family: system-ui, -apple-system, sans-serif; box-shadow: 0 4px 16px rgba(0,0,0,0.1); border: 1px solid #e4e6eb; }
+    .meta-ad-header { display: flex; align-items: center; padding: 12px 14px; gap: 10px; }
+    .meta-page-img { width: 42px; height: 42px; border-radius: 50%; background: #0284c7; color: #fff; display: flex; align-items: center; justify-content: center; font-weight: 800; }
+    .meta-page-meta h4 { font-size: 14px; font-weight: 700; margin: 0; }
+    .meta-page-meta p { font-size: 12px; color: #65676b; margin: 0; }
+    .meta-ad-body { padding: 0 14px 12px 14px; font-size: 14px; line-height: 1.45; white-space: pre-wrap; }
+    .meta-ad-img { width: 100%; height: 220px; object-fit: cover; background: #f1f5f9; display: block; }
+    .meta-ad-footer-bar { background: #f0f2f5; padding: 10px 14px; display: flex; justify-content: space-between; align-items: center; border-top: 1px solid #e4e6eb; }
+    .meta-ad-footer-info { max-width: 65%; }
+    .meta-ad-footer-info small { font-size: 11px; color: #65676b; text-transform: uppercase; display: block; }
+    .meta-ad-footer-info strong { font-size: 14px; color: #050505; display: block; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+    .meta-cta-btn { background: #0866ff; color: #ffffff; padding: 8px 16px; border-radius: 6px; font-size: 13px; font-weight: 700; border: none; }
 
-    @keyframes fadeIn {
-      from { opacity: 0; transform: translateY(5px); }
-      to { opacity: 1; transform: translateY(0); }
-    }
-
-    /* Responsive Grid */
-    .lab-grid {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 20px;
-    }
-
-    @media (max-width: 850px) {
-      .lab-grid {
-        grid-template-columns: 1fr;
-      }
-    }
-
-    /* Cards */
-    .panel {
-      background: var(--card-bg);
-      border: 1px solid var(--border);
-      border-radius: 16px;
-      padding: 20px;
-      box-shadow: 0 4px 16px rgba(0,0,0,0.05);
-    }
-
-    .panel-title {
-      font-size: 1.05rem;
-      font-weight: 800;
-      margin-bottom: 16px;
-      display: flex;
-      align-items: center;
-      gap: 8px;
-      color: var(--dark);
-      border-bottom: 2px solid #f1f5f9;
-      padding-bottom: 10px;
-    }
-
-    /* Form Fields */
-    .form-group {
-      margin-bottom: 14px;
-    }
-    .form-group label {
-      display: block;
-      font-size: 13px;
-      font-weight: 700;
-      color: #334155;
-      margin-bottom: 6px;
-    }
-    .form-group input, 
-    .form-group textarea, 
-    .form-group select {
-      width: 100%;
-      background: #f8fafc;
-      border: 1.5px solid #cbd5e1;
-      padding: 11px 14px;
-      border-radius: 10px;
-      color: #0f172a;
-      font-size: 14px;
-      font-family: inherit;
-      outline: none;
-      transition: all 0.2s;
-    }
-    .form-group input:focus, 
-    .form-group textarea:focus, 
-    .form-group select:focus {
-      background: #ffffff;
-      border-color: var(--primary);
-      box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.15);
-    }
-    .char-count {
-      font-size: 12px;
-      color: var(--text-muted);
-      margin-top: 4px;
-      font-weight: 600;
-    }
-
-    .btn-action {
-      background: linear-gradient(135deg, #2563eb, #1d4ed8);
-      color: white;
-      border: none;
-      padding: 11px 20px;
-      border-radius: 10px;
-      font-size: 14px;
-      font-weight: 700;
-      cursor: pointer;
-      display: inline-flex;
-      align-items: center;
-      gap: 8px;
-      box-shadow: 0 4px 12px rgba(37, 99, 235, 0.25);
-      transition: all 0.2s;
-    }
-    .btn-action:active { transform: scale(0.98); }
-
-    /* ============ PREVIEW STYLES ============ */
-    .preview-wrapper {
-      background: #f1f5f9;
-      border-radius: 14px;
-      padding: 16px;
-      border: 1px dashed #cbd5e1;
-    }
-
-    /* Google Search Snippet Preview */
-    .google-preview-box {
-      background: #ffffff;
-      border-radius: 12px;
-      padding: 16px 18px;
-      font-family: 'Roboto', Arial, sans-serif;
-      box-shadow: 0 3px 12px rgba(0,0,0,0.08);
-      color: #202124;
-      border: 1px solid #dadce0;
-    }
-    .google-preview-box .serp-site-info {
-      display: flex;
-      align-items: center;
-      gap: 8px;
-      font-size: 13px;
-      color: #202124;
-      margin-bottom: 4px;
-    }
-    .google-preview-box .serp-favicon {
-      width: 22px;
-      height: 22px;
-      border-radius: 50%;
-      background: #e8f0fe;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-size: 11px;
-      color: #1a73e8;
-    }
-    .google-preview-box .serp-url {
-      font-size: 12px;
-      color: #4d5156;
-      word-break: break-all;
-    }
-    .google-preview-box .serp-title {
-      color: #1a0dab;
-      font-size: 18px;
-      font-weight: 500;
-      text-decoration: none;
-      line-height: 1.35;
-      margin: 4px 0 6px 0;
-      display: block;
-      cursor: pointer;
-    }
-    .google-preview-box .serp-desc {
-      color: #4d5156;
-      font-size: 14px;
-      line-height: 1.45;
-    }
-
-    .g-ad-badge {
-      font-size: 11px;
-      font-weight: 700;
-      color: #202124;
-      background: #e8eaed;
-      padding: 2px 6px;
-      border-radius: 4px;
-      margin-right: 6px;
-    }
-
-    /* Meta / Facebook Ad Preview Card */
-    .meta-ad-card {
-      background: #ffffff;
-      color: #050505;
-      border-radius: 12px;
-      overflow: hidden;
-      font-family: system-ui, -apple-system, sans-serif;
-      box-shadow: 0 4px 16px rgba(0,0,0,0.1);
-      border: 1px solid #e4e6eb;
-    }
-    .meta-ad-header {
-      display: flex;
-      align-items: center;
-      padding: 12px 14px;
-      gap: 10px;
-    }
-    .meta-page-img {
-      width: 42px;
-      height: 42px;
-      border-radius: 50%;
-      background: #0284c7;
-      color: #fff;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-weight: 800;
-    }
-    .meta-page-meta h4 {
-      font-size: 14px;
-      font-weight: 700;
-      margin: 0;
-    }
-    .meta-page-meta p {
-      font-size: 12px;
-      color: #65676b;
-      margin: 0;
-    }
-    .meta-ad-body {
-      padding: 0 14px 12px 14px;
-      font-size: 14px;
-      line-height: 1.45;
-      white-space: pre-wrap;
-    }
-    .meta-ad-img {
-      width: 100%;
-      height: 220px;
-      object-fit: cover;
-      background: #f1f5f9;
-      display: block;
-    }
-    .meta-ad-footer-bar {
-      background: #f0f2f5;
-      padding: 10px 14px;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      border-top: 1px solid #e4e6eb;
-    }
-    .meta-ad-footer-info {
-      max-width: 65%;
-    }
-    .meta-ad-footer-info small {
-      font-size: 11px;
-      color: #65676b;
-      text-transform: uppercase;
-      display: block;
-    }
-    .meta-ad-footer-info strong {
-      font-size: 14px;
-      color: #050505;
-      display: block;
-      white-space: nowrap;
-      overflow: hidden;
-      text-overflow: ellipsis;
-    }
-    .meta-cta-btn {
-      background: #0866ff;
-      color: #ffffff;
-      padding: 8px 16px;
-      border-radius: 6px;
-      font-size: 13px;
-      font-weight: 700;
-      border: none;
-    }
-
-    /* Analytics Dashboard Cards */
-    .stat-row {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(130px, 1fr));
-      gap: 12px;
-      margin-bottom: 20px;
-    }
-    .stat-card {
-      background: #ffffff;
-      border: 1px solid var(--border);
-      padding: 16px;
-      border-radius: 12px;
-      text-align: center;
-      box-shadow: 0 2px 8px rgba(0,0,0,0.04);
-    }
-    .stat-card .val {
-      font-size: 1.8rem;
-      font-weight: 800;
-      color: var(--primary);
-      margin: 4px 0;
-    }
-    .stat-card .lbl {
-      font-size: 12px;
-      color: var(--text-muted);
-      font-weight: 600;
-    }
-
-    .traffic-bar-item {
-      margin-bottom: 14px;
-    }
-    .traffic-bar-header {
-      display: flex;
-      justify-content: space-between;
-      font-size: 13px;
-      font-weight: 600;
-      margin-bottom: 5px;
-    }
-    .traffic-bar-outer {
-      background: #e2e8f0;
-      height: 9px;
-      border-radius: 6px;
-      overflow: hidden;
-    }
-    .traffic-bar-fill {
-      height: 100%;
-      border-radius: 6px;
-    }
-
-    /* Landing Page Live Preview */
-    .lp-preview-container {
-      background: #ffffff;
-      border-radius: 14px;
-      padding: 24px;
-      box-shadow: 0 4px 18px rgba(0,0,0,0.08);
-      border: 1px solid var(--border);
-    }
-    .lp-preview-container h2 {
-      font-size: 1.45rem;
-      font-weight: 800;
-      color: #0f172a;
-      margin-bottom: 8px;
-    }
-    .lp-preview-container p {
-      font-size: 14px;
-      color: #475569;
-      margin-bottom: 18px;
-      line-height: 1.5;
-    }
-    .lp-preview-form input {
-      width: 100%;
-      padding: 11px 14px;
-      border: 1.5px solid #cbd5e1;
-      border-radius: 8px;
-      font-size: 14px;
-      margin-bottom: 12px;
-    }
-    .lp-preview-form button {
-      width: 100%;
-      background: linear-gradient(135deg, #2563eb, #1d4ed8);
-      color: white;
-      border: none;
-      padding: 12px;
-      font-weight: 800;
-      font-size: 15px;
-      border-radius: 8px;
-      cursor: pointer;
-    }
-
-    /* Footer */
-    footer {
-      border-top: 1px solid var(--border);
-      text-align: center;
-      padding: 16px;
-      font-size: 13px;
-      color: var(--text-muted);
-      background: #ffffff;
-      font-weight: 600;
-    }
+    footer { border-top: 1px solid var(--border); text-align: center; padding: 16px; font-size: 13px; color: var(--text-muted); background: #ffffff; font-weight: 600; }
   </style>
 </head>
 <body>
@@ -490,24 +134,24 @@
   <header>
     <div class="top-header">
       <div class="brand-title">
-        <i class="fa-solid fa-chart-line"></i> DM Practice Lab
-        <span class="badge-pro">PRO SIMULATOR</span>
+        <i class="fa-solid fa-graduation-cap"></i> DM Practice Lab
+        <span class="badge-ai"><i class="fa-solid fa-brain"></i> AI COACH ACTIVE</span>
       </div>
       <div>
-        <button class="btn-action" style="padding: 6px 14px; font-size: 12px;" onclick="resetAllData()">
+        <button class="btn-action" style="padding: 6px 14px; font-size: 12px;" onclick="location.reload()">
           <i class="fa-solid fa-arrows-rotate"></i> Reset
         </button>
       </div>
     </div>
 
-    <!-- Big Touch-Friendly Tabs Switcher -->
+    <!-- Touch Tabs Switcher -->
     <div class="nav-tabs-wrapper">
       <div class="nav-tabs">
         <button class="tab-btn active" onclick="switchTab('seo')">
-          <i class="fa-solid fa-magnifying-glass" style="color: #2563eb;"></i> 1. SEO Studio
+          <i class="fa-solid fa-magnifying-glass" style="color: #2563eb;"></i> 1. SEO Studio & Audit
         </button>
         <button class="tab-btn" onclick="switchTab('gads')">
-          <i class="fa-brands fa-google" style="color: #ea4335;"></i> 2. Google Ads
+          <i class="fa-brands fa-google" style="color: #ea4335;"></i> 2. Google Ads Studio
         </button>
         <button class="tab-btn" onclick="switchTab('meta')">
           <i class="fa-brands fa-meta" style="color: #0866ff;"></i> 3. Meta & FB Ads
@@ -519,157 +163,187 @@
           <i class="fa-solid fa-funnel-dollar" style="color: #10b981;"></i> 5. Landing CRO
         </button>
         <button class="tab-btn" onclick="switchTab('ai')">
-          <i class="fa-solid fa-wand-magic-sparkles" style="color: #8b5cf6;"></i> 6. AI Copywriter
+          <i class="fa-solid fa-wand-magic-sparkles" style="color: #8b5cf6;"></i> 6. AI Copy Generator
         </button>
       </div>
     </div>
   </header>
 
   <main>
-    <!-- ================= 1. SEO STUDIO ================= -->
+    <!-- ================= 1. SEO STUDIO WITH AI AUDIT ================= -->
     <section id="tab-seo" class="tab-content active">
+      <div class="ai-coach-box">
+        <div class="ai-coach-icon"><i class="fa-solid fa-robot"></i></div>
+        <div class="ai-coach-text">
+          <h4>AI SEO Teacher Ka Mashwara (Why this matters):</h4>
+          <p>Google search results mein click aane (CTR) ke liye <strong>Title 50–60 characters</strong> aur <strong>Description 120–158 characters</strong> ka hona chahiye. Agar title lamba hoga toh Google usko beech mein se "..." karke kaat dega!</p>
+        </div>
+      </div>
+
       <div class="lab-grid">
-        <!-- SEO Inputs -->
         <div class="panel">
-          <div class="panel-title"><i class="fa-solid fa-sliders" style="color: var(--primary);"></i> On-Page Meta Tag Inputs</div>
+          <div class="panel-title"><i class="fa-solid fa-sliders" style="color: var(--primary);"></i> On-Page SEO Inputs</div>
+          
           <div class="form-group">
-            <label>Page Title Tag (<span id="seoTitleCount">0</span>/60 chars)</label>
-            <input type="text" id="seoTitle" value="Best Mobile Accessories & Spare Parts Shop | 4 Star Mobile" oninput="updateSeoPreview()">
-            <div class="char-count">Recommended: 50 - 60 Characters</div>
+            <label>Focus Primary Keyword</label>
+            <input type="text" id="seoFocusKeyword" value="mobile spare parts" oninput="runSeoAudit()">
           </div>
 
           <div class="form-group">
-            <label>Slug / Web URL</label>
-            <input type="text" id="seoUrl" value="https://example.com/mobile-accessories" oninput="updateSeoPreview()">
+            <label>SEO Title Tag</label>
+            <input type="text" id="seoTitle" value="Best Mobile Spare Parts & Accessories Store | 4 Star Mobile" oninput="runSeoAudit()">
+            <div class="char-count">
+              <span>Status: <strong id="titleStatusText">Good</strong></span>
+              <span><span id="seoTitleCount">0</span> / 60 Chars</span>
+            </div>
           </div>
 
           <div class="form-group">
-            <label>Meta Description (<span id="seoDescCount">0</span>/160 chars)</label>
-            <textarea id="seoDesc" rows="3" oninput="updateSeoPreview()">Buy 100% genuine mobile LCD displays, super fast chargers, replacement batteries, and tempered glass at wholesale rates with express testing support.</textarea>
-            <div class="char-count">Recommended: 120 - 158 Characters</div>
+            <label>Website URL / Slug</label>
+            <input type="text" id="seoUrl" value="https://example.com/mobile-spare-parts" oninput="runSeoAudit()">
           </div>
 
           <div class="form-group">
-            <label>Target Keywords (Comma Separated)</label>
-            <input type="text" id="seoKeywords" value="mobile spare parts, original battery, fast charger, lcd combo">
+            <label>Meta Description</label>
+            <textarea id="seoDesc" rows="3" oninput="runSeoAudit()">Buy genuine mobile spare parts, original battery replacements, fast chargers, and tested LCD display folder combos with express warranty.</textarea>
+            <div class="char-count">
+              <span>Status: <strong id="descStatusText">Good</strong></span>
+              <span><span id="seoDescCount">0</span> / 158 Chars</span>
+            </div>
           </div>
         </div>
 
-        <!-- SEO Live Preview -->
         <div class="panel">
-          <div class="panel-title"><i class="fa-brands fa-google" style="color: #ea4335;"></i> Google SERP Live Preview</div>
+          <div class="panel-title"><i class="fa-brands fa-google" style="color: #ea4335;"></i> Google Live SERP Preview</div>
           <div class="preview-wrapper">
             <div class="google-preview-box">
               <div class="serp-site-info">
                 <div class="serp-favicon"><i class="fa-solid fa-globe"></i></div>
                 <div>
-                  <strong id="serpDomain" style="font-size: 13px;">example.com</strong>
-                  <div class="serp-url" id="serpUrlPreview">https://example.com › mobile-accessories</div>
+                  <strong id="serpDomain">example.com</strong>
+                  <div class="serp-url" id="serpUrlPreview">https://example.com › mobile-spare-parts</div>
                 </div>
               </div>
-              <a class="serp-title" id="serpTitlePreview">Best Mobile Accessories & Spare Parts Shop | 4 Star Mobile</a>
+              <a class="serp-title" id="serpTitlePreview">Best Mobile Spare Parts & Accessories Store | 4 Star Mobile</a>
               <div class="serp-desc" id="serpDescPreview">
-                Buy 100% genuine mobile LCD displays, super fast chargers, replacement batteries, and tempered glass at wholesale rates with express testing support.
+                Buy genuine mobile spare parts, original battery replacements, fast chargers, and tested LCD display folder combos with express warranty.
               </div>
             </div>
           </div>
 
-          <div style="margin-top: 16px; background: #ecfdf5; border: 1.5px solid #a7f3d0; padding: 12px 16px; border-radius: 10px;">
-            <div style="font-size: 13px; font-weight: 800; color: #065f46;">✓ SEO Score: Optimal (94/100)</div>
-            <div style="font-size: 12px; color: #047857; margin-top: 3px;">Title length under 60 chars • Mobile snippet friendly • Keyword included in description.</div>
+          <!-- Real-Time AI Error & Suggestion Box -->
+          <div id="seoAuditResult" class="audit-box good">
+            <!-- Dynamically populated by JS -->
           </div>
         </div>
       </div>
     </section>
 
-    <!-- ================= 2. GOOGLE ADS SIMULATOR ================= -->
+    <!-- ================= 2. GOOGLE ADS WITH AI POLICY AUDIT ================= -->
     <section id="tab-gads" class="tab-content">
+      <div class="ai-coach-box">
+        <div class="ai-coach-icon"><i class="fa-solid fa-bullhorn"></i></div>
+        <div class="ai-coach-text">
+          <h4>AI Google Ads Coach (Policy & Quality Score Rules):</h4>
+          <p>Google Ads mein har Headline <strong>maximum 30 characters</strong> ki honi chahiye. Description <strong>90 characters</strong> se lamba nahi hona chahiye. All CAPITAL letters (jaise FREE FREE) likhne par Google ad reject kar deta hai!</p>
+        </div>
+      </div>
+
       <div class="lab-grid">
         <div class="panel">
-          <div class="panel-title"><i class="fa-solid fa-bullhorn" style="color: #ea4335;"></i> Google Search Campaign Builder</div>
+          <div class="panel-title"><i class="fa-solid fa-bullhorn" style="color: #ea4335;"></i> Search Ad Builder</div>
           <div class="form-group">
-            <label>Headline 1</label>
-            <input type="text" id="gAdH1" value="Top Mobile Accessories Shop" oninput="updateGAdsPreview()">
+            <label>Headline 1 (Max 30 Chars)</label>
+            <input type="text" id="gAdH1" value="Top Mobile Spare Parts Shop" oninput="runGAdsAudit()">
+            <div class="char-count"><span>Len: <strong id="h1Len">0</strong>/30</span></div>
           </div>
           <div class="form-group">
-            <label>Headline 2</label>
-            <input type="text" id="gAdH2" value="Original Display & Batteries" oninput="updateGAdsPreview()">
+            <label>Headline 2 (Max 30 Chars)</label>
+            <input type="text" id="gAdH2" value="Original Battery & Display" oninput="runGAdsAudit()">
+            <div class="char-count"><span>Len: <strong id="h2Len">0</strong>/30</span></div>
           </div>
           <div class="form-group">
-            <label>Headline 3</label>
-            <input type="text" id="gAdH3" value="Fast Doorstep Delivery" oninput="updateGAdsPreview()">
+            <label>Headline 3 (Max 30 Chars)</label>
+            <input type="text" id="gAdH3" value="Fast Doorstep Delivery" oninput="runGAdsAudit()">
+            <div class="char-count"><span>Len: <strong id="h3Len">0</strong>/30</span></div>
           </div>
           <div class="form-group">
-            <label>Display Path (URL)</label>
-            <input type="text" id="gAdPath" value="4starmobile.in/offers/accessories" oninput="updateGAdsPreview()">
+            <label>Display URL Path</label>
+            <input type="text" id="gAdPath" value="4starmobile.in/offers/spares" oninput="runGAdsAudit()">
           </div>
           <div class="form-group">
-            <label>Ad Description</label>
-            <textarea id="gAdDesc" rows="3" oninput="updateGAdsPreview()">Order original phone chargers, 11D screen glass & tested combo folders. 5-Star rated store with quick testing support.</textarea>
+            <label>Description 1 (Max 90 Chars)</label>
+            <textarea id="gAdDesc" rows="2" oninput="runGAdsAudit()">Order tested phone chargers, displays & original batteries. 20+ years trusted store.</textarea>
+            <div class="char-count"><span>Len: <strong id="descLen">0</strong>/90</span></div>
           </div>
         </div>
 
         <div class="panel">
-          <div class="panel-title"><i class="fa-brands fa-google" style="color: #ea4335;"></i> Sponsored Ad Mobile Preview</div>
+          <div class="panel-title"><i class="fa-brands fa-google" style="color: #ea4335;"></i> Google Mobile Ad Preview</div>
           <div class="preview-wrapper">
             <div class="google-preview-box">
               <div class="serp-site-info">
                 <span class="g-ad-badge">Sponsored</span>
-                <div class="serp-url" id="gAdUrlPreview">https://4starmobile.in/offers/accessories</div>
+                <div class="serp-url" id="gAdUrlPreview">https://4starmobile.in/offers/spares</div>
               </div>
               <a class="serp-title" id="gAdTitlePreview" style="font-weight: 500;">
-                Top Mobile Accessories Shop | Original Display & Batteries | Fast Delivery
+                Top Mobile Spare Parts Shop | Original Battery & Display | Fast Doorstep Delivery
               </a>
               <div class="serp-desc" id="gAdDescPreview">
-                Order original phone chargers, 11D screen glass & tested combo folders. 5-Star rated store with quick testing support.
+                Order tested phone chargers, displays & original batteries. 20+ years trusted store.
               </div>
             </div>
           </div>
 
-          <div style="margin-top: 16px; background: #eff6ff; padding: 14px; border-radius: 10px; border: 1.5px solid #bfdbfe;">
-            <div style="font-size: 13px; font-weight: 800; color: #1e40af;">💡 Estimated Ad Metrics:</div>
-            <div style="font-size: 12px; color: #1e3a8a; margin-top: 4px;">
-              Target CPC: <strong>₹4.50</strong> • Estimated CTR: <strong>6.8%</strong> • Est. Conversion: <strong>3.2%</strong>
-            </div>
+          <div id="gAdsAuditResult" class="audit-box good">
+            <!-- Dynamically populated -->
           </div>
         </div>
       </div>
     </section>
 
-    <!-- ================= 3. META / FB ADS SIMULATOR ================= -->
+    <!-- ================= 3. META ADS WITH CREATIVE AUDIT ================= -->
     <section id="tab-meta" class="tab-content">
+      <div class="ai-coach-box">
+        <div class="ai-coach-icon"><i class="fa-brands fa-meta"></i></div>
+        <div class="ai-coach-text">
+          <h4>AI Meta Ads Coach (Facebook/Instagram Strategy):</h4>
+          <p>Facebook/Instagram par log bore hone par scroll kar dete hain! Isliye pehli 2 lines mein **Problem + Offer (Hook)** hona bahut zaroori hai. Image clear aur high-resolution honi chahiye.</p>
+        </div>
+      </div>
+
       <div class="lab-grid">
         <div class="panel">
-          <div class="panel-title"><i class="fa-brands fa-facebook" style="color: #0866ff;"></i> Facebook / Instagram Ad Builder</div>
+          <div class="panel-title"><i class="fa-brands fa-facebook" style="color: #0866ff;"></i> Meta Campaign Controls</div>
           <div class="form-group">
-            <label>Facebook Page Name</label>
-            <input type="text" id="metaPageName" value="4 STAR MOBILE" oninput="updateMetaPreview()">
+            <label>Brand Page Name</label>
+            <input type="text" id="metaPageName" value="4 STAR MOBILE" oninput="runMetaAudit()">
           </div>
           <div class="form-group">
             <label>Primary Text (Ad Copy)</label>
-            <textarea id="metaPrimaryText" rows="3" oninput="updateMetaPreview()">⚡ Special Festive Discount! Phone display toot gaya ya charger slow chal raha hai? Hamare paas sabhi brand ke 100% original combo displays & super fast chargers available hain. Abhi book karein!</textarea>
+            <textarea id="metaPrimaryText" rows="3" oninput="runMetaAudit()">⚡ Phone display tut gaya ya battery backup nahi de raha? 100% Original tested folder combos & batteries 6-month backup warranty ke sath uplabdh hain!</textarea>
           </div>
           <div class="form-group">
-            <label>Creative Image URL</label>
-            <input type="text" id="metaImgUrl" value="https://images.unsplash.com/photo-1583863788434-e58a36330cf0?w=600&q=80" oninput="updateMetaPreview()">
+            <label>Ad Creative (Image URL)</label>
+            <input type="text" id="metaImgUrl" value="https://images.unsplash.com/photo-1583863788434-e58a36330cf0?w=600&q=80" oninput="runMetaAudit()">
           </div>
           <div class="form-group">
-            <label>Headline</label>
-            <input type="text" id="metaHeadline" value="Flat 20% OFF on Original Display Combos" oninput="updateMetaPreview()">
+            <label>Headline (Max 40 Chars)</label>
+            <input type="text" id="metaHeadline" value="Flat 20% OFF on Original Display Combos" oninput="runMetaAudit()">
           </div>
           <div class="form-group">
             <label>Call To Action (CTA)</label>
-            <select id="metaCta" onchange="updateMetaPreview()">
-              <option value="Shop Now">Shop Now</option>
+            <select id="metaCta" onchange="runMetaAudit()">
               <option value="Send WhatsApp Message">Send WhatsApp Message</option>
-              <option value="Learn More">Learn More</option>
+              <option value="Shop Now">Shop Now</option>
               <option value="Order Now">Order Now</option>
+              <option value="Learn More">Learn More</option>
             </select>
           </div>
         </div>
 
         <div class="panel">
-          <div class="panel-title"><i class="fa-solid fa-mobile-screen" style="color: #0866ff;"></i> Feed Sponsored Post Preview</div>
+          <div class="panel-title"><i class="fa-solid fa-mobile-screen" style="color: #0866ff;"></i> Feed Post Preview</div>
           <div class="preview-wrapper">
             <div class="meta-ad-card">
               <div class="meta-ad-header">
@@ -679,28 +353,35 @@
                   <p>Sponsored • <i class="fa-solid fa-earth-americas"></i></p>
                 </div>
               </div>
-              <div class="meta-ad-body" id="metaPrimaryTextPreview">
-                ⚡ Special Festive Discount! Phone display toot gaya ya charger slow chal raha hai?
-              </div>
-              <img id="metaImgPreview" class="meta-ad-img" src="https://images.unsplash.com/photo-1583863788434-e58a36330cf0?w=600&q=80" alt="Ad Creative">
+              <div class="meta-ad-body" id="metaPrimaryTextPreview"></div>
+              <img id="metaImgPreview" class="meta-ad-img" src="" alt="Ad Media">
               <div class="meta-ad-footer-bar">
                 <div class="meta-ad-footer-info">
                   <small>4starmobile.in</small>
-                  <strong id="metaHeadlinePreview">Flat 20% OFF on Original Display Combos</strong>
+                  <strong id="metaHeadlinePreview"></strong>
                 </div>
-                <button class="meta-cta-btn" id="metaCtaPreview">Shop Now</button>
+                <button class="meta-cta-btn" id="metaCtaPreview">Send WhatsApp Message</button>
               </div>
             </div>
           </div>
+
+          <div id="metaAuditResult" class="audit-box good"></div>
         </div>
       </div>
     </section>
 
     <!-- ================= 4. GA4 ANALYTICS ================= -->
     <section id="tab-ga4" class="tab-content">
+      <div class="ai-coach-box">
+        <div class="ai-coach-icon"><i class="fa-solid fa-chart-pie"></i></div>
+        <div class="ai-coach-text">
+          <h4>AI GA4 Analytics Teacher:</h4>
+          <p>Analytics mein sabse zaroori cheez <strong>Traffic Source</strong> dekhna hai. Agar Organic Search zyada hai toh SEO accha kaam kar raha hai. Agar Paid Search zyada hai toh Google Ads se traffic aa raha hai.</p>
+        </div>
+      </div>
+
       <div class="panel">
-        <div class="panel-title"><i class="fa-solid fa-chart-line" style="color: var(--primary);"></i> Google Analytics 4 (GA4) Traffic Simulator</div>
-        
+        <div class="panel-title"><i class="fa-solid fa-chart-line" style="color: var(--primary);"></i> Google Analytics 4 Dashboard</div>
         <div class="stat-row">
           <div class="stat-card">
             <div class="lbl">Users (30 Days)</div>
@@ -720,207 +401,239 @@
           </div>
         </div>
 
-        <div class="lab-grid" style="margin-top: 15px;">
-          <div>
-            <h4 style="font-size: 14px; margin-bottom: 12px; color: #334155;">Acquisition Channels</h4>
-            <div class="traffic-bar-item">
-              <div class="traffic-bar-header">
-                <span>Organic Search (SEO)</span>
-                <span>46% (2,217)</span>
-              </div>
-              <div class="traffic-bar-outer"><div class="traffic-bar-fill" style="width: 46%; background: #2563eb;"></div></div>
-            </div>
-            <div class="traffic-bar-item">
-              <div class="traffic-bar-header">
-                <span>Paid Search (Google Ads)</span>
-                <span>28% (1,349)</span>
-              </div>
-              <div class="traffic-bar-outer"><div class="traffic-bar-fill" style="width: 28%; background: #f59e0b;"></div></div>
-            </div>
-            <div class="traffic-bar-item">
-              <div class="traffic-bar-header">
-                <span>Social Media (Meta/Instagram)</span>
-                <span>16% (771)</span>
-              </div>
-              <div class="traffic-bar-outer"><div class="traffic-bar-fill" style="width: 16%; background: #10b981;"></div></div>
-            </div>
-            <div class="traffic-bar-item">
-              <div class="traffic-bar-header">
-                <span>Direct Traffic</span>
-                <span>10% (483)</span>
-              </div>
-              <div class="traffic-bar-outer"><div class="traffic-bar-fill" style="width: 10%; background: #8b5cf6;"></div></div>
-            </div>
-          </div>
-
-          <div style="background: #f8fafc; padding: 18px; border-radius: 12px; border: 1.5px solid var(--border);">
-            <h4 style="font-size: 14px; margin-bottom: 8px; color: var(--primary);">Real-Time Campaign Testing</h4>
-            <p style="font-size: 13px; color: var(--text-muted); margin-bottom: 15px;">Click karke test karein ki campaign chalne par traffic aur leads kaise update hote hain:</p>
-            <button class="btn-action" onclick="simulateTrafficBoost()">
-              <i class="fa-solid fa-bolt"></i> Boost Traffic & Leads
-            </button>
-          </div>
-        </div>
+        <button class="btn-action" onclick="simulateTrafficBoost()">
+          <i class="fa-solid fa-bolt"></i> Boost Traffic & Simulate Live Campaign
+        </button>
       </div>
     </section>
 
     <!-- ================= 5. LANDING CRO ================= -->
     <section id="tab-landing" class="tab-content">
-      <div class="lab-grid">
-        <div class="panel">
-          <div class="panel-title"><i class="fa-solid fa-pencil" style="color: #10b981;"></i> Landing Page Copy & CRO Controls</div>
-          <div class="form-group">
-            <label>Headline (Hook)</label>
-            <input type="text" id="lpHook" value="Get Original Display Replacement in Just 30 Minutes" oninput="updateLandingPreview()">
-          </div>
-          <div class="form-group">
-            <label>Sub-Headline / Offer</label>
-            <input type="text" id="lpSub" value="Free Live Testing Counter + 6 Months Warranty on All Brands" oninput="updateLandingPreview()">
-          </div>
-          <div class="form-group">
-            <label>Call-to-Action Text</label>
-            <input type="text" id="lpCta" value="Claim 15% Discount Voucher" oninput="updateLandingPreview()">
-          </div>
+      <div class="ai-coach-box">
+        <div class="ai-coach-icon"><i class="fa-solid fa-funnel-dollar"></i></div>
+        <div class="ai-coach-text">
+          <h4>AI Conversion Rate Optimization (CRO) Coach:</h4>
+          <p>Customer tabhi number daalega jab use koi solid benefit ya discount dikhega. Form mein hamesha kam se kam sawaal (sirf Naam aur Phone) poochein taaki zyada leads aayein!</p>
         </div>
+      </div>
 
-        <div class="panel">
-          <div class="panel-title"><i class="fa-solid fa-desktop" style="color: #10b981;"></i> Live Landing Page View</div>
-          <div class="preview-wrapper">
-            <div class="lp-preview-container">
-              <h2 id="lpHookPreview">Get Original Display Replacement in Just 30 Minutes</h2>
-              <p id="lpSubPreview">Free Live Testing Counter + 6 Months Warranty on All Brands</p>
-              <form class="lp-preview-form" onsubmit="event.preventDefault(); alert('Lead Successfully Captured!');">
-                <input type="text" placeholder="Your Name" required>
-                <input type="tel" placeholder="Mobile Number (WhatsApp)" required>
-                <button type="submit" id="lpCtaPreview">Claim 15% Discount Voucher</button>
-              </form>
-            </div>
-          </div>
+      <div class="panel">
+        <div class="panel-title"><i class="fa-solid fa-desktop" style="color: #10b981;"></i> Landing Page Lead Funnel</div>
+        <p style="font-size: 13px; color: var(--text-muted); margin-bottom: 15px;">Live test form fill karke check karein lead capture kaise kaam karta hai:</p>
+        <div class="preview-wrapper" style="max-width: 500px; margin: 0 auto;">
+          <form onsubmit="handleLeadSubmit(event)" style="background: white; padding: 20px; border-radius: 12px;">
+            <h3 style="margin-bottom: 6px; font-size: 1.2rem;">Claim 20% OFF Replacement Voucher</h3>
+            <p style="font-size: 13px; color: #64748b; margin-bottom: 14px;">Instant WhatsApp confirmation & booking.</p>
+            <input type="text" id="leadName" placeholder="Aapka Naam" required style="width: 100%; padding: 10px; margin-bottom: 10px; border: 1.5px solid #cbd5e1; border-radius: 8px;">
+            <input type="tel" id="leadPhone" placeholder="Mobile / WhatsApp Number" required style="width: 100%; padding: 10px; margin-bottom: 14px; border: 1.5px solid #cbd5e1; border-radius: 8px;">
+            <button type="submit" class="btn-action" style="width: 100%; justify-content: center;">Get Voucher on WhatsApp</button>
+          </form>
         </div>
       </div>
     </section>
 
-    <!-- ================= 6. AI MARKETING HELPER ================= -->
+    <!-- ================= 6. AI MARKETING GENERATOR ================= -->
     <section id="tab-ai" class="tab-content">
       <div class="panel">
-        <div class="panel-title"><i class="fa-solid fa-wand-magic-sparkles" style="color: #8b5cf6;"></i> AI Digital Marketing Copywriter</div>
-        <p style="font-size: 13px; color: var(--text-muted); margin-bottom: 18px;">Kisi bhi product ya service ka naam likhein aur high-converting headlines aur ad copy generate karein:</p>
-        
+        <div class="panel-title"><i class="fa-solid fa-wand-magic-sparkles" style="color: #8b5cf6;"></i> AI Ad Copy & Strategy Generator</div>
         <div class="form-group" style="max-width: 500px;">
-          <label>Your Product / Service</label>
-          <input type="text" id="aiInput" value="Fast Mobile Chargers and Cables">
+          <label>Apne Product/Service Ka Naam Likhein:</label>
+          <input type="text" id="aiInput" value="Mobile Display & Battery Repair">
         </div>
-        <button class="btn-action" onclick="generateAiCopy()">
-          <i class="fa-solid fa-robot"></i> Generate Marketing Copy
+        <button class="btn-action" onclick="generateAiMarketingPlan()">
+          <i class="fa-solid fa-robot"></i> Generate Strategy, Ad Copy & Best Practices
         </button>
-
-        <div id="aiResults" style="margin-top: 25px; display: grid; gap: 15px;"></div>
+        <div id="aiPlanOutput" style="margin-top: 20px; display: grid; gap: 14px;"></div>
       </div>
     </section>
   </main>
 
   <footer>
-    Digital Marketing Practice Lab • Created for Real-World Course Experimentation
+    AI Digital Marketing Practice Lab • Built with Real-time Error Auditing
   </footer>
 
   <script>
-    // Tab Switching Logic
     function switchTab(tabId) {
       document.querySelectorAll('.tab-content').forEach(el => el.classList.remove('active'));
       document.querySelectorAll('.tab-btn').forEach(el => el.classList.remove('active'));
-
       const target = document.getElementById('tab-' + tabId);
       if (target) target.classList.add('active');
-
       const activeBtn = Array.from(document.querySelectorAll('.tab-btn')).find(b => b.getAttribute('onclick').includes(tabId));
       if (activeBtn) activeBtn.classList.add('active');
     }
 
-    // 1. SEO Logic
-    function updateSeoPreview() {
+    /* 1. SEO AUDIT ENGINE */
+    function runSeoAudit() {
+      const keyword = document.getElementById('seoFocusKeyword').value.trim().toLowerCase();
       const title = document.getElementById('seoTitle').value;
-      const url = document.getElementById('seoUrl').value;
       const desc = document.getElementById('seoDesc').value;
+      const url = document.getElementById('seoUrl').value;
 
       document.getElementById('seoTitleCount').innerText = title.length;
       document.getElementById('seoDescCount').innerText = desc.length;
-
       document.getElementById('serpTitlePreview').innerText = title;
-      document.getElementById('serpUrlPreview').innerText = url;
       document.getElementById('serpDescPreview').innerText = desc;
+      document.getElementById('serpUrlPreview').innerText = url;
+
+      let score = 100;
+      let errors = [];
+      let successes = [];
+
+      // Title audit
+      if (title.length > 60) {
+        score -= 25;
+        errors.push("❌ <strong>Title Lamba Hai (" + title.length + " chars):</strong> Google 60 se zyada characters ko kaat dega! Isse CTR gir sakta hai.");
+      } else if (title.length < 35) {
+        score -= 15;
+        errors.push("⚠️ <strong>Title Chhota Hai (" + title.length + " chars):</strong> Title ko 50–60 characters ka rakhein taaki zyada keywords cover hon.");
+      } else {
+        successes.push("✓ Title length perfect hai (" + title.length + " chars).");
+      }
+
+      // Keyword check in Title
+      if (keyword && !title.toLowerCase().includes(keyword)) {
+        score -= 20;
+        errors.push("❌ <strong>Keyword Missing:</strong> Title ke andar focus keyword ('" + keyword + "') nahi mila! Ranking kam ho sakti hai.");
+      } else if (keyword) {
+        successes.push("✓ Focus keyword title mein shamil hai.");
+      }
+
+      // Description audit
+      if (desc.length > 158) {
+        score -= 20;
+        errors.push("❌ <strong>Description Lamba Hai (" + desc.length + " chars):</strong> Google search page par last ke shabd chhip jayenge (Max 158 allow hai).");
+      } else if (desc.length < 90) {
+        score -= 15;
+        errors.push("⚠️ <strong>Description Chhota Hai:</strong> Thoda aur detail aur benefit likhein taaki customer click kare.");
+      } else {
+        successes.push("✓ Meta description length perfect hai.");
+      }
+
+      const auditBox = document.getElementById('seoAuditResult');
+      let statusClass = score >= 80 ? "good" : (score >= 50 ? "warn" : "bad");
+      auditBox.className = "audit-box " + statusClass;
+
+      auditBox.innerHTML = `
+        <div style="font-weight: 800; font-size: 14px;">AI Audit Score: ${score}/100</div>
+        <div>${errors.join("<br>")}</div>
+        <div style="color: #047857; margin-top: 4px;">${successes.join("<br>")}</div>
+      `;
     }
 
-    // 2. Google Ads Logic
-    function updateGAdsPreview() {
+    /* 2. GOOGLE ADS AUDIT */
+    function runGAdsAudit() {
       const h1 = document.getElementById('gAdH1').value;
       const h2 = document.getElementById('gAdH2').value;
       const h3 = document.getElementById('gAdH3').value;
-      const path = document.getElementById('gAdPath').value;
       const desc = document.getElementById('gAdDesc').value;
 
+      document.getElementById('h1Len').innerText = h1.length;
+      document.getElementById('h2Len').innerText = h2.length;
+      document.getElementById('h3Len').innerText = h3.length;
+      document.getElementById('descLen').innerText = desc.length;
+
       document.getElementById('gAdTitlePreview').innerText = `${h1} | ${h2} | ${h3}`;
-      document.getElementById('gAdUrlPreview').innerText = 'https://' + path;
       document.getElementById('gAdDescPreview').innerText = desc;
+
+      let warnings = [];
+      let okList = [];
+
+      if (h1.length > 30) warnings.push("❌ <strong>Headline 1 limit cross (" + h1.length + "/30):</strong> Google is headline ko reject kar dega.");
+      if (h2.length > 30) warnings.push("❌ <strong>Headline 2 limit cross (" + h2.length + "/30):</strong> Max 30 chars allow hai.");
+      if (h3.length > 30) warnings.push("❌ <strong>Headline 3 limit cross (" + h3.length + "/30):</strong> Max 30 chars allow hai.");
+      if (desc.length > 90) warnings.push("❌ <strong>Description limit cross (" + desc.length + "/90):</strong> Google Ads description 90 chars se chhota hona chahiye.");
+
+      if (h1 === h1.toUpperCase() && h1.length > 5) {
+        warnings.push("⚠️ <strong>Policy Warning:</strong> Sab kuch CAPITAL LETTERS mein na likhein, Google policy ke khilaaf hai.");
+      }
+
+      if (warnings.length === 0) {
+        okList.push("✓ Sabhi Headlines aur Descriptions Google Ads policy ke standard format mein hain!");
+        okList.push("✓ Estimated Quality Score: High (Ad approval guarantee).");
+      }
+
+      const resBox = document.getElementById('gAdsAuditResult');
+      resBox.className = "audit-box " + (warnings.length ? "bad" : "good");
+      resBox.innerHTML = `
+        <div style="font-weight: 800; font-size: 14px;">Google Policy Status: ${warnings.length ? "Issues Found" : "Approved"}</div>
+        <div>${warnings.join("<br>")}</div>
+        <div style="color: #047857;">${okList.join("<br>")}</div>
+      `;
     }
 
-    // 3. Meta Ads Logic
-    function updateMetaPreview() {
-      document.getElementById('metaPageNamePreview').innerText = document.getElementById('metaPageName').value;
-      document.getElementById('metaPrimaryTextPreview').innerText = document.getElementById('metaPrimaryText').value;
-      document.getElementById('metaHeadlinePreview').innerText = document.getElementById('metaHeadline').value;
-      document.getElementById('metaCtaPreview').innerText = document.getElementById('metaCta').value;
-      document.getElementById('metaImgPreview').src = document.getElementById('metaImgUrl').value;
+    /* 3. META ADS AUDIT */
+    function runMetaAudit() {
+      const text = document.getElementById('metaPrimaryText').value;
+      const h = document.getElementById('metaHeadline').value;
+      const img = document.getElementById('metaImgUrl').value;
+      const cta = document.getElementById('metaCta').value;
+
+      document.getElementById('metaPrimaryTextPreview').innerText = text;
+      document.getElementById('metaHeadlinePreview').innerText = h;
+      document.getElementById('metaImgPreview').src = img;
+      document.getElementById('metaCtaPreview').innerText = cta;
+
+      let tips = [];
+      if (!text.includes("?") && !text.includes("!")) {
+        tips.push("💡 <strong>Hook Missing:</strong> Pehli line mein customer se sawaal poochein ya discount likhein taaki wo ruk kar padhe.");
+      }
+      if (h.length > 40) {
+        tips.push("⚠️ <strong>Headline lambi hai:</strong> Facebook mobile screen par headline cut ho sakti hai (35-40 chars best hai).");
+      }
+      if (cta === "Send WhatsApp Message") {
+        tips.push("✓ WhatsApp CTA direct high conversion leads laane ke liye local businesses ke liye best hai!");
+      }
+
+      const metaBox = document.getElementById('metaAuditResult');
+      metaBox.className = "audit-box good";
+      metaBox.innerHTML = `
+        <div style="font-weight: 800; font-size: 14px;">AI Creative Advice:</div>
+        <div>${tips.join("<br>")}</div>
+      `;
     }
 
-    // 4. GA4 Simulation
+    /* 4. GA4 REALTIME SIMULATION */
     function simulateTrafficBoost() {
-      const usersEl = document.getElementById('statUsers');
-      const liveEl = document.getElementById('statLive');
-      const leadsEl = document.getElementById('statLeads');
+      const users = document.getElementById('statUsers');
+      const live = document.getElementById('statLive');
+      const leads = document.getElementById('statLeads');
 
-      usersEl.innerText = (parseInt(usersEl.innerText.replace(',', '')) + Math.floor(Math.random() * 45) + 15).toLocaleString();
-      liveEl.innerText = Math.floor(Math.random() * 30) + 20;
-      leadsEl.innerText = parseInt(leadsEl.innerText) + Math.floor(Math.random() * 3) + 1;
-      alert('⚡ Campaign Live! GA4 metrics updated in real-time.');
+      users.innerText = (parseInt(users.innerText.replace(',', '')) + 35).toLocaleString();
+      live.innerText = Math.floor(Math.random() * 25) + 15;
+      leads.innerText = parseInt(leads.innerText) + 2;
+      alert("⚡ Real-Time Spike Simulated! Analytics mein active users aur conversion count update ho gaye.");
     }
 
-    // 5. Landing Page CRO Logic
-    function updateLandingPreview() {
-      document.getElementById('lpHookPreview').innerText = document.getElementById('lpHook').value;
-      document.getElementById('lpSubPreview').innerText = document.getElementById('lpSub').value;
-      document.getElementById('lpCtaPreview').innerText = document.getElementById('lpCta').value;
+    /* 5. CRO LEAD SUBMIT */
+    function handleLeadSubmit(e) {
+      e.preventDefault();
+      const n = document.getElementById('leadName').value;
+      const p = document.getElementById('leadPhone').value;
+      alert(`🎉 Lead Successfully Captured!\nName: ${n}\nPhone: ${p}\n\nYeh lead direct CRM ya WhatsApp par transmit ho jati hai!`);
     }
 
-    // 6. AI Copy Generator
-    function generateAiCopy() {
-      const prod = document.getElementById('aiInput').value.trim() || "Mobile Spares";
-      const container = document.getElementById('aiResults');
+    /* 6. AI MARKETING STRATEGY */
+    function generateAiMarketingPlan() {
+      const p = document.getElementById('aiInput').value.trim() || "Mobile Accessories";
+      const out = document.getElementById('aiPlanOutput');
 
-      container.innerHTML = `
+      out.innerHTML = `
         <div style="background: #eff6ff; padding: 15px; border-radius: 10px; border-left: 4px solid #2563eb;">
-          <h4 style="color: #1e40af; font-size: 14px; margin-bottom: 6px;">💡 Google Ads High-CTR Headlines:</h4>
-          <p style="font-size: 13px; color: #1e3a8a; line-height: 1.5;">1. 100% Genuine ${prod} | Same Day Dispatch</p>
-          <p style="font-size: 13px; color: #1e3a8a; line-height: 1.5;">2. Stop Buying Duplicate ${prod} - Get Tested Original</p>
-          <p style="font-size: 13px; color: #1e3a8a; line-height: 1.5;">3. Certified ${prod} Starting ₹199</p>
+          <h4 style="color: #1e40af; font-size: 14px; margin-bottom: 5px;">🎯 Target Audience Strategy:</h4>
+          <p style="font-size: 13px; color: #1e3a8a;">Age: 18–45 | Location: 10-15km local radius | Interests: Smartphones, Tech, Quick Repairs.</p>
         </div>
         <div style="background: #ecfdf5; padding: 15px; border-radius: 10px; border-left: 4px solid #10b981;">
-          <h4 style="color: #065f46; font-size: 14px; margin-bottom: 6px;">📢 Meta/Facebook Hook & Ad Copy:</h4>
-          <p style="font-size: 13px; color: #047857; line-height: 1.5;">"Kya aapka phone baar-baar heating ya charging issue de raha hai? Switch to premium grade ${prod} with 6 months replacement warranty. Click shop now to order on WhatsApp!"</p>
+          <h4 style="color: #065f46; font-size: 14px; margin-bottom: 5px;">📢 High-Converting Ad Hooks:</h4>
+          <p style="font-size: 13px; color: #047857;">1. "Kya duplicate display baar-baar hang kar raha hai? Switch to 100% original ${p} with warranty."</p>
+          <p style="font-size: 13px; color: #047857;">2. "Free testing counter facility before fitting! Check rates on WhatsApp now."</p>
         </div>
       `;
     }
 
-    // Reset Data
-    function resetAllData() {
-      location.reload();
-    }
-
-    // Run Initial Count
     window.addEventListener('DOMContentLoaded', () => {
-      updateSeoPreview();
-      updateGAdsPreview();
-      updateMetaPreview();
-      updateLandingPreview();
+      runSeoAudit();
+      runGAdsAudit();
+      runMetaAudit();
     });
   </script>
 </body>

@@ -1,40 +1,37 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="hi">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>MarketingOS • Next-Gen Digital Marketing Lab</title>
+  <title>MarketingOS • Next-Gen AI Voice Digital Marketing Lab</title>
   
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700;800;900&family=Space+Grotesk:wght@500;700&family=Roboto:wght@400;500&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800;900&family=Space+Grotesk:wght@600;700&family=Roboto:wght@400;500&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
 
   <style>
     :root {
-      --bg: #030712;
-      --card-bg: rgba(17, 24, 39, 0.75);
-      --card-border: rgba(255, 255, 255, 0.1);
+      --bg: #070913;
+      --card-bg: rgba(15, 23, 42, 0.78);
+      --card-border: rgba(99, 102, 241, 0.22);
       --primary: #6366f1;
-      --primary-glow: rgba(99, 102, 241, 0.4);
-      --accent: #06b6d4;
-      --accent-glow: rgba(6, 182, 212, 0.4);
-      --success: #10b981;
-      --warning: #f59e0b;
-      --danger: #ef4444;
-      --text: #f9fafb;
-      --text-muted: #9ca3af;
+      --neon-cyan: #06b6d4;
+      --neon-pink: #ec4899;
+      --neon-green: #10b981;
+      --text: #f8fafc;
+      --text-muted: #94a3b8;
     }
 
     * { box-sizing: border-box; margin: 0; padding: 0; }
     
     body {
-      font-family: 'Outfit', sans-serif;
+      font-family: 'Plus Jakarta Sans', sans-serif;
       background: var(--bg);
       background-image: 
-        radial-gradient(at 0% 0%, rgba(99, 102, 241, 0.18) 0px, transparent 50%),
-        radial-gradient(at 100% 100%, rgba(6, 182, 212, 0.15) 0px, transparent 50%),
-        radial-gradient(at 50% 50%, rgba(139, 92, 246, 0.08) 0px, transparent 50%);
+        radial-gradient(circle at 10% 10%, rgba(99, 102, 241, 0.25) 0%, transparent 45%),
+        radial-gradient(circle at 90% 90%, rgba(6, 182, 212, 0.22) 0%, transparent 45%),
+        radial-gradient(circle at 50% 50%, rgba(236, 72, 153, 0.12) 0%, transparent 55%);
       color: var(--text);
       min-height: 100vh;
       display: flex;
@@ -44,9 +41,9 @@
 
     /* Glow Header */
     header {
-      background: rgba(3, 7, 18, 0.85);
+      background: rgba(7, 9, 19, 0.88);
       backdrop-filter: blur(16px);
-      border-bottom: 1px solid var(--card-border);
+      border-bottom: 1px solid rgba(255, 255, 255, 0.08);
       position: sticky;
       top: 0;
       z-index: 100;
@@ -56,7 +53,7 @@
       display: flex;
       align-items: center;
       justify-content: space-between;
-      padding: 14px 20px;
+      padding: 12px 18px;
       max-width: 1240px;
       margin: 0 auto;
     }
@@ -64,69 +61,62 @@
     .brand {
       display: flex;
       align-items: center;
-      gap: 12px;
+      gap: 10px;
       font-family: 'Space Grotesk', sans-serif;
-      font-size: 1.3rem;
+      font-size: 1.25rem;
       font-weight: 800;
-      letter-spacing: -0.5px;
-      background: linear-gradient(135deg, #a5b4fc, #38bdf8);
+      background: linear-gradient(135deg, #38bdf8, #818cf8, #f472b6);
       -webkit-background-clip: text;
       -webkit-text-fill-color: transparent;
     }
 
-    .brand-badge {
-      background: rgba(99, 102, 241, 0.15);
-      border: 1px solid rgba(99, 102, 241, 0.4);
-      color: #818cf8;
-      font-size: 11px;
-      padding: 3px 10px;
-      border-radius: 20px;
-      font-family: 'Outfit', sans-serif;
+    /* Audio AI Master Toggle */
+    .voice-control-btn {
+      background: linear-gradient(135deg, rgba(99, 102, 241, 0.2), rgba(6, 182, 212, 0.2));
+      border: 1px solid #38bdf8;
+      color: #38bdf8;
+      padding: 6px 14px;
+      border-radius: 30px;
+      font-size: 12px;
       font-weight: 700;
+      cursor: pointer;
       display: inline-flex;
       align-items: center;
-      gap: 5px;
-      box-shadow: 0 0 12px var(--primary-glow);
+      gap: 8px;
+      box-shadow: 0 0 15px rgba(56, 189, 248, 0.35);
+      transition: all 0.25s;
+    }
+    .voice-control-btn.muted {
+      border-color: #64748b;
+      color: #94a3b8;
+      box-shadow: none;
     }
 
-    /* Hero Quick Banner for Learners */
+    /* Glowing Hero Section */
     .lab-banner {
-      background: linear-gradient(135deg, rgba(30, 27, 75, 0.8), rgba(15, 23, 42, 0.8));
-      border: 1px solid var(--card-border);
+      background: linear-gradient(135deg, rgba(20, 27, 60, 0.85), rgba(12, 17, 34, 0.85));
+      border: 1px solid rgba(99, 102, 241, 0.35);
       border-radius: 20px;
-      padding: 24px;
-      margin-bottom: 25px;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      gap: 20px;
+      padding: 22px;
+      margin-bottom: 22px;
       position: relative;
       overflow: hidden;
-      box-shadow: 0 10px 30px rgba(0,0,0,0.4);
-    }
-
-    .lab-banner::before {
-      content: '';
-      position: absolute;
-      top: -50%;
-      left: -50%;
-      width: 200%;
-      height: 200%;
-      background: radial-gradient(circle, rgba(99, 102, 241, 0.15) 0%, transparent 70%);
-      pointer-events: none;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.4), inset 0 0 20px rgba(99, 102, 241, 0.15);
     }
 
     .banner-text h2 {
-      font-size: 1.6rem;
+      font-size: 1.5rem;
       font-weight: 800;
-      color: #ffffff;
+      background: linear-gradient(135deg, #ffffff, #93c5fd);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
       margin-bottom: 6px;
     }
 
     .banner-text p {
-      font-size: 14px;
-      color: #94a3b8;
-      max-width: 650px;
+      font-size: 13px;
+      color: #cbd5e1;
+      max-width: 700px;
       line-height: 1.5;
     }
 
@@ -138,27 +128,30 @@
     }
 
     .preset-pill {
-      background: rgba(255, 255, 255, 0.08);
+      background: rgba(255, 255, 255, 0.06);
       border: 1px solid rgba(255, 255, 255, 0.15);
-      color: #e2e8f0;
-      padding: 6px 14px;
-      border-radius: 20px;
+      color: #f1f5f9;
+      padding: 7px 15px;
+      border-radius: 25px;
       font-size: 12px;
-      font-weight: 600;
+      font-weight: 700;
       cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
       transition: all 0.25s;
     }
     .preset-pill:hover {
-      background: var(--primary);
-      border-color: var(--primary);
-      box-shadow: 0 0 15px var(--primary-glow);
+      background: linear-gradient(135deg, #6366f1, #06b6d4);
+      border-color: #38bdf8;
+      box-shadow: 0 0 18px rgba(56, 189, 248, 0.6);
       transform: translateY(-2px);
     }
 
-    /* Modern Tabs Nav */
+    /* Tabs Bar */
     .tabs-strip-container {
-      background: rgba(17, 24, 39, 0.6);
-      border-bottom: 1px solid var(--card-border);
+      background: rgba(15, 23, 42, 0.7);
+      border-bottom: 1px solid rgba(255, 255, 255, 0.08);
       padding: 10px 16px;
     }
 
@@ -173,297 +166,201 @@
     .tabs-strip::-webkit-scrollbar { display: none; }
 
     .tab-item {
-      background: rgba(255, 255, 255, 0.03);
-      border: 1px solid var(--card-border);
-      color: var(--text-muted);
-      padding: 10px 20px;
+      background: rgba(255, 255, 255, 0.04);
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      color: #94a3b8;
+      padding: 10px 18px;
       border-radius: 14px;
-      font-size: 14px;
+      font-size: 13px;
       font-weight: 700;
       cursor: pointer;
       display: flex;
       align-items: center;
-      gap: 10px;
+      gap: 8px;
       white-space: nowrap;
-      transition: all 0.3s;
-    }
-
-    .tab-item:hover {
-      background: rgba(255, 255, 255, 0.08);
-      color: #fff;
+      transition: all 0.25s;
     }
 
     .tab-item.active {
-      background: linear-gradient(135deg, #6366f1, #4f46e5);
+      background: linear-gradient(135deg, #6366f1, #3b82f6);
       color: #fff;
       border-color: #818cf8;
-      box-shadow: 0 0 20px rgba(99, 102, 241, 0.5);
+      box-shadow: 0 0 20px rgba(99, 102, 241, 0.55);
       transform: translateY(-1px);
     }
 
-    /* Container */
     main {
       flex: 1;
       max-width: 1240px;
       width: 100%;
       margin: 0 auto;
-      padding: 25px 16px 60px 16px;
+      padding: 22px 14px 60px 14px;
     }
 
-    .tab-pane {
-      display: none;
-      animation: tabFadeIn 0.3s cubic-bezier(0.16, 1, 0.3, 1);
-    }
+    .tab-pane { display: none; animation: tabFadeIn 0.3s ease; }
     .tab-pane.active { display: block; }
+    @keyframes tabFadeIn { from { opacity: 0; transform: translateY(6px); } to { opacity: 1; transform: translateY(0); } }
 
-    @keyframes tabFadeIn {
-      from { opacity: 0; transform: translateY(10px) scale(0.99); }
-      to { opacity: 1; transform: translateY(0) scale(1); }
-    }
-
-    /* 2 Column Interactive Studio */
     .studio-grid {
       display: grid;
       grid-template-columns: 1.1fr 0.9fr;
-      gap: 24px;
+      gap: 22px;
     }
-
-    @media (max-width: 950px) {
-      .studio-grid { grid-template-columns: 1fr; }
-      .lab-banner { flex-direction: column; align-items: flex-start; }
-    }
+    @media (max-width: 900px) { .studio-grid { grid-template-columns: 1fr; } }
 
     /* Glass Panels */
     .glass-panel {
       background: var(--card-bg);
-      backdrop-filter: blur(20px);
+      backdrop-filter: blur(16px);
       border: 1px solid var(--card-border);
       border-radius: 20px;
-      padding: 24px;
-      box-shadow: 0 15px 35px rgba(0,0,0,0.3);
-      position: relative;
+      padding: 22px;
+      box-shadow: 0 12px 30px rgba(0,0,0,0.35);
     }
 
     .glass-panel-title {
-      font-size: 1.15rem;
+      font-size: 1.1rem;
       font-weight: 800;
       display: flex;
       align-items: center;
       justify-content: space-between;
-      margin-bottom: 20px;
-      padding-bottom: 14px;
-      border-bottom: 1px solid var(--card-border);
-      color: #fff;
-    }
-
-    /* Inputs with Micro-interactions */
-    .input-block {
       margin-bottom: 18px;
-    }
-    .input-block label {
-      display: flex;
-      justify-content: space-between;
-      font-size: 13px;
-      font-weight: 700;
-      color: #cbd5e1;
-      margin-bottom: 7px;
-    }
-    .input-block input, 
-    .input-block textarea, 
-    .input-block select {
-      width: 100%;
-      background: rgba(3, 7, 18, 0.6);
-      border: 1.5px solid rgba(255, 255, 255, 0.12);
-      border-radius: 12px;
-      padding: 12px 16px;
+      padding-bottom: 12px;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.08);
       color: #fff;
-      font-size: 14px;
-      font-family: inherit;
-      outline: none;
-      transition: all 0.25s;
-    }
-    .input-block input:focus, 
-    .input-block textarea:focus, 
-    .input-block select:focus {
-      border-color: #6366f1;
-      box-shadow: 0 0 15px rgba(99, 102, 241, 0.35);
-      background: rgba(15, 23, 42, 0.8);
     }
 
-    /* AI Live Coach Card */
+    /* Speaking AI Radar Card */
     .ai-radar-card {
-      background: linear-gradient(135deg, rgba(17, 24, 39, 0.9), rgba(30, 27, 75, 0.5));
-      border: 1px solid rgba(139, 92, 246, 0.3);
-      border-radius: 16px;
-      padding: 18px;
+      background: linear-gradient(135deg, rgba(24, 18, 54, 0.95), rgba(16, 26, 50, 0.95));
+      border: 1.5px solid #a855f7;
+      border-radius: 18px;
+      padding: 16px 20px;
       margin-bottom: 22px;
       display: flex;
       gap: 16px;
       align-items: center;
-      box-shadow: 0 8px 24px rgba(0,0,0,0.3);
+      box-shadow: 0 0 25px rgba(168, 85, 247, 0.3);
+      position: relative;
     }
 
-    .gauge-circle {
-      width: 65px;
-      height: 65px;
+    .speaking-pulse {
+      width: 58px;
+      height: 58px;
       border-radius: 50%;
       background: conic-gradient(#10b981 var(--score-deg, 270deg), rgba(255,255,255,0.1) 0deg);
       display: flex;
       align-items: center;
       justify-content: center;
       flex-shrink: 0;
-      box-shadow: 0 0 15px rgba(16, 185, 129, 0.3);
-      transition: all 0.5s ease;
+      box-shadow: 0 0 16px rgba(16, 185, 129, 0.4);
+      cursor: pointer;
     }
-    .gauge-inner {
-      width: 50px;
-      height: 50px;
+    .speaking-inner {
+      width: 44px;
+      height: 44px;
       background: #0f172a;
       border-radius: 50%;
       display: flex;
       align-items: center;
       justify-content: center;
       font-weight: 800;
-      font-size: 15px;
+      font-size: 14px;
       color: #fff;
     }
 
     .ai-radar-info h4 {
       font-size: 15px;
       font-weight: 800;
-      color: #a78bfa;
-      margin-bottom: 3px;
-    }
-    .ai-radar-info p {
-      font-size: 13px;
-      color: #cbd5e1;
-      line-height: 1.45;
-    }
-
-    /* Preview Frame */
-    .preview-canvas {
-      background: #f8fafc;
-      border-radius: 16px;
-      padding: 20px;
-      color: #0f172a;
-      box-shadow: 0 8px 25px rgba(0,0,0,0.3);
-      transition: all 0.3s;
-    }
-
-    /* Google Snippet */
-    .google-snippet {
-      font-family: 'Roboto', Arial, sans-serif;
-    }
-    .gs-head {
+      color: #c084fc;
       display: flex;
       align-items: center;
       gap: 8px;
-      font-size: 13px;
-      color: #202124;
       margin-bottom: 4px;
     }
-    .gs-fav {
-      width: 22px;
-      height: 22px;
-      border-radius: 50%;
-      background: #e8f0fe;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      color: #1a73e8;
-      font-size: 11px;
-    }
-    .gs-title {
-      font-size: 19px;
-      color: #1a0dab;
-      text-decoration: none;
-      font-weight: 400;
-      line-height: 1.35;
-      margin: 4px 0 6px 0;
-      display: block;
-      cursor: pointer;
-    }
-    .gs-title:hover { text-decoration: underline; }
-    .gs-desc {
-      font-size: 14px;
-      color: #4d5156;
-      line-height: 1.45;
+    .ai-radar-info p {
+      font-size: 13px;
+      color: #e2e8f0;
+      line-height: 1.5;
     }
 
-    /* Facebook Ad Preview */
-    .meta-box {
-      background: #ffffff;
-      border-radius: 14px;
-      overflow: hidden;
-      border: 1px solid #e4e6eb;
-      font-family: system-ui, sans-serif;
-    }
-    .meta-head {
-      display: flex;
-      align-items: center;
-      padding: 12px 14px;
-      gap: 10px;
-    }
-    .meta-avatar {
-      width: 42px;
-      height: 42px;
-      border-radius: 50%;
-      background: linear-gradient(135deg, #3b82f6, #06b6d4);
+    .speak-now-btn {
+      background: #8b5cf6;
       color: white;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-weight: 800;
-    }
-    .meta-author h5 { font-size: 14px; margin: 0; font-weight: 700; }
-    .meta-author span { font-size: 12px; color: #65676b; }
-    .meta-body-text {
-      padding: 0 14px 12px 14px;
-      font-size: 14px;
-      line-height: 1.45;
-      white-space: pre-wrap;
-    }
-    .meta-media-img {
-      width: 100%;
-      height: 230px;
-      object-fit: cover;
-      display: block;
-      background: #e2e8f0;
-    }
-    .meta-bottom-bar {
-      background: #f0f2f5;
-      padding: 12px 14px;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-    }
-    .meta-cta-btn {
-      background: #0866ff;
-      color: white;
-      padding: 9px 18px;
-      border-radius: 8px;
       border: none;
-      font-size: 13px;
+      padding: 4px 10px;
+      border-radius: 12px;
+      font-size: 11px;
       font-weight: 700;
       cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      gap: 5px;
+      margin-top: 6px;
+      transition: all 0.2s;
+    }
+    .speak-now-btn:hover { background: #7c3aed; transform: scale(1.04); }
+
+    /* Inputs */
+    .input-block { margin-bottom: 16px; }
+    .input-block label { display: flex; justify-content: space-between; font-size: 13px; font-weight: 700; color: #cbd5e1; margin-bottom: 6px; }
+    .input-block input, .input-block textarea, .input-block select {
+      width: 100%;
+      background: rgba(3, 7, 18, 0.7);
+      border: 1.5px solid rgba(255, 255, 255, 0.12);
+      border-radius: 12px;
+      padding: 11px 15px;
+      color: #fff;
+      font-size: 14px;
+      font-family: inherit;
+      outline: none;
+      transition: all 0.25s;
+    }
+    .input-block input:focus, .input-block textarea:focus, .input-block select:focus {
+      border-color: #38bdf8;
+      box-shadow: 0 0 15px rgba(56, 189, 248, 0.35);
+      background: rgba(15, 23, 42, 0.85);
     }
 
-    /* Live AI Diagnostic Alert */
+    /* Live Preview Boxes */
+    .preview-canvas {
+      background: #f8fafc;
+      border-radius: 16px;
+      padding: 18px;
+      color: #0f172a;
+      box-shadow: 0 8px 25px rgba(0,0,0,0.3);
+    }
+    .google-snippet { font-family: 'Roboto', Arial, sans-serif; }
+    .gs-head { display: flex; align-items: center; gap: 8px; font-size: 13px; color: #202124; margin-bottom: 4px; }
+    .gs-fav { width: 22px; height: 22px; border-radius: 50%; background: #e8f0fe; display: flex; align-items: center; justify-content: center; color: #1a73e8; font-size: 11px; }
+    .gs-title { font-size: 18px; color: #1a0dab; text-decoration: none; font-weight: 400; line-height: 1.35; margin: 4px 0 6px 0; display: block; cursor: pointer; }
+    .gs-desc { font-size: 13px; color: #4d5156; line-height: 1.45; }
+
+    /* Meta Box */
+    .meta-box { background: #ffffff; border-radius: 14px; overflow: hidden; border: 1px solid #e4e6eb; font-family: system-ui, sans-serif; }
+    .meta-head { display: flex; align-items: center; padding: 12px 14px; gap: 10px; }
+    .meta-avatar { width: 42px; height: 42px; border-radius: 50%; background: linear-gradient(135deg, #3b82f6, #06b6d4); color: white; display: flex; align-items: center; justify-content: center; font-weight: 800; }
+    .meta-author h5 { font-size: 14px; margin: 0; font-weight: 700; color: #050505; }
+    .meta-author span { font-size: 12px; color: #65676b; }
+    .meta-body-text { padding: 0 14px 12px 14px; font-size: 13px; line-height: 1.45; color: #050505; white-space: pre-wrap; }
+    .meta-media-img { width: 100%; height: 220px; object-fit: cover; display: block; background: #e2e8f0; }
+    .meta-bottom-bar { background: #f0f2f5; padding: 10px 14px; display: flex; justify-content: space-between; align-items: center; }
+    .meta-cta-btn { background: #0866ff; color: white; padding: 8px 16px; border-radius: 8px; border: none; font-size: 13px; font-weight: 700; cursor: pointer; }
+
     .ai-diag-card {
-      margin-top: 18px;
-      padding: 15px;
+      margin-top: 16px;
+      padding: 14px;
       border-radius: 12px;
       font-size: 13px;
       line-height: 1.5;
       border-left: 5px solid;
     }
-    .ai-diag-card.pass { background: rgba(16, 185, 129, 0.12); border-color: var(--success); color: #34d399; }
-    .ai-diag-card.warn { background: rgba(245, 158, 11, 0.12); border-color: var(--warning); color: #fbbf24; }
-    .ai-diag-card.fail { background: rgba(239, 68, 68, 0.12); border-color: var(--danger); color: #f87171; }
+    .ai-diag-card.pass { background: rgba(16, 185, 129, 0.12); border-color: var(--neon-green); color: #34d399; }
+    .ai-diag-card.warn { background: rgba(245, 158, 11, 0.12); border-color: #f59e0b; color: #fbbf24; }
+    .ai-diag-card.fail { background: rgba(239, 68, 68, 0.12); border-color: #ef4444; color: #f87171; }
 
-    /* Buttons */
     .glow-btn {
-      background: linear-gradient(135deg, #6366f1, #4f46e5);
+      background: linear-gradient(135deg, #6366f1, #06b6d4);
       color: white;
       border: none;
       padding: 11px 22px;
@@ -474,22 +371,18 @@
       display: inline-flex;
       align-items: center;
       gap: 8px;
-      box-shadow: 0 0 20px var(--primary-glow);
+      box-shadow: 0 0 20px rgba(99, 102, 241, 0.45);
       transition: all 0.25s;
     }
-    .glow-btn:hover {
-      transform: translateY(-2px);
-      box-shadow: 0 0 28px rgba(99, 102, 241, 0.7);
-    }
+    .glow-btn:hover { transform: translateY(-2px); box-shadow: 0 0 28px rgba(6, 182, 212, 0.6); }
 
-    /* Footer */
     footer {
-      border-top: 1px solid var(--card-border);
+      border-top: 1px solid rgba(255, 255, 255, 0.08);
       text-align: center;
-      padding: 20px;
+      padding: 18px;
       font-size: 13px;
       color: var(--text-muted);
-      background: rgba(3, 7, 18, 0.9);
+      background: rgba(7, 9, 19, 0.95);
     }
   </style>
 </head>
@@ -499,21 +392,24 @@
   <header>
     <div class="top-header">
       <div class="brand">
-        <i class="fa-solid fa-bolt-lightning" style="color: #6366f1;"></i> MarketingOS
-        <span class="brand-badge"><i class="fa-solid fa-sparkles"></i> AI LEARNING LAB</span>
+        <i class="fa-solid fa-bolt-lightning" style="color: #38bdf8;"></i> MarketingOS
+        <span style="font-size: 11px; color: #c084fc; border: 1px solid #c084fc; padding: 2px 8px; border-radius: 20px; font-weight: 700;">VOICE COACH</span>
       </div>
-      <div>
-        <button class="glow-btn" style="padding: 7px 16px; font-size: 12px;" onclick="location.reload()">
-          <i class="fa-solid fa-arrows-rotate"></i> Reset Lab
+      <div style="display: flex; gap: 10px; align-items: center;">
+        <button id="voiceToggleBtn" class="voice-control-btn" onclick="toggleVoiceMute()">
+          <i class="fa-solid fa-volume-high"></i> AI Voice: ON
+        </button>
+        <button class="glow-btn" style="padding: 6px 14px; font-size: 12px;" onclick="location.reload()">
+          <i class="fa-solid fa-arrows-rotate"></i> Reset
         </button>
       </div>
     </div>
 
-    <!-- Modern Tab Strip -->
+    <!-- Tab Strip -->
     <div class="tabs-strip-container">
       <div class="tabs-strip">
         <button class="tab-item active" onclick="activateTab('seo')">
-          <i class="fa-solid fa-magnifying-glass-chart" style="color: #38bdf8;"></i> 1. SEO Studio & Audit
+          <i class="fa-solid fa-magnifying-glass-chart" style="color: #38bdf8;"></i> 1. SEO Studio & Voice Audit
         </button>
         <button class="tab-item" onclick="activateTab('gads')">
           <i class="fa-brands fa-google" style="color: #f87171;"></i> 2. Google Search Ads
@@ -535,13 +431,13 @@
   </header>
 
   <main>
-    <!-- Interactive Challenge Banner -->
+    <!-- Interactive Banner -->
     <div class="lab-banner">
       <div class="banner-text">
-        <h2>🚀 Hands-On Practice Lab</h2>
-        <p>Ek click mein real business scenario load karein aur dekhein ki search engines aur ad platforms par kaise high conversions aur rank milti hai.</p>
+        <h2>🚀 AI Voice-Enabled Marketing Lab</h2>
+        <p>Aap practice karein, aur AI aawaz mein bol kar batayega ki kahan kya likhna hai aur ranking ya conversion kaise badhegi!</p>
         <div class="challenge-pills">
-          <span style="font-size: 12px; color: #a5b4fc; font-weight: 700; align-self: center;">Quick Challenges:</span>
+          <span style="font-size: 12px; color: #a5b4fc; font-weight: 700; align-self: center;">One-Click Challenges:</span>
           <button class="preset-pill" onclick="loadScenario('mobile')">📱 4 Star Mobile Shop</button>
           <button class="preset-pill" onclick="loadScenario('agency')">💻 Digital Agency Kishanganj</button>
           <button class="preset-pill" onclick="loadScenario('ecommerce')">⚡ E-Commerce Mega Sale</button>
@@ -552,25 +448,28 @@
     <!-- ================= TAB 1: SEO STUDIO ================= -->
     <section id="pane-seo" class="tab-pane active">
       <div class="ai-radar-card">
-        <div class="gauge-circle" id="seoGauge" style="--score-deg: 324deg;">
-          <div class="gauge-inner" id="seoScoreVal">90%</div>
+        <div class="speaking-pulse" id="seoGauge" style="--score-deg: 324deg;">
+          <div class="speaking-inner" id="seoScoreVal">90%</div>
         </div>
         <div class="ai-radar-info">
-          <h4>AI On-Page Quality Engine</h4>
-          <p id="seoRadarMsg">Aapka Title aur Description Google Search algorithm ke hisaab se optimal range mein hain. CTR badhne ke chances high hain!</p>
+          <h4><i class="fa-solid fa-robot"></i> AI SEO Coach Ka Mashwara:</h4>
+          <p id="seoRadarMsg">Loading advice...</p>
+          <button class="speak-now-btn" onclick="speakCurrentAdvice('seo')">
+            <i class="fa-solid fa-volume-high"></i> AI Advice Suniye
+          </button>
         </div>
       </div>
 
       <div class="studio-grid">
         <div class="glass-panel">
           <div class="glass-panel-title">
-            <span><i class="fa-solid fa-sliders" style="color: #38bdf8;"></i> Meta Configuration</span>
-            <span style="font-size: 11px; background: rgba(56, 189, 248, 0.15); color: #38bdf8; padding: 4px 10px; border-radius: 8px;">LIVE VALIDATOR</span>
+            <span><i class="fa-solid fa-sliders" style="color: #38bdf8;"></i> Meta Inputs</span>
+            <span style="font-size: 11px; background: rgba(56, 189, 248, 0.15); color: #38bdf8; padding: 4px 10px; border-radius: 8px;">LIVE AUDIT</span>
           </div>
 
           <div class="input-block">
-            <label><span>Focus Keyword (Ranking Target)</span></label>
-            <input type="text" id="seoKw" value="mobile spare parts kishanganj" oninput="auditSeo()">
+            <label><span>Focus Keyword (Target)</span></label>
+            <input type="text" id="seoKw" value="mobile spare parts kishanganj" oninput="auditSeo(true)">
           </div>
 
           <div class="input-block">
@@ -578,12 +477,12 @@
               <span>SEO Title Tag</span>
               <span id="seoTitleCount">0 / 60 Chars</span>
             </label>
-            <input type="text" id="seoTitle" value="Best Mobile Spare Parts & Accessories Store | 4 Star Mobile" oninput="auditSeo()">
+            <input type="text" id="seoTitle" value="Best Mobile Spare Parts & Accessories Store | 4 Star Mobile" oninput="auditSeo(true)">
           </div>
 
           <div class="input-block">
             <label><span>Destination Slug URL</span></label>
-            <input type="text" id="seoSlug" value="https://4starmobile.in/spare-parts" oninput="auditSeo()">
+            <input type="text" id="seoSlug" value="https://4starmobile.in/spare-parts" oninput="auditSeo(true)">
           </div>
 
           <div class="input-block">
@@ -591,7 +490,7 @@
               <span>Meta Description (Click Hook)</span>
               <span id="seoDescCount">0 / 158 Chars</span>
             </label>
-            <textarea id="seoDesc" rows="3" oninput="auditSeo()">Buy 100% genuine mobile spare parts, original batteries, 80W fast chargers, and LCD folder combos with express counter testing support.</textarea>
+            <textarea id="seoDesc" rows="3" oninput="auditSeo(true)">Buy 100% genuine mobile spare parts, original batteries, 80W fast chargers, and LCD folder combos with express counter testing support.</textarea>
           </div>
         </div>
 
@@ -616,9 +515,7 @@
             </div>
           </div>
 
-          <div id="seoDiagnostic" class="ai-diag-card pass">
-            <!-- Dynamic Real-Time Feedback -->
-          </div>
+          <div id="seoDiagnostic" class="ai-diag-card pass"></div>
         </div>
       </div>
     </section>
@@ -626,12 +523,15 @@
     <!-- ================= TAB 2: GOOGLE ADS ================= -->
     <section id="pane-gads" class="tab-pane">
       <div class="ai-radar-card">
-        <div class="gauge-circle" id="gadsGauge" style="--score-deg: 360deg;">
-          <div class="gauge-inner" id="gadsScoreVal">100%</div>
+        <div class="speaking-pulse" id="gadsGauge" style="--score-deg: 360deg;">
+          <div class="speaking-inner" id="gadsScoreVal">100%</div>
         </div>
         <div class="ai-radar-info">
-          <h4>Google Ad Quality Score Predictor</h4>
-          <p id="gadsRadarMsg">Headlines aur Descriptions exact 30 & 90 character limit ke andar hain. Ad Rejection ka 0% risk hai!</p>
+          <h4><i class="fa-solid fa-robot"></i> Google Ads Policy & CTR Coach:</h4>
+          <p id="gadsRadarMsg">Headlines aur descriptions exact limits ke andar hain. Quality score high rahega!</p>
+          <button class="speak-now-btn" onclick="speakCurrentAdvice('gads')">
+            <i class="fa-solid fa-volume-high"></i> AI Advice Suniye
+          </button>
         </div>
       </div>
 
@@ -643,23 +543,23 @@
 
           <div class="input-block">
             <label><span>Headline 1 (Benefit)</span> <span id="h1Len">0/30</span></label>
-            <input type="text" id="gAdH1" value="Genuine Mobile Spare Parts" oninput="auditGAds()">
+            <input type="text" id="gAdH1" value="Genuine Mobile Spare Parts" oninput="auditGAds(true)">
           </div>
           <div class="input-block">
             <label><span>Headline 2 (Offer)</span> <span id="h2Len">0/30</span></label>
-            <input type="text" id="gAdH2" value="Tested LCD Display & Battery" oninput="auditGAds()">
+            <input type="text" id="gAdH2" value="Tested LCD Display & Battery" oninput="auditGAds(true)">
           </div>
           <div class="input-block">
             <label><span>Headline 3 (Action)</span> <span id="h3Len">0/30</span></label>
-            <input type="text" id="gAdH3" value="Fast Doorstep Delivery" oninput="auditGAds()">
+            <input type="text" id="gAdH3" value="Fast Doorstep Delivery" oninput="auditGAds(true)">
           </div>
           <div class="input-block">
             <label><span>Display Path</span></label>
-            <input type="text" id="gAdPath" value="4starmobile.in/offers/parts" oninput="auditGAds()">
+            <input type="text" id="gAdPath" value="4starmobile.in/offers/parts" oninput="auditGAds(true)">
           </div>
           <div class="input-block">
             <label><span>Description (Max 90 chars)</span> <span id="descLen">0/90</span></label>
-            <textarea id="gAdDesc" rows="2" oninput="auditGAds()">Get 100% original phone displays, chargers & certified batteries with warranty.</textarea>
+            <textarea id="gAdDesc" rows="2" oninput="auditGAds(true)">Get 100% original phone displays, chargers & certified batteries with warranty.</textarea>
           </div>
         </div>
 
@@ -693,7 +593,7 @@
       <div class="studio-grid">
         <div class="glass-panel">
           <div class="glass-panel-title">
-            <span><i class="fa-brands fa-meta" style="color: #60a5fa;"></i> Facebook & Instagram Campaign</span>
+            <span><i class="fa-brands fa-meta" style="color: #60a5fa;"></i> Meta / Instagram Campaign</span>
           </div>
 
           <div class="input-block">
@@ -780,31 +680,6 @@
             <div style="font-size: 1.8rem; font-weight: 800; color: #a78bfa; margin: 4px 0;">3m 12s</div>
           </div>
         </div>
-
-        <div style="background: rgba(3, 7, 18, 0.5); padding: 20px; border-radius: 16px; border: 1px solid var(--card-border);">
-          <h4 style="font-size: 14px; margin-bottom: 15px; color: #cbd5e1;">Acquisition Channel Attribution Breakdown:</h4>
-          <div style="margin-bottom: 12px;">
-            <div style="display: flex; justify-content: space-between; font-size: 13px; margin-bottom: 5px;">
-              <span>Organic Search (SEO)</span>
-              <span>48% (2,601)</span>
-            </div>
-            <div style="background: #1e293b; height: 8px; border-radius: 4px;"><div style="width: 48%; height: 100%; background: #38bdf8; border-radius: 4px;"></div></div>
-          </div>
-          <div style="margin-bottom: 12px;">
-            <div style="display: flex; justify-content: space-between; font-size: 13px; margin-bottom: 5px;">
-              <span>Paid Search (Google Ads)</span>
-              <span>26% (1,409)</span>
-            </div>
-            <div style="background: #1e293b; height: 8px; border-radius: 4px;"><div style="width: 26%; height: 100%; background: #f87171; border-radius: 4px;"></div></div>
-          </div>
-          <div style="margin-bottom: 12px;">
-            <div style="display: flex; justify-content: space-between; font-size: 13px; margin-bottom: 5px;">
-              <span>Social Media Ads (Meta)</span>
-              <span>18% (975)</span>
-            </div>
-            <div style="background: #1e293b; height: 8px; border-radius: 4px;"><div style="width: 18%; height: 100%; background: #60a5fa; border-radius: 4px;"></div></div>
-          </div>
-        </div>
       </div>
     </section>
 
@@ -814,24 +689,14 @@
         <div class="glass-panel-title">
           <span><i class="fa-solid fa-bullseye-arrow" style="color: #34d399;"></i> High-Converting Lead Magnet</span>
         </div>
-        <p style="font-size: 13px; color: var(--text-muted); margin-bottom: 18px;">Customer is form ko submit karta hai toh seedhe aapke WhatsApp CRM par lead generate hoti hai:</p>
-
         <form onsubmit="handleFunnelSubmit(event)" style="background: rgba(3, 7, 18, 0.7); padding: 22px; border-radius: 14px; border: 1px solid var(--card-border);">
           <div class="input-block">
             <label>Customer Full Name</label>
-            <input type="text" id="fname" placeholder="e.g. Rahul Sharma" required>
+            <input type="text" id="fname" placeholder="Rahul Sharma" required>
           </div>
           <div class="input-block">
             <label>WhatsApp Contact Number</label>
-            <input type="tel" id="fphone" placeholder="e.g. 9473371370" required>
-          </div>
-          <div class="input-block">
-            <label>Requirement</label>
-            <select id="freq">
-              <option>LCD Display Replacement</option>
-              <option>Original High-Backup Battery</option>
-              <option>65W / 80W Fast Charger</option>
-            </select>
+            <input type="tel" id="fphone" placeholder="9473371370" required>
           </div>
           <button type="submit" class="glow-btn" style="width: 100%; justify-content: center; padding: 13px;">
             <i class="fa-brands fa-whatsapp"></i> Instant WhatsApp Lead Trigger
@@ -853,7 +718,6 @@
         <button class="glow-btn" onclick="generateAiIdeas()">
           <i class="fa-solid fa-microchip"></i> Auto-Generate High CTR Campaign
         </button>
-
         <div id="aiOutputBlock" style="margin-top: 24px; display: grid; gap: 14px;"></div>
       </div>
     </section>
@@ -864,6 +728,44 @@
   </footer>
 
   <script>
+    let isVoiceMuted = false;
+    let voiceDebounceTimer = null;
+
+    /* VOICE ENGINE */
+    function speakText(text) {
+      if (isVoiceMuted || !('speechSynthesis' in window)) return;
+      window.speechSynthesis.cancel(); // Stop prior speech
+      const utterance = new SpeechSynthesisUtterance(text);
+      utterance.lang = 'hi-IN'; // Hindi/Indian accent
+      utterance.rate = 1.0;
+      utterance.pitch = 1.05;
+      window.speechSynthesis.speak(utterance);
+    }
+
+    function toggleVoiceMute() {
+      isVoiceMuted = !isVoiceMuted;
+      const btn = document.getElementById('voiceToggleBtn');
+      if (isVoiceMuted) {
+        window.speechSynthesis.cancel();
+        btn.className = "voice-control-btn muted";
+        btn.innerHTML = `<i class="fa-solid fa-volume-xmark"></i> AI Voice: OFF`;
+      } else {
+        btn.className = "voice-control-btn";
+        btn.innerHTML = `<i class="fa-solid fa-volume-high"></i> AI Voice: ON`;
+        speakText("AI Voice Assistant activate ho gaya hai. Main aapko digital marketing sikhane ke liye taiyar hoon!");
+      }
+    }
+
+    function speakCurrentAdvice(type) {
+      if (type === 'seo') {
+        const text = document.getElementById('seoRadarMsg').innerText;
+        speakText("SEO Coach Advice: " + text);
+      } else if (type === 'gads') {
+        const text = document.getElementById('gadsRadarMsg').innerText;
+        speakText("Google Ads Coach Advice: " + text);
+      }
+    }
+
     function activateTab(tabKey) {
       document.querySelectorAll('.tab-pane').forEach(p => p.classList.remove('active'));
       document.querySelectorAll('.tab-item').forEach(b => b.classList.remove('active'));
@@ -873,6 +775,10 @@
 
       const activeBtn = Array.from(document.querySelectorAll('.tab-item')).find(b => b.getAttribute('onclick').includes(tabKey));
       if (activeBtn) activeBtn.classList.add('active');
+
+      if (tabKey === 'seo') speakText("Aap SEO Studio mein hain. Yahan On-Page optimization seekhein.");
+      else if (tabKey === 'gads') speakText("Google Ads Studio mein aap search campaign banana seekhenge.");
+      else if (tabKey === 'meta') speakText("Meta Ads section mein engaging Facebook aur Instagram ad banayein.");
     }
 
     /* PRESET SCENARIO LOADER */
@@ -885,6 +791,7 @@
         document.getElementById('gAdH2').value = "Tested LCD Display & Battery";
         document.getElementById('metaBrand').value = "4 STAR MOBILE";
         document.getElementById('metaCopy').value = "🔥 Phone display toot gaya? Duplicate ke chakkar mein mat pado! 100% tested original combos with 6-month warranty.";
+        speakText("Four Star Mobile shop ka challenge load ho gaya hai. Check karein ki local keywords kaise rank karte hain.");
       } else if (type === 'agency') {
         document.getElementById('seoKw').value = "digital marketing agency bihar";
         document.getElementById('seoTitle').value = "Top Digital Marketing & Growth Agency | 10X Business ROI";
@@ -893,6 +800,7 @@
         document.getElementById('gAdH2').value = "Google & Meta Ads Experts";
         document.getElementById('metaBrand').value = "Growth Marketing Lab";
         document.getElementById('metaCopy').value = "Struggling to get quality sales leads? Get 50+ verified high-intent customer leads every week with our performance marketing system.";
+        speakText("Digital Marketing Agency ka scenario load hua hai. Lead generation ke liye ad copies check karein.");
       } else if (type === 'ecommerce') {
         document.getElementById('seoKw').value = "fast chargers online offer";
         document.getElementById('seoTitle').value = "65W & 80W Super Fast Chargers | Flat 40% Off Mega Sale";
@@ -901,16 +809,16 @@
         document.getElementById('gAdH2').value = "Flat 40% Off Diwali Sale";
         document.getElementById('metaBrand').value = "PowerGear Store";
         document.getElementById('metaCopy').value = "⚡ Charge your phone 0 to 80% in just 25 minutes! Certified heavy duty chargers with overload safety protection. Order now before stock runs out!";
+        speakText("E-Commerce mega sale loaded. Offer hooks aur discount headlines dekhein.");
       }
 
-      auditSeo();
-      auditGAds();
+      auditSeo(false);
+      auditGAds(false);
       auditMeta();
-      alert(`✨ "${type.toUpperCase()}" Scenario loaded across all simulators!`);
     }
 
     /* SEO LIVE AUDIT */
-    function auditSeo() {
+    function auditSeo(allowVoice) {
       const kw = document.getElementById('seoKw').value.trim().toLowerCase();
       const title = document.getElementById('seoTitle').value;
       const desc = document.getElementById('seoDesc').value;
@@ -925,23 +833,26 @@
 
       let score = 100;
       let notes = [];
+      let speechMessage = "";
 
       if (title.length > 60) {
         score -= 30;
-        notes.push("❌ <strong>Title Too Long (" + title.length + " chars):</strong> Google will truncate with '...' hurting click-through rate.");
+        notes.push("❌ <strong>Title Too Long (" + title.length + " chars):</strong> Google isko kaat dega.");
+        speechMessage = "Dhyan dein! Aapka title tag saat characters se lamba ho gaya hai, Google isko search result mein kaat dega.";
       } else if (title.length < 35) {
         score -= 15;
-        notes.push("⚠️ <strong>Title Too Short:</strong> Add your brand name or location to capture high intent.");
+        notes.push("⚠️ <strong>Title Too Short:</strong> Brand ya location add karein.");
       }
 
       if (kw && !title.toLowerCase().includes(kw)) {
         score -= 25;
-        notes.push("❌ <strong>Target Keyword Missing:</strong> Include '" + kw + "' in the title tag for higher search ranking.");
+        notes.push("❌ <strong>Focus Keyword Missing:</strong> Title mein '" + kw + "' shamil karein.");
+        if (!speechMessage) speechMessage = "Warning! Aapka target keyword title ke andar nahi mila, ranking kam ho sakti hai.";
       }
 
       if (desc.length > 158) {
         score -= 20;
-        notes.push("❌ <strong>Description Overflow:</strong> Keep it below 158 characters to avoid search snippet cutoff.");
+        notes.push("❌ <strong>Description Overflow:</strong> 158 characters ke andar rakhein.");
       }
 
       if (score < 0) score = 0;
@@ -949,24 +860,29 @@
       const gauge = document.getElementById('seoGauge');
       const val = document.getElementById('seoScoreVal');
       const diag = document.getElementById('seoDiagnostic');
+      const radarMsg = document.getElementById('seoRadarMsg');
 
       gauge.style.setProperty('--score-deg', `${(score / 100) * 360}deg`);
       val.innerText = `${score}%`;
 
       if (score >= 80) {
         diag.className = "ai-diag-card pass";
-        diag.innerHTML = `✓ <strong>Optimal Configuration (${score}%):</strong> Title & meta description meet search ranking guidelines!<br>${notes.join('<br>')}`;
-      } else if (score >= 50) {
-        diag.className = "ai-diag-card warn";
-        diag.innerHTML = `⚠️ <strong>Needs Tuning (${score}%):</strong><br>${notes.join('<br>')}`;
+        diag.innerHTML = `✓ <strong>Optimal Configuration (${score}%):</strong> Title aur description SEO standards ke mutabik hain!<br>${notes.join('<br>')}`;
+        radarMsg.innerText = "Aapka SEO score 80% se upar hai! Target keyword title aur snippet dono mein acchi tarah placed hai.";
       } else {
         diag.className = "ai-diag-card fail";
-        diag.innerHTML = `❌ <strong>Critical Issues (${score}%):</strong><br>${notes.join('<br>')}`;
+        diag.innerHTML = `❌ <strong>Tuning Required (${score}%):</strong><br>${notes.join('<br>')}`;
+        radarMsg.innerText = notes.length > 0 ? notes[0].replace(/<[^>]*>?/gm, '') : "Title aur meta tags ko adjust karein.";
+      }
+
+      if (allowVoice && speechMessage) {
+        clearTimeout(voiceDebounceTimer);
+        voiceDebounceTimer = setTimeout(() => { speakText(speechMessage); }, 1500);
       }
     }
 
     /* GOOGLE ADS AUDIT */
-    function auditGAds() {
+    function auditGAds(allowVoice) {
       const h1 = document.getElementById('gAdH1').value;
       const h2 = document.getElementById('gAdH2').value;
       const h3 = document.getElementById('gAdH3').value;
@@ -981,18 +897,29 @@
       document.getElementById('gAdDescPreview').innerText = desc;
 
       let fails = [];
-      if (h1.length > 30) fails.push("Headline 1 exceeds 30 chars!");
-      if (h2.length > 30) fails.push("Headline 2 exceeds 30 chars!");
-      if (h3.length > 30) fails.push("Headline 3 exceeds 30 chars!");
-      if (desc.length > 90) fails.push("Description exceeds 90 chars!");
+      let speechMessage = "";
+
+      if (h1.length > 30) { fails.push("Headline 1 30 chars se zyada hai!"); speechMessage = "Headline ek 30 characters se lambi hai, Google Ads isko accept nahi karega."; }
+      if (h2.length > 30) { fails.push("Headline 2 30 chars se zyada hai!"); if (!speechMessage) speechMessage = "Headline do limit se bahar hai."; }
+      if (h3.length > 30) fails.push("Headline 3 30 chars se zyada hai!");
+      if (desc.length > 90) fails.push("Description 90 chars limit cross!");
 
       const diag = document.getElementById('gadsDiagnostic');
+      const radar = document.getElementById('gadsRadarMsg');
+
       if (fails.length > 0) {
         diag.className = "ai-diag-card fail";
-        diag.innerHTML = `❌ <strong>Policy Violation:</strong> ${fails.join(' • ')}`;
+        diag.innerHTML = `❌ <strong>Policy Issues:</strong> ${fails.join(' • ')}`;
+        radar.innerText = "Google Ads character limits break ho rahi hain. Kripya headlines ko 30 chars ke andar rakhein.";
       } else {
         diag.className = "ai-diag-card pass";
-        diag.innerHTML = "✓ <strong>Google Ad Approved:</strong> Character limits respected. High Quality Score expected!";
+        diag.innerHTML = "✓ <strong>Google Ad Approved:</strong> Perfect character length. High Quality Score guaranteed!";
+        radar.innerText = "Headlines aur descriptions policy rules follow kar rahe hain. Live campaign approval guarantee hai!";
+      }
+
+      if (allowVoice && speechMessage) {
+        clearTimeout(voiceDebounceTimer);
+        voiceDebounceTimer = setTimeout(() => { speakText(speechMessage); }, 1500);
       }
     }
 
@@ -1013,10 +940,10 @@
       const diag = document.getElementById('metaDiagnostic');
       if (!copy.includes("?") && !copy.includes("!")) {
         diag.className = "ai-diag-card warn";
-        diag.innerHTML = "💡 <strong>Tip:</strong> Add an intriguing question or urgency exclamation in the first 2 lines to stop users from scrolling past!";
+        diag.innerHTML = "💡 <strong>Tip:</strong> Pehli line mein sawaal ya discount offer likhein taaki log scroll na karein!";
       } else {
         diag.className = "ai-diag-card pass";
-        diag.innerHTML = "✓ <strong>Engaging Social Creative:</strong> Strong hook detected. Ideal for Instagram & Facebook feeds.";
+        diag.innerHTML = "✓ <strong>High CTR Social Ad:</strong> Strong hook detected. Feed scrolling stop hogi!";
       }
     }
 
@@ -1030,7 +957,8 @@
       l.innerText = Math.floor(Math.random() * 35) + 20;
       leads.innerText = parseInt(leads.innerText) + 3;
 
-      alert("🔥 Real-Time Traffic Spike Activated! GA4 attribution stats updated.");
+      speakText("Traffic spike detected! Google Analytics 4 mein 64 naye visitors aur 3 leads record ho gayi hain.");
+      alert("🔥 Real-Time Traffic Spike Activated! GA4 stats updated.");
     }
 
     /* FUNNEL SUBMIT */
@@ -1038,9 +966,8 @@
       e.preventDefault();
       const n = document.getElementById('fname').value;
       const p = document.getElementById('fphone').value;
-      const r = document.getElementById('freq').value;
-
-      alert(`🎯 Lead Captured Successfully!\nCustomer: ${n}\nPhone: ${p}\nInterest: ${r}\n\nAuto-synced with CRM & WhatsApp Automation!`);
+      speakText(`Shabash! ${n} naam ke customer ki lead WhatsApp par receive ho gayi hai.`);
+      alert(`🎯 Lead Captured!\nCustomer: ${n}\nPhone: ${p}\n\nAuto-synced with CRM & WhatsApp!`);
     }
 
     /* AI COPY ENGINE */
@@ -1048,13 +975,15 @@
       const topic = document.getElementById('aiTopic').value.trim() || "Mobile Accessories";
       const block = document.getElementById('aiOutputBlock');
 
+      speakText(`${topic} ke liye best performing ad headlines aur copies generate ho gayi hain.`);
+
       block.innerHTML = `
-        <div style="background: rgba(99, 102, 241, 0.12); border: 1px solid rgba(99, 102, 241, 0.3); padding: 16px; border-radius: 14px;">
+        <div style="background: rgba(99, 102, 241, 0.15); border: 1px solid rgba(99, 102, 241, 0.4); padding: 16px; border-radius: 14px;">
           <h4 style="color: #a5b4fc; font-size: 14px; margin-bottom: 6px;">💡 Google Search Ad Angles (High Intent):</h4>
           <p style="font-size: 13px; color: #e2e8f0; line-height: 1.5;">1. "100% Genuine ${topic} | Same Day Express Dispatch"</p>
           <p style="font-size: 13px; color: #e2e8f0; line-height: 1.5;">2. "Stop Buying Duplicate Spares | Tested Originals with Warranty"</p>
         </div>
-        <div style="background: rgba(16, 185, 129, 0.12); border: 1px solid rgba(16, 185, 129, 0.3); padding: 16px; border-radius: 14px;">
+        <div style="background: rgba(16, 185, 129, 0.15); border: 1px solid rgba(16, 185, 129, 0.4); padding: 16px; border-radius: 14px;">
           <h4 style="color: #34d399; font-size: 14px; margin-bottom: 6px;">📱 Meta Social Hook:</h4>
           <p style="font-size: 13px; color: #e2e8f0; line-height: 1.5;">"Phone baar-baar heat ho raha hai ya battery backup weak hai? Upgrade to original certified ${topic} with 6-month peace-of-mind warranty. Tap WhatsApp below for instant stock check!"</p>
         </div>
@@ -1062,8 +991,8 @@
     }
 
     window.addEventListener('DOMContentLoaded', () => {
-      auditSeo();
-      auditGAds();
+      auditSeo(false);
+      auditGAds(false);
       auditMeta();
     });
   </script>

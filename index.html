@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>MarketingOS • Interactive AI Voice Guide & Tutor</title>
+  <title>MarketingOS • Interactive AI Voice Guide & QnA Tutor</title>
   
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -199,7 +199,6 @@
       color: #fff;
     }
 
-    /* Speaking AI Radar Card with Guide Action */
     .ai-radar-card {
       background: linear-gradient(135deg, rgba(26, 19, 58, 0.95), rgba(15, 27, 54, 0.95));
       border: 1.5px solid #a855f7;
@@ -361,6 +360,140 @@
     }
     .glow-btn:hover { transform: translateY(-2px); box-shadow: 0 0 28px rgba(6, 182, 212, 0.6); }
 
+    /* ================= FLOATING AI Q&A CHATBOT ================= */
+    .chat-bubble-btn {
+      position: fixed;
+      bottom: 25px;
+      right: 25px;
+      width: 60px;
+      height: 60px;
+      border-radius: 50%;
+      background: linear-gradient(135deg, #a855f7, #6366f1);
+      color: white;
+      border: 2px solid #c084fc;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 26px;
+      box-shadow: 0 8px 30px rgba(168, 85, 247, 0.6);
+      cursor: pointer;
+      z-index: 9999;
+      transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    }
+    .chat-bubble-btn:hover {
+      transform: scale(1.1);
+      box-shadow: 0 12px 35px rgba(168, 85, 247, 0.8);
+    }
+
+    .chat-widget-box {
+      display: none;
+      position: fixed;
+      bottom: 95px;
+      right: 25px;
+      width: 360px;
+      max-width: calc(100vw - 40px);
+      height: 480px;
+      background: #0f172a;
+      border: 1.5px solid #a855f7;
+      border-radius: 20px;
+      box-shadow: 0 20px 45px rgba(0,0,0,0.6), 0 0 25px rgba(168, 85, 247, 0.3);
+      z-index: 9999;
+      flex-direction: column;
+      overflow: hidden;
+      animation: chatFade 0.25s ease;
+    }
+    @keyframes chatFade { from { opacity: 0; transform: translateY(15px); } to { opacity: 1; transform: translateY(0); } }
+
+    .chat-header {
+      background: linear-gradient(135deg, #1e1b4b, #2e1065);
+      padding: 14px 18px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    }
+    .chat-header h4 { font-size: 14px; font-weight: 800; color: #e9d5ff; display: flex; align-items: center; gap: 8px; }
+    .chat-close-btn { background: transparent; border: none; color: #cbd5e1; font-size: 18px; cursor: pointer; }
+
+    .chat-messages {
+      flex: 1;
+      padding: 16px;
+      overflow-y: auto;
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+      font-size: 13px;
+    }
+    .chat-msg {
+      max-width: 85%;
+      padding: 10px 14px;
+      border-radius: 14px;
+      line-height: 1.45;
+    }
+    .chat-msg.bot {
+      background: #1e293b;
+      color: #e2e8f0;
+      align-self: flex-start;
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      border-bottom-left-radius: 4px;
+    }
+    .chat-msg.user {
+      background: linear-gradient(135deg, #6366f1, #4f46e5);
+      color: white;
+      align-self: flex-end;
+      border-bottom-right-radius: 4px;
+    }
+
+    .chat-quick-tags {
+      padding: 8px 12px;
+      display: flex;
+      gap: 6px;
+      overflow-x: auto;
+      background: #0b1120;
+      border-top: 1px solid rgba(255, 255, 255, 0.05);
+      scrollbar-width: none;
+    }
+    .chat-tag-pill {
+      background: rgba(168, 85, 247, 0.15);
+      border: 1px solid rgba(168, 85, 247, 0.4);
+      color: #d8b4fe;
+      font-size: 11px;
+      padding: 4px 10px;
+      border-radius: 15px;
+      cursor: pointer;
+      white-space: nowrap;
+    }
+
+    .chat-input-bar {
+      padding: 12px;
+      background: #0f172a;
+      border-top: 1px solid rgba(255, 255, 255, 0.1);
+      display: flex;
+      gap: 8px;
+    }
+    .chat-input-bar input {
+      flex: 1;
+      background: #1e293b;
+      border: 1px solid rgba(255, 255, 255, 0.15);
+      border-radius: 20px;
+      padding: 9px 14px;
+      color: white;
+      font-size: 13px;
+      outline: none;
+    }
+    .chat-send-btn {
+      background: #8b5cf6;
+      color: white;
+      border: none;
+      width: 36px;
+      height: 36px;
+      border-radius: 50%;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
     footer {
       border-top: 1px solid rgba(255, 255, 255, 0.08);
       text-align: center;
@@ -378,7 +511,7 @@
     <div class="top-header">
       <div class="brand">
         <i class="fa-solid fa-bolt-lightning" style="color: #38bdf8;"></i> MarketingOS
-        <span style="font-size: 11px; color: #c084fc; border: 1px solid #c084fc; padding: 2px 8px; border-radius: 20px; font-weight: 700;">AI COACH & MENTOR</span>
+        <span style="font-size: 11px; color: #c084fc; border: 1px solid #c084fc; padding: 2px 8px; border-radius: 20px; font-weight: 700;">AI COACH & TUTOR</span>
       </div>
       <div style="display: flex; gap: 10px; align-items: center;">
         <button id="voiceToggleBtn" class="voice-control-btn" onclick="toggleVoiceMute()">
@@ -418,8 +551,8 @@
   <main>
     <div class="lab-banner">
       <div class="banner-text">
-        <h2>🚀 AI Voice-Guided Marketing Lab</h2>
-        <p>Aap practice karein, aur AI aawaz mein guide karega ki kahan kya badalna hai, aur click karke AI khud auto-fix bhi kar dega!</p>
+        <h2>🚀 AI Interactive Marketing Lab & Tutor</h2>
+        <p>Aap practice karein, aur AI aawaz mein guide karega! Agar koi sawaal ho toh neeche right side wale <strong>AI Chatbot</strong> par click karke direct question pooch sakte hain!</p>
         <div class="challenge-pills">
           <span style="font-size: 12px; color: #a5b4fc; font-weight: 700; align-self: center;">One-Click Challenges:</span>
           <button class="preset-pill" onclick="loadScenario('mobile')">📱 4 Star Mobile Shop</button>
@@ -466,7 +599,7 @@
               <span>SEO Title Tag</span>
               <span id="seoTitleCount">0 / 60 Chars</span>
             </label>
-            <input type="text" id="seoTitle" value="Best Mobile Spare Parts & Accessories Store | 4 Star Mobile" oninput="auditSeo(true)">
+            <input type="text" id="seoTitle" value="Best Mobile Spare Parts Store | 4 Star Mobile" oninput="auditSeo(true)">
           </div>
 
           <div class="input-block">
@@ -717,6 +850,37 @@
     </section>
   </main>
 
+  <!-- ================= FLOATING AI Q&A ASSISTANT ================= -->
+  <div class="chat-bubble-btn" onclick="toggleChatWidget()" title="Ask AI Marketing Question">
+    <i class="fa-solid fa-comments"></i>
+  </div>
+
+  <div class="chat-widget-box" id="chatWidget">
+    <div class="chat-header">
+      <h4><i class="fa-solid fa-robot" style="color: #c084fc;"></i> AI Marketing Tutor</h4>
+      <button class="chat-close-btn" onclick="toggleChatWidget()">✕</button>
+    </div>
+    
+    <div class="chat-messages" id="chatMsgContainer">
+      <div class="chat-msg bot">
+        Namaste! Main aapka AI Digital Marketing Tutor hoon. SEO, Google Ads, Meta Pixel ya kisi bhi topic par koi bhi sawaal pooch sakte hain!
+      </div>
+    </div>
+
+    <!-- Quick Question Tags -->
+    <div class="chat-quick-tags">
+      <div class="chat-tag-pill" onclick="askQuickQuestion('SEO Title kaisa hona chahiye?')">SEO Title Tips?</div>
+      <div class="chat-tag-pill" onclick="askQuickQuestion('CPC aur CTR kya hota hai?')">CPC vs CTR?</div>
+      <div class="chat-tag-pill" onclick="askQuickQuestion('Facebook Ads se lead kaise laye?')">Facebook Leads?</div>
+      <div class="chat-tag-pill" onclick="askQuickQuestion('Meta Pixel kya kaam karta hai?')">Meta Pixel?</div>
+    </div>
+
+    <form class="chat-input-bar" onsubmit="handleUserChat(event)">
+      <input type="text" id="chatUserInput" placeholder="Apna sawaal yahan likhein..." required>
+      <button type="submit" class="chat-send-btn"><i class="fa-solid fa-paper-plane"></i></button>
+    </form>
+  </div>
+
   <footer>
     MarketingOS Simulator • Designed for Real-World Digital Marketing Mastery
   </footer>
@@ -770,10 +934,6 @@
 
       const activeBtn = Array.from(document.querySelectorAll('.tab-item')).find(b => b.getAttribute('onclick').includes(tabKey));
       if (activeBtn) activeBtn.classList.add('active');
-
-      if (tabKey === 'seo') speakText("Aap SEO Studio mein hain. Title aur Meta Description par AI advice check karein.");
-      else if (tabKey === 'gads') speakText("Google Ads Studio mein 30 character headline policy ko seekhein.");
-      else if (tabKey === 'meta') speakText("Meta Ads section mein visual hook aur WhatsApp CTA seekhein.");
     }
 
     function loadScenario(type) {
@@ -811,7 +971,6 @@
       auditMeta();
     }
 
-    /* 1. SEO AUDIT + GUIDED SOLUTIONS */
     function auditSeo(allowVoice) {
       const kw = document.getElementById('seoKw').value.trim().toLowerCase();
       const title = document.getElementById('seoTitle').value;
@@ -830,33 +989,20 @@
       const radarMsg = document.getElementById('seoRadarMsg');
       const diag = document.getElementById('seoDiagnostic');
 
-      // Check: Title length > 60
       if (title.length > 60) {
         score -= 30;
         currentSeoFixValue = title.substring(0, 56) + "...";
-        speechMessage = "AI Guide: Aapka title 60 character se lamba hai. Isko chhota karke 55 characters ka rakhein taaki Google search result mein yeh poora dikhe aur click rate badhe. Aap 'Apply AI Fix' button daba sakte hain.";
+        speechMessage = "AI Guide: Title 60 characters se lamba hai. Isko 55 characters ke andar rakhein taaki Google ise na kaate.";
         radarMsg.innerHTML = `<strong>AI Guide:</strong> Title 60 char se zyada hai. Solution: Title ko concise banayein.`;
         fixBtn.style.display = "inline-flex";
-      }
-      // Check: Target Keyword missing in Title
-      else if (kw && !title.toLowerCase().includes(kw)) {
+      } else if (kw && !title.toLowerCase().includes(kw)) {
         score -= 25;
         currentSeoFixValue = `${kw.charAt(0).toUpperCase() + kw.slice(1)} | 4 Star Mobile`;
-        speechMessage = `AI Guide: Dhyan dein! Aapka target keyword '${kw}' title tag mein missing hai. Title ke shuru mein keyword lagane se Google ranking 3 guna tez badhti hai. Apply AI Fix daba kar theek karein.`;
-        radarMsg.innerHTML = `<strong>AI Guide:</strong> Keyword missing hai! Solution: Title mein <em>'${kw}'</em> jodein taaki Google algorithm match kare.`;
+        speechMessage = `AI Guide: Focus keyword '${kw}' title mein missing hai. Isko title ke shuru mein lagane se ranking tez hoti hai.`;
+        radarMsg.innerHTML = `<strong>AI Guide:</strong> Keyword missing! Solution: Title mein <em>'${kw}'</em> shamil karein.`;
         fixBtn.style.display = "inline-flex";
-      }
-      // Check: Meta Description overflow
-      else if (desc.length > 158) {
-        score -= 20;
-        speechMessage = "AI Guide: Meta description 158 characters se zyada hai. Isko thoda chhota karke direct offer aur benefit likhein.";
-        radarMsg.innerText = "AI Guide: Meta Description 158 characters se kam rakhein taaki mobile snippet cut na ho.";
-        fixBtn.style.display = "none";
-      }
-      // All Perfect!
-      else {
-        speechMessage = "Shabash! Aapka SEO score 100% hai. Title aur description dono Google search ke mutabik bilkul perfect hain.";
-        radarMsg.innerText = "AI Guide: Sab kuch bilkul perfect hai! Title mein keyword bhi hai aur length bhi ideal 60 characters ke andar hai.";
+      } else {
+        radarMsg.innerText = "AI Guide: SEO Title aur Meta Description Google standard ke mutabik bilkul perfect hain!";
         fixBtn.style.display = "none";
       }
 
@@ -866,13 +1012,8 @@
       gauge.style.setProperty('--score-deg', `${(score / 100) * 360}deg`);
       val.innerText = `${score}%`;
 
-      if (score >= 80) {
-        diag.className = "ai-diag-card pass";
-        diag.innerHTML = `✓ <strong>Optimal Configuration (${score}%):</strong> Title aur description search ranking guidelines follow kar rahe hain!`;
-      } else {
-        diag.className = "ai-diag-card fail";
-        diag.innerHTML = `❌ <strong>Guidance Alert (${score}%):</strong> Title ya keyword optimize karna zaroori hai.`;
-      }
+      diag.className = "ai-diag-card " + (score >= 80 ? "pass" : "fail");
+      diag.innerHTML = score >= 80 ? `✓ <strong>Optimal Configuration (${score}%):</strong> Title & snippet ranking ready hain!` : `❌ <strong>Guidance Alert (${score}%):</strong> Title ko optimize karein.`;
 
       if (allowVoice && speechMessage) {
         clearTimeout(voiceDebounceTimer);
@@ -884,11 +1025,10 @@
       if (currentSeoFixValue) {
         document.getElementById('seoTitle').value = currentSeoFixValue;
         auditSeo(true);
-        speakText("AI Fix apply kar diya gaya hai! Ab aapka title tag Google ranking ke liye 100% ready hai.");
+        speakText("AI Fix apply kar diya gaya hai! Ab title tag 100% SEO friendly hai.");
       }
     }
 
-    /* 2. GOOGLE ADS AUDIT + GUIDED SOLUTIONS */
     function auditGAds(allowVoice) {
       const h1 = document.getElementById('gAdH1').value;
       const h2 = document.getElementById('gAdH2').value;
@@ -910,16 +1050,16 @@
 
       if (h1.length > 30) {
         currentGadsFixValue = "Genuine Mobile Spares";
-        speechMessage = "AI Guide: Headline 1 30 characters se lambi hai. Google Ads policy ise reject kar degi. Iski jagah 'Genuine Mobile Spares' likhiye. Apply AI Fix daba kar auto-correct karein.";
-        radar.innerHTML = `<strong>AI Guide:</strong> Headline 1 exceeds 30 chars. Suggestion: Shorten to <em>'Genuine Mobile Spares'</em>.`;
+        speechMessage = "AI Guide: Headline 1 30 characters se lambi hai. Iski jagah 'Genuine Mobile Spares' likhiye.";
+        radar.innerHTML = `<strong>AI Guide:</strong> Headline 1 30 chars limit cross. Shorten to 30 chars.`;
         fixBtn.style.display = "inline-flex";
         diag.className = "ai-diag-card fail";
-        diag.innerHTML = "❌ <strong>Policy Violation:</strong> Headline 1 must be under 30 characters.";
+        diag.innerHTML = "❌ <strong>Policy Violation:</strong> Headline 1 exceeds 30 characters.";
       } else {
         fixBtn.style.display = "none";
         diag.className = "ai-diag-card pass";
         diag.innerHTML = "✓ <strong>Google Ad Approved:</strong> Character limits respected. High Quality Score expected!";
-        radar.innerText = "AI Guide: Headlines policy standard par hain. Quality Score 10/10 rahega aur cost per click sasti padegi!";
+        radar.innerText = "AI Guide: Headlines Google policy ke standard par hain. Quality Score 10/10 rahega!";
       }
 
       if (allowVoice && speechMessage) {
@@ -932,11 +1072,10 @@
       if (currentGadsFixValue) {
         document.getElementById('gAdH1').value = currentGadsFixValue;
         auditGAds(true);
-        speakText("Google Ads headline auto-correct ho gayi hai. Ab aapka ad Google policy ke hisaab se approved hai.");
+        speakText("Google Ads headline auto-correct ho gayi hai.");
       }
     }
 
-    /* 3. META ADS AUDIT */
     function auditMeta() {
       const brand = document.getElementById('metaBrand').value;
       const copy = document.getElementById('metaCopy').value;
@@ -953,42 +1092,36 @@
       const diag = document.getElementById('metaDiagnostic');
       if (!copy.includes("?") && !copy.includes("!")) {
         diag.className = "ai-diag-card warn";
-        diag.innerHTML = "💡 <strong>AI Guide:</strong> Pehli 2 lines mein sawaal jaise 'Display toot gaya?' likhein taaki scrolling ruk sake.";
+        diag.innerHTML = "💡 <strong>AI Guide:</strong> Pehli line mein sawaal jaise 'Display toot gaya?' likhein taaki scrolling ruk sake.";
       } else {
         diag.className = "ai-diag-card pass";
-        diag.innerHTML = "✓ <strong>High CTR Hook:</strong> Visual question hook active. Feed scrolling drop nahi hogi!";
+        diag.innerHTML = "✓ <strong>High CTR Hook:</strong> Visual question hook active. Feed scrolling stop hogi!";
       }
     }
 
-    /* 4. GA4 SIMULATION */
     function simulateTraffic() {
       const u = document.getElementById('gaUsers');
       const l = document.getElementById('gaLive');
       const leads = document.getElementById('gaLeads');
-
       u.innerText = (parseInt(u.innerText.replace(',', '')) + 64).toLocaleString();
       l.innerText = Math.floor(Math.random() * 35) + 20;
       leads.innerText = parseInt(leads.innerText) + 3;
-
-      speakText("Traffic spike detected! Google Analytics 4 mein 64 naye visitors aur 3 leads record ho gayi hain.");
+      speakText("Traffic spike detected! GA4 mein 64 naye visitors aur 3 leads record ho gayi hain.");
       alert("🔥 Real-Time Traffic Spike Activated! GA4 stats updated.");
     }
 
-    /* 5. FUNNEL SUBMIT */
     function handleFunnelSubmit(e) {
       e.preventDefault();
       const n = document.getElementById('fname').value;
       const p = document.getElementById('fphone').value;
-      speakText(`Shabash! ${n} naam ke customer ki lead WhatsApp par receive ho gayi hai.`);
+      speakText(`Shabash! ${n} naam ke customer ki lead receive ho gayi hai.`);
       alert(`🎯 Lead Captured!\nCustomer: ${n}\nPhone: ${p}\n\nAuto-synced with CRM & WhatsApp!`);
     }
 
-    /* 6. AI COPY ENGINE */
     function generateAiIdeas() {
       const topic = document.getElementById('aiTopic').value.trim() || "Mobile Accessories";
       const block = document.getElementById('aiOutputBlock');
-
-      speakText(`${topic} ke liye best performing ad headlines aur copies generate ho gayi hain.`);
+      speakText(`${topic} ke liye ad headlines generate ho gayi hain.`);
 
       block.innerHTML = `
         <div style="background: rgba(99, 102, 241, 0.15); border: 1px solid rgba(99, 102, 241, 0.4); padding: 16px; border-radius: 14px;">
@@ -998,9 +1131,70 @@
         </div>
         <div style="background: rgba(16, 185, 129, 0.15); border: 1px solid rgba(16, 185, 129, 0.4); padding: 16px; border-radius: 14px;">
           <h4 style="color: #34d399; font-size: 14px; margin-bottom: 6px;">📱 Meta Social Hook:</h4>
-          <p style="font-size: 13px; color: #e2e8f0; line-height: 1.5;">"Phone baar-baar heat ho raha hai ya battery backup weak hai? Upgrade to original certified ${topic} with 6-month peace-of-mind warranty. Tap WhatsApp below for instant stock check!"</p>
+          <p style="font-size: 13px; color: #e2e8f0; line-height: 1.5;">"Phone baar-baar heat ho raha hai ya battery backup weak hai? Upgrade to original certified ${topic} with 6-month warranty. Tap WhatsApp below!"</p>
         </div>
       `;
+    }
+
+    /* ================= AI CHATBOT ENGINE ================= */
+    function toggleChatWidget() {
+      const chat = document.getElementById('chatWidget');
+      chat.style.display = (chat.style.display === 'flex') ? 'none' : 'flex';
+      if (chat.style.display === 'flex') {
+        speakText("Poochiye, digital marketing mein aapko kis cheez mein help chahiye?");
+      }
+    }
+
+    function appendChatMessage(sender, text) {
+      const container = document.getElementById('chatMsgContainer');
+      const div = document.createElement('div');
+      div.className = `chat-msg ${sender}`;
+      div.innerHTML = text;
+      container.appendChild(div);
+      container.scrollTop = container.scrollHeight;
+    }
+
+    function getAiMarketingAnswer(q) {
+      const query = q.toLowerCase();
+
+      if (query.includes("title") || query.includes("seo title")) {
+        return "SEO Title 50 se 60 characters ka hona chahiye. Hamesha apna main keyword shuru mein rakhein aur aakhri mein brand name lagayein, jaise: <em>'Best Mobile Spare Parts Store | 4 Star Mobile'</em>.";
+      } else if (query.includes("cpc") || query.includes("ctr")) {
+        return "<strong>CPC (Cost Per Click):</strong> Har ek click par aapka kitna paisa kat raha hai.<br><strong>CTR (Click-Through Rate):</strong> 100 logon ne ad dekha aur kitne logon ne click kiya. Achha CTR 4% se 8% mana jata hai.";
+      } else if (query.includes("lead") || query.includes("facebook") || query.includes("meta")) {
+        return "Facebook aur Instagram par lead laane ke liye <strong>'Lead Generation Campaign'</strong> chalayein aur Instant Form ya Direct WhatsApp message CTA button lagayein. Isme conversion sabse fast milta hai!";
+      } else if (query.includes("pixel") || query.includes("meta pixel")) {
+        return "Meta Pixel ek chhota sa code hota hai jo aapki website par aane wale logon ko track karta hai. Iska fayda yeh hai ki jo log website dekh kar bina khareede chale gaye, unhe aap dobara ad dikha (Retargeting kar) sakte hain!";
+      } else if (query.includes("keyword") || query.includes("research")) {
+        return "Keyword research ke liye <strong>Google Keyword Planner</strong>, Ubersuggest ya Google Autocomplete use karein. Local business ke liye location wale keywords (jaise 'mobile shop in Kishanganj') sabse fast rank karte hain!";
+      } else {
+        return "Digital marketing mein is topic par safal hone ke liye pehle apna target audience decide karein, high-converting copy likhein aur Analytics mein roz CTR aur conversions check karein. Aap specific sawaal jaise 'SEO tips' ya 'Google ads policy' bhi pooch sakte hain!";
+      }
+    }
+
+    function handleUserChat(e) {
+      e.preventDefault();
+      const input = document.getElementById('chatUserInput');
+      const question = input.value.trim();
+      if (!question) return;
+
+      appendChatMessage('user', question);
+      input.value = "";
+
+      setTimeout(() => {
+        const answer = getAiMarketingAnswer(question);
+        appendChatMessage('bot', answer);
+        speakText(answer.replace(/<[^>]*>?/gm, ''));
+      }, 500);
+    }
+
+    function askQuickQuestion(text) {
+      appendChatMessage('user', text);
+      setTimeout(() => {
+        const answer = getAiMarketingAnswer(text);
+        appendChatMessage('bot', answer);
+        speakText(answer.replace(/<[^>]*>?/gm, ''));
+      }, 400);
     }
 
     window.addEventListener('DOMContentLoaded', () => {

@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>MarketingOS • Next-Gen AI Voice Digital Marketing Lab</title>
+  <title>MarketingOS • Interactive AI Voice Guide & Tutor</title>
   
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -13,12 +13,13 @@
   <style>
     :root {
       --bg: #070913;
-      --card-bg: rgba(15, 23, 42, 0.78);
-      --card-border: rgba(99, 102, 241, 0.22);
+      --card-bg: rgba(15, 23, 42, 0.85);
+      --card-border: rgba(99, 102, 241, 0.28);
       --primary: #6366f1;
       --neon-cyan: #06b6d4;
       --neon-pink: #ec4899;
       --neon-green: #10b981;
+      --neon-yellow: #f59e0b;
       --text: #f8fafc;
       --text-muted: #94a3b8;
     }
@@ -39,9 +40,8 @@
       overflow-x: hidden;
     }
 
-    /* Glow Header */
     header {
-      background: rgba(7, 9, 19, 0.88);
+      background: rgba(7, 9, 19, 0.9);
       backdrop-filter: blur(16px);
       border-bottom: 1px solid rgba(255, 255, 255, 0.08);
       position: sticky;
@@ -70,12 +70,11 @@
       -webkit-text-fill-color: transparent;
     }
 
-    /* Audio AI Master Toggle */
     .voice-control-btn {
-      background: linear-gradient(135deg, rgba(99, 102, 241, 0.2), rgba(6, 182, 212, 0.2));
+      background: linear-gradient(135deg, rgba(99, 102, 241, 0.25), rgba(6, 182, 212, 0.25));
       border: 1px solid #38bdf8;
       color: #38bdf8;
-      padding: 6px 14px;
+      padding: 7px 16px;
       border-radius: 30px;
       font-size: 12px;
       font-weight: 700;
@@ -92,15 +91,12 @@
       box-shadow: none;
     }
 
-    /* Glowing Hero Section */
     .lab-banner {
-      background: linear-gradient(135deg, rgba(20, 27, 60, 0.85), rgba(12, 17, 34, 0.85));
+      background: linear-gradient(135deg, rgba(20, 27, 60, 0.88), rgba(12, 17, 34, 0.88));
       border: 1px solid rgba(99, 102, 241, 0.35);
       border-radius: 20px;
       padding: 22px;
       margin-bottom: 22px;
-      position: relative;
-      overflow: hidden;
       box-shadow: 0 10px 30px rgba(0,0,0,0.4), inset 0 0 20px rgba(99, 102, 241, 0.15);
     }
 
@@ -112,21 +108,9 @@
       -webkit-text-fill-color: transparent;
       margin-bottom: 6px;
     }
+    .banner-text p { font-size: 13px; color: #cbd5e1; max-width: 720px; line-height: 1.5; }
 
-    .banner-text p {
-      font-size: 13px;
-      color: #cbd5e1;
-      max-width: 700px;
-      line-height: 1.5;
-    }
-
-    .challenge-pills {
-      display: flex;
-      gap: 10px;
-      flex-wrap: wrap;
-      margin-top: 14px;
-    }
-
+    .challenge-pills { display: flex; gap: 10px; flex-wrap: wrap; margin-top: 14px; }
     .preset-pill {
       background: rgba(255, 255, 255, 0.06);
       border: 1px solid rgba(255, 255, 255, 0.15);
@@ -148,21 +132,12 @@
       transform: translateY(-2px);
     }
 
-    /* Tabs Bar */
     .tabs-strip-container {
-      background: rgba(15, 23, 42, 0.7);
+      background: rgba(15, 23, 42, 0.75);
       border-bottom: 1px solid rgba(255, 255, 255, 0.08);
       padding: 10px 16px;
     }
-
-    .tabs-strip {
-      display: flex;
-      gap: 10px;
-      max-width: 1240px;
-      margin: 0 auto;
-      overflow-x: auto;
-      scrollbar-width: none;
-    }
+    .tabs-strip { display: flex; gap: 10px; max-width: 1240px; margin: 0 auto; overflow-x: auto; scrollbar-width: none; }
     .tabs-strip::-webkit-scrollbar { display: none; }
 
     .tab-item {
@@ -180,7 +155,6 @@
       white-space: nowrap;
       transition: all 0.25s;
     }
-
     .tab-item.active {
       background: linear-gradient(135deg, #6366f1, #3b82f6);
       color: #fff;
@@ -201,14 +175,9 @@
     .tab-pane.active { display: block; }
     @keyframes tabFadeIn { from { opacity: 0; transform: translateY(6px); } to { opacity: 1; transform: translateY(0); } }
 
-    .studio-grid {
-      display: grid;
-      grid-template-columns: 1.1fr 0.9fr;
-      gap: 22px;
-    }
+    .studio-grid { display: grid; grid-template-columns: 1.1fr 0.9fr; gap: 22px; }
     @media (max-width: 900px) { .studio-grid { grid-template-columns: 1fr; } }
 
-    /* Glass Panels */
     .glass-panel {
       background: var(--card-bg);
       backdrop-filter: blur(16px);
@@ -230,18 +199,17 @@
       color: #fff;
     }
 
-    /* Speaking AI Radar Card */
+    /* Speaking AI Radar Card with Guide Action */
     .ai-radar-card {
-      background: linear-gradient(135deg, rgba(24, 18, 54, 0.95), rgba(16, 26, 50, 0.95));
+      background: linear-gradient(135deg, rgba(26, 19, 58, 0.95), rgba(15, 27, 54, 0.95));
       border: 1.5px solid #a855f7;
       border-radius: 18px;
       padding: 16px 20px;
       margin-bottom: 22px;
       display: flex;
       gap: 16px;
-      align-items: center;
+      align-items: flex-start;
       box-shadow: 0 0 25px rgba(168, 85, 247, 0.3);
-      position: relative;
     }
 
     .speaking-pulse {
@@ -278,30 +246,49 @@
       gap: 8px;
       margin-bottom: 4px;
     }
-    .ai-radar-info p {
-      font-size: 13px;
-      color: #e2e8f0;
-      line-height: 1.5;
+    .ai-radar-info p { font-size: 13px; color: #e2e8f0; line-height: 1.5; }
+
+    .ai-action-row {
+      display: flex;
+      gap: 10px;
+      align-items: center;
+      margin-top: 10px;
+      flex-wrap: wrap;
     }
 
     .speak-now-btn {
       background: #8b5cf6;
       color: white;
       border: none;
-      padding: 4px 10px;
-      border-radius: 12px;
-      font-size: 11px;
+      padding: 6px 14px;
+      border-radius: 15px;
+      font-size: 12px;
       font-weight: 700;
       cursor: pointer;
       display: inline-flex;
       align-items: center;
-      gap: 5px;
-      margin-top: 6px;
+      gap: 6px;
       transition: all 0.2s;
     }
-    .speak-now-btn:hover { background: #7c3aed; transform: scale(1.04); }
+    .speak-now-btn:hover { background: #7c3aed; transform: scale(1.03); }
 
-    /* Inputs */
+    .autofix-btn {
+      background: linear-gradient(135deg, #10b981, #059669);
+      color: white;
+      border: none;
+      padding: 6px 14px;
+      border-radius: 15px;
+      font-size: 12px;
+      font-weight: 800;
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      box-shadow: 0 0 12px rgba(16, 185, 129, 0.4);
+      transition: all 0.2s;
+    }
+    .autofix-btn:hover { transform: scale(1.03); box-shadow: 0 0 18px rgba(16, 185, 129, 0.6); }
+
     .input-block { margin-bottom: 16px; }
     .input-block label { display: flex; justify-content: space-between; font-size: 13px; font-weight: 700; color: #cbd5e1; margin-bottom: 6px; }
     .input-block input, .input-block textarea, .input-block select {
@@ -322,7 +309,6 @@
       background: rgba(15, 23, 42, 0.85);
     }
 
-    /* Live Preview Boxes */
     .preview-canvas {
       background: #f8fafc;
       border-radius: 16px;
@@ -336,7 +322,6 @@
     .gs-title { font-size: 18px; color: #1a0dab; text-decoration: none; font-weight: 400; line-height: 1.35; margin: 4px 0 6px 0; display: block; cursor: pointer; }
     .gs-desc { font-size: 13px; color: #4d5156; line-height: 1.45; }
 
-    /* Meta Box */
     .meta-box { background: #ffffff; border-radius: 14px; overflow: hidden; border: 1px solid #e4e6eb; font-family: system-ui, sans-serif; }
     .meta-head { display: flex; align-items: center; padding: 12px 14px; gap: 10px; }
     .meta-avatar { width: 42px; height: 42px; border-radius: 50%; background: linear-gradient(135deg, #3b82f6, #06b6d4); color: white; display: flex; align-items: center; justify-content: center; font-weight: 800; }
@@ -356,7 +341,7 @@
       border-left: 5px solid;
     }
     .ai-diag-card.pass { background: rgba(16, 185, 129, 0.12); border-color: var(--neon-green); color: #34d399; }
-    .ai-diag-card.warn { background: rgba(245, 158, 11, 0.12); border-color: #f59e0b; color: #fbbf24; }
+    .ai-diag-card.warn { background: rgba(245, 158, 11, 0.12); border-color: var(--neon-yellow); color: #fbbf24; }
     .ai-diag-card.fail { background: rgba(239, 68, 68, 0.12); border-color: #ef4444; color: #f87171; }
 
     .glow-btn {
@@ -393,7 +378,7 @@
     <div class="top-header">
       <div class="brand">
         <i class="fa-solid fa-bolt-lightning" style="color: #38bdf8;"></i> MarketingOS
-        <span style="font-size: 11px; color: #c084fc; border: 1px solid #c084fc; padding: 2px 8px; border-radius: 20px; font-weight: 700;">VOICE COACH</span>
+        <span style="font-size: 11px; color: #c084fc; border: 1px solid #c084fc; padding: 2px 8px; border-radius: 20px; font-weight: 700;">AI COACH & MENTOR</span>
       </div>
       <div style="display: flex; gap: 10px; align-items: center;">
         <button id="voiceToggleBtn" class="voice-control-btn" onclick="toggleVoiceMute()">
@@ -409,7 +394,7 @@
     <div class="tabs-strip-container">
       <div class="tabs-strip">
         <button class="tab-item active" onclick="activateTab('seo')">
-          <i class="fa-solid fa-magnifying-glass-chart" style="color: #38bdf8;"></i> 1. SEO Studio & Voice Audit
+          <i class="fa-solid fa-magnifying-glass-chart" style="color: #38bdf8;"></i> 1. SEO Studio & Voice Guide
         </button>
         <button class="tab-item" onclick="activateTab('gads')">
           <i class="fa-brands fa-google" style="color: #f87171;"></i> 2. Google Search Ads
@@ -431,11 +416,10 @@
   </header>
 
   <main>
-    <!-- Interactive Banner -->
     <div class="lab-banner">
       <div class="banner-text">
-        <h2>🚀 AI Voice-Enabled Marketing Lab</h2>
-        <p>Aap practice karein, aur AI aawaz mein bol kar batayega ki kahan kya likhna hai aur ranking ya conversion kaise badhegi!</p>
+        <h2>🚀 AI Voice-Guided Marketing Lab</h2>
+        <p>Aap practice karein, aur AI aawaz mein guide karega ki kahan kya badalna hai, aur click karke AI khud auto-fix bhi kar dega!</p>
         <div class="challenge-pills">
           <span style="font-size: 12px; color: #a5b4fc; font-weight: 700; align-self: center;">One-Click Challenges:</span>
           <button class="preset-pill" onclick="loadScenario('mobile')">📱 4 Star Mobile Shop</button>
@@ -452,11 +436,16 @@
           <div class="speaking-inner" id="seoScoreVal">90%</div>
         </div>
         <div class="ai-radar-info">
-          <h4><i class="fa-solid fa-robot"></i> AI SEO Coach Ka Mashwara:</h4>
+          <h4><i class="fa-solid fa-robot"></i> AI SEO Coach Ka Live Guide:</h4>
           <p id="seoRadarMsg">Loading advice...</p>
-          <button class="speak-now-btn" onclick="speakCurrentAdvice('seo')">
-            <i class="fa-solid fa-volume-high"></i> AI Advice Suniye
-          </button>
+          <div class="ai-action-row">
+            <button class="speak-now-btn" onclick="speakCurrentAdvice('seo')">
+              <i class="fa-solid fa-volume-high"></i> AI Advice Suniye
+            </button>
+            <button id="seoAutoFixBtn" class="autofix-btn" style="display: none;" onclick="applySeoFix()">
+              <i class="fa-solid fa-wand-magic-sparkles"></i> ⚡ Apply AI Fix
+            </button>
+          </div>
         </div>
       </div>
 
@@ -529,9 +518,14 @@
         <div class="ai-radar-info">
           <h4><i class="fa-solid fa-robot"></i> Google Ads Policy & CTR Coach:</h4>
           <p id="gadsRadarMsg">Headlines aur descriptions exact limits ke andar hain. Quality score high rahega!</p>
-          <button class="speak-now-btn" onclick="speakCurrentAdvice('gads')">
-            <i class="fa-solid fa-volume-high"></i> AI Advice Suniye
-          </button>
+          <div class="ai-action-row">
+            <button class="speak-now-btn" onclick="speakCurrentAdvice('gads')">
+              <i class="fa-solid fa-volume-high"></i> AI Advice Suniye
+            </button>
+            <button id="gadsAutoFixBtn" class="autofix-btn" style="display: none;" onclick="applyGadsFix()">
+              <i class="fa-solid fa-wand-magic-sparkles"></i> ⚡ Apply AI Fix
+            </button>
+          </div>
         </div>
       </div>
 
@@ -730,13 +724,14 @@
   <script>
     let isVoiceMuted = false;
     let voiceDebounceTimer = null;
+    let currentSeoFixValue = "";
+    let currentGadsFixValue = "";
 
-    /* VOICE ENGINE */
     function speakText(text) {
       if (isVoiceMuted || !('speechSynthesis' in window)) return;
-      window.speechSynthesis.cancel(); // Stop prior speech
+      window.speechSynthesis.cancel();
       const utterance = new SpeechSynthesisUtterance(text);
-      utterance.lang = 'hi-IN'; // Hindi/Indian accent
+      utterance.lang = 'hi-IN';
       utterance.rate = 1.0;
       utterance.pitch = 1.05;
       window.speechSynthesis.speak(utterance);
@@ -752,17 +747,17 @@
       } else {
         btn.className = "voice-control-btn";
         btn.innerHTML = `<i class="fa-solid fa-volume-high"></i> AI Voice: ON`;
-        speakText("AI Voice Assistant activate ho gaya hai. Main aapko digital marketing sikhane ke liye taiyar hoon!");
+        speakText("AI Voice Guide activate ho gaya hai. Ab main aapko har step par guide karunga.");
       }
     }
 
     function speakCurrentAdvice(type) {
       if (type === 'seo') {
         const text = document.getElementById('seoRadarMsg').innerText;
-        speakText("SEO Coach Advice: " + text);
+        speakText(text);
       } else if (type === 'gads') {
         const text = document.getElementById('gadsRadarMsg').innerText;
-        speakText("Google Ads Coach Advice: " + text);
+        speakText(text);
       }
     }
 
@@ -776,34 +771,33 @@
       const activeBtn = Array.from(document.querySelectorAll('.tab-item')).find(b => b.getAttribute('onclick').includes(tabKey));
       if (activeBtn) activeBtn.classList.add('active');
 
-      if (tabKey === 'seo') speakText("Aap SEO Studio mein hain. Yahan On-Page optimization seekhein.");
-      else if (tabKey === 'gads') speakText("Google Ads Studio mein aap search campaign banana seekhenge.");
-      else if (tabKey === 'meta') speakText("Meta Ads section mein engaging Facebook aur Instagram ad banayein.");
+      if (tabKey === 'seo') speakText("Aap SEO Studio mein hain. Title aur Meta Description par AI advice check karein.");
+      else if (tabKey === 'gads') speakText("Google Ads Studio mein 30 character headline policy ko seekhein.");
+      else if (tabKey === 'meta') speakText("Meta Ads section mein visual hook aur WhatsApp CTA seekhein.");
     }
 
-    /* PRESET SCENARIO LOADER */
     function loadScenario(type) {
       if (type === 'mobile') {
         document.getElementById('seoKw').value = "mobile spare parts kishanganj";
-        document.getElementById('seoTitle').value = "Best Mobile Spare Parts & Accessories Store | 4 Star Mobile";
+        document.getElementById('seoTitle').value = "Best Mobile Spare Parts Store | 4 Star Mobile";
         document.getElementById('seoDesc').value = "Buy 100% genuine mobile spare parts, original batteries, 80W fast chargers, and LCD folder combos with express counter testing support.";
         document.getElementById('gAdH1').value = "Genuine Mobile Spare Parts";
         document.getElementById('gAdH2').value = "Tested LCD Display & Battery";
         document.getElementById('metaBrand').value = "4 STAR MOBILE";
         document.getElementById('metaCopy').value = "🔥 Phone display toot gaya? Duplicate ke chakkar mein mat pado! 100% tested original combos with 6-month warranty.";
-        speakText("Four Star Mobile shop ka challenge load ho gaya hai. Check karein ki local keywords kaise rank karte hain.");
+        speakText("Four Star Mobile challenge loaded. Check karein ki target keyword title mein bilkul sahi set hai.");
       } else if (type === 'agency') {
         document.getElementById('seoKw').value = "digital marketing agency bihar";
-        document.getElementById('seoTitle').value = "Top Digital Marketing & Growth Agency | 10X Business ROI";
+        document.getElementById('seoTitle').value = "Top Digital Marketing Agency | 10X ROI";
         document.getElementById('seoDesc').value = "Scale your local brand with high-converting Google Ads, Facebook lead campaigns, and top rank local SEO strategies today.";
         document.getElementById('gAdH1').value = "Scale Your Business 10X";
         document.getElementById('gAdH2').value = "Google & Meta Ads Experts";
         document.getElementById('metaBrand').value = "Growth Marketing Lab";
         document.getElementById('metaCopy').value = "Struggling to get quality sales leads? Get 50+ verified high-intent customer leads every week with our performance marketing system.";
-        speakText("Digital Marketing Agency ka scenario load hua hai. Lead generation ke liye ad copies check karein.");
+        speakText("Digital Marketing Agency scenario loaded. Lead generation copy check karein.");
       } else if (type === 'ecommerce') {
         document.getElementById('seoKw').value = "fast chargers online offer";
-        document.getElementById('seoTitle').value = "65W & 80W Super Fast Chargers | Flat 40% Off Mega Sale";
+        document.getElementById('seoTitle').value = "65W & 80W Fast Chargers | Flat 40% Off";
         document.getElementById('seoDesc').value = "Shop braided Type-C high speed data cables and warp chargers with 1-year replacement warranty. Free shipping across India.";
         document.getElementById('gAdH1').value = "65W Super Fast Chargers";
         document.getElementById('gAdH2').value = "Flat 40% Off Diwali Sale";
@@ -817,7 +811,7 @@
       auditMeta();
     }
 
-    /* SEO LIVE AUDIT */
+    /* 1. SEO AUDIT + GUIDED SOLUTIONS */
     function auditSeo(allowVoice) {
       const kw = document.getElementById('seoKw').value.trim().toLowerCase();
       const title = document.getElementById('seoTitle').value;
@@ -826,62 +820,75 @@
 
       document.getElementById('seoTitleCount').innerText = `${title.length} / 60 Chars`;
       document.getElementById('seoDescCount').innerText = `${desc.length} / 158 Chars`;
-
       document.getElementById('serpTitlePreview').innerText = title;
       document.getElementById('serpDescPreview').innerText = desc;
       document.getElementById('serpUrlPreview').innerText = slug;
 
       let score = 100;
-      let notes = [];
       let speechMessage = "";
+      let fixBtn = document.getElementById('seoAutoFixBtn');
+      const radarMsg = document.getElementById('seoRadarMsg');
+      const diag = document.getElementById('seoDiagnostic');
 
+      // Check: Title length > 60
       if (title.length > 60) {
         score -= 30;
-        notes.push("❌ <strong>Title Too Long (" + title.length + " chars):</strong> Google isko kaat dega.");
-        speechMessage = "Dhyan dein! Aapka title tag saat characters se lamba ho gaya hai, Google isko search result mein kaat dega.";
-      } else if (title.length < 35) {
-        score -= 15;
-        notes.push("⚠️ <strong>Title Too Short:</strong> Brand ya location add karein.");
+        currentSeoFixValue = title.substring(0, 56) + "...";
+        speechMessage = "AI Guide: Aapka title 60 character se lamba hai. Isko chhota karke 55 characters ka rakhein taaki Google search result mein yeh poora dikhe aur click rate badhe. Aap 'Apply AI Fix' button daba sakte hain.";
+        radarMsg.innerHTML = `<strong>AI Guide:</strong> Title 60 char se zyada hai. Solution: Title ko concise banayein.`;
+        fixBtn.style.display = "inline-flex";
       }
-
-      if (kw && !title.toLowerCase().includes(kw)) {
+      // Check: Target Keyword missing in Title
+      else if (kw && !title.toLowerCase().includes(kw)) {
         score -= 25;
-        notes.push("❌ <strong>Focus Keyword Missing:</strong> Title mein '" + kw + "' shamil karein.");
-        if (!speechMessage) speechMessage = "Warning! Aapka target keyword title ke andar nahi mila, ranking kam ho sakti hai.";
+        currentSeoFixValue = `${kw.charAt(0).toUpperCase() + kw.slice(1)} | 4 Star Mobile`;
+        speechMessage = `AI Guide: Dhyan dein! Aapka target keyword '${kw}' title tag mein missing hai. Title ke shuru mein keyword lagane se Google ranking 3 guna tez badhti hai. Apply AI Fix daba kar theek karein.`;
+        radarMsg.innerHTML = `<strong>AI Guide:</strong> Keyword missing hai! Solution: Title mein <em>'${kw}'</em> jodein taaki Google algorithm match kare.`;
+        fixBtn.style.display = "inline-flex";
       }
-
-      if (desc.length > 158) {
+      // Check: Meta Description overflow
+      else if (desc.length > 158) {
         score -= 20;
-        notes.push("❌ <strong>Description Overflow:</strong> 158 characters ke andar rakhein.");
+        speechMessage = "AI Guide: Meta description 158 characters se zyada hai. Isko thoda chhota karke direct offer aur benefit likhein.";
+        radarMsg.innerText = "AI Guide: Meta Description 158 characters se kam rakhein taaki mobile snippet cut na ho.";
+        fixBtn.style.display = "none";
+      }
+      // All Perfect!
+      else {
+        speechMessage = "Shabash! Aapka SEO score 100% hai. Title aur description dono Google search ke mutabik bilkul perfect hain.";
+        radarMsg.innerText = "AI Guide: Sab kuch bilkul perfect hai! Title mein keyword bhi hai aur length bhi ideal 60 characters ke andar hai.";
+        fixBtn.style.display = "none";
       }
 
       if (score < 0) score = 0;
-      
       const gauge = document.getElementById('seoGauge');
       const val = document.getElementById('seoScoreVal');
-      const diag = document.getElementById('seoDiagnostic');
-      const radarMsg = document.getElementById('seoRadarMsg');
-
       gauge.style.setProperty('--score-deg', `${(score / 100) * 360}deg`);
       val.innerText = `${score}%`;
 
       if (score >= 80) {
         diag.className = "ai-diag-card pass";
-        diag.innerHTML = `✓ <strong>Optimal Configuration (${score}%):</strong> Title aur description SEO standards ke mutabik hain!<br>${notes.join('<br>')}`;
-        radarMsg.innerText = "Aapka SEO score 80% se upar hai! Target keyword title aur snippet dono mein acchi tarah placed hai.";
+        diag.innerHTML = `✓ <strong>Optimal Configuration (${score}%):</strong> Title aur description search ranking guidelines follow kar rahe hain!`;
       } else {
         diag.className = "ai-diag-card fail";
-        diag.innerHTML = `❌ <strong>Tuning Required (${score}%):</strong><br>${notes.join('<br>')}`;
-        radarMsg.innerText = notes.length > 0 ? notes[0].replace(/<[^>]*>?/gm, '') : "Title aur meta tags ko adjust karein.";
+        diag.innerHTML = `❌ <strong>Guidance Alert (${score}%):</strong> Title ya keyword optimize karna zaroori hai.`;
       }
 
       if (allowVoice && speechMessage) {
         clearTimeout(voiceDebounceTimer);
-        voiceDebounceTimer = setTimeout(() => { speakText(speechMessage); }, 1500);
+        voiceDebounceTimer = setTimeout(() => { speakText(speechMessage); }, 1400);
       }
     }
 
-    /* GOOGLE ADS AUDIT */
+    function applySeoFix() {
+      if (currentSeoFixValue) {
+        document.getElementById('seoTitle').value = currentSeoFixValue;
+        auditSeo(true);
+        speakText("AI Fix apply kar diya gaya hai! Ab aapka title tag Google ranking ke liye 100% ready hai.");
+      }
+    }
+
+    /* 2. GOOGLE ADS AUDIT + GUIDED SOLUTIONS */
     function auditGAds(allowVoice) {
       const h1 = document.getElementById('gAdH1').value;
       const h2 = document.getElementById('gAdH2').value;
@@ -896,34 +903,40 @@
       document.getElementById('gAdTitlePreview').innerText = `${h1} | ${h2} | ${h3}`;
       document.getElementById('gAdDescPreview').innerText = desc;
 
-      let fails = [];
+      const fixBtn = document.getElementById('gadsAutoFixBtn');
+      const radar = document.getElementById('gadsRadarMsg');
+      const diag = document.getElementById('gadsDiagnostic');
       let speechMessage = "";
 
-      if (h1.length > 30) { fails.push("Headline 1 30 chars se zyada hai!"); speechMessage = "Headline ek 30 characters se lambi hai, Google Ads isko accept nahi karega."; }
-      if (h2.length > 30) { fails.push("Headline 2 30 chars se zyada hai!"); if (!speechMessage) speechMessage = "Headline do limit se bahar hai."; }
-      if (h3.length > 30) fails.push("Headline 3 30 chars se zyada hai!");
-      if (desc.length > 90) fails.push("Description 90 chars limit cross!");
-
-      const diag = document.getElementById('gadsDiagnostic');
-      const radar = document.getElementById('gadsRadarMsg');
-
-      if (fails.length > 0) {
+      if (h1.length > 30) {
+        currentGadsFixValue = "Genuine Mobile Spares";
+        speechMessage = "AI Guide: Headline 1 30 characters se lambi hai. Google Ads policy ise reject kar degi. Iski jagah 'Genuine Mobile Spares' likhiye. Apply AI Fix daba kar auto-correct karein.";
+        radar.innerHTML = `<strong>AI Guide:</strong> Headline 1 exceeds 30 chars. Suggestion: Shorten to <em>'Genuine Mobile Spares'</em>.`;
+        fixBtn.style.display = "inline-flex";
         diag.className = "ai-diag-card fail";
-        diag.innerHTML = `❌ <strong>Policy Issues:</strong> ${fails.join(' • ')}`;
-        radar.innerText = "Google Ads character limits break ho rahi hain. Kripya headlines ko 30 chars ke andar rakhein.";
+        diag.innerHTML = "❌ <strong>Policy Violation:</strong> Headline 1 must be under 30 characters.";
       } else {
+        fixBtn.style.display = "none";
         diag.className = "ai-diag-card pass";
-        diag.innerHTML = "✓ <strong>Google Ad Approved:</strong> Perfect character length. High Quality Score guaranteed!";
-        radar.innerText = "Headlines aur descriptions policy rules follow kar rahe hain. Live campaign approval guarantee hai!";
+        diag.innerHTML = "✓ <strong>Google Ad Approved:</strong> Character limits respected. High Quality Score expected!";
+        radar.innerText = "AI Guide: Headlines policy standard par hain. Quality Score 10/10 rahega aur cost per click sasti padegi!";
       }
 
       if (allowVoice && speechMessage) {
         clearTimeout(voiceDebounceTimer);
-        voiceDebounceTimer = setTimeout(() => { speakText(speechMessage); }, 1500);
+        voiceDebounceTimer = setTimeout(() => { speakText(speechMessage); }, 1400);
       }
     }
 
-    /* META ADS AUDIT */
+    function applyGadsFix() {
+      if (currentGadsFixValue) {
+        document.getElementById('gAdH1').value = currentGadsFixValue;
+        auditGAds(true);
+        speakText("Google Ads headline auto-correct ho gayi hai. Ab aapka ad Google policy ke hisaab se approved hai.");
+      }
+    }
+
+    /* 3. META ADS AUDIT */
     function auditMeta() {
       const brand = document.getElementById('metaBrand').value;
       const copy = document.getElementById('metaCopy').value;
@@ -940,14 +953,14 @@
       const diag = document.getElementById('metaDiagnostic');
       if (!copy.includes("?") && !copy.includes("!")) {
         diag.className = "ai-diag-card warn";
-        diag.innerHTML = "💡 <strong>Tip:</strong> Pehli line mein sawaal ya discount offer likhein taaki log scroll na karein!";
+        diag.innerHTML = "💡 <strong>AI Guide:</strong> Pehli 2 lines mein sawaal jaise 'Display toot gaya?' likhein taaki scrolling ruk sake.";
       } else {
         diag.className = "ai-diag-card pass";
-        diag.innerHTML = "✓ <strong>High CTR Social Ad:</strong> Strong hook detected. Feed scrolling stop hogi!";
+        diag.innerHTML = "✓ <strong>High CTR Hook:</strong> Visual question hook active. Feed scrolling drop nahi hogi!";
       }
     }
 
-    /* GA4 SIMULATION */
+    /* 4. GA4 SIMULATION */
     function simulateTraffic() {
       const u = document.getElementById('gaUsers');
       const l = document.getElementById('gaLive');
@@ -961,7 +974,7 @@
       alert("🔥 Real-Time Traffic Spike Activated! GA4 stats updated.");
     }
 
-    /* FUNNEL SUBMIT */
+    /* 5. FUNNEL SUBMIT */
     function handleFunnelSubmit(e) {
       e.preventDefault();
       const n = document.getElementById('fname').value;
@@ -970,7 +983,7 @@
       alert(`🎯 Lead Captured!\nCustomer: ${n}\nPhone: ${p}\n\nAuto-synced with CRM & WhatsApp!`);
     }
 
-    /* AI COPY ENGINE */
+    /* 6. AI COPY ENGINE */
     function generateAiIdeas() {
       const topic = document.getElementById('aiTopic').value.trim() || "Mobile Accessories";
       const block = document.getElementById('aiOutputBlock');

@@ -1,1174 +1,1269 @@
 <!DOCTYPE html>
-<html lang="hi">
+<html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>MarketingOS • Smart Digital Marketing AI Tutor</title>
-  
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800;900&family=Space+Grotesk:wght@600;700&family=Roboto:wght@400;500&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-  <style>
-    :root {
-      --bg: #070913;
-      --card-bg: rgba(15, 23, 42, 0.85);
-      --card-border: rgba(99, 102, 241, 0.28);
-      --primary: #6366f1;
-      --neon-cyan: #06b6d4;
-      --neon-pink: #ec4899;
-      --neon-green: #10b981;
-      --neon-yellow: #f59e0b;
-      --text: #f8fafc;
-      --text-muted: #94a3b8;
-    }
+<!-- Favicon / Tab Icon -->
+<link rel="icon" type="image/png" href="logo-round.png">
 
-    * { box-sizing: border-box; margin: 0; padding: 0; }
-    
-    body {
-      font-family: 'Plus Jakarta Sans', sans-serif;
-      background: var(--bg);
-      background-image: 
-        radial-gradient(circle at 10% 10%, rgba(99, 102, 241, 0.25) 0%, transparent 45%),
-        radial-gradient(circle at 90% 90%, rgba(6, 182, 212, 0.22) 0%, transparent 45%),
-        radial-gradient(circle at 50% 50%, rgba(236, 72, 153, 0.12) 0%, transparent 55%);
-      color: var(--text);
-      min-height: 100vh;
-      display: flex;
-      flex-direction: column;
-      overflow-x: hidden;
-    }
+<!-- Google Search Console Verification Tag -->
+<meta name="google-site-verification" content="pn8NlxhnNmA7MWMiKl4MgHbrowkxq2Dj4rIyye3RRxk" />
 
-    header {
-      background: rgba(7, 9, 19, 0.9);
-      backdrop-filter: blur(16px);
-      border-bottom: 1px solid rgba(255, 255, 255, 0.08);
-      position: sticky;
-      top: 0;
-      z-index: 100;
-    }
+<!-- Core SEO Meta Tags -->
+<title>4 STAR MOBILE | Mobile Accessories & Spare Parts in Kishanganj (5.0 ★)</title>
+<meta name="description" content="4 STAR MOBILE Kishanganj - 20+ Years Trusted mobile accessories & genuine spare parts store. 5.0 Star rated shop for displays, chargers, batteries & earbuds.">
 
-    .top-header {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      padding: 12px 18px;
-      max-width: 1240px;
-      margin: 0 auto;
-    }
+<!-- Open Graph Meta Tags for WhatsApp, Facebook & Google Snippet -->
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="4 STAR MOBILE">
+<meta property="og:title" content="4 STAR MOBILE | 20+ Years Trusted Hub in Kishanganj (5.0 ★)">
+<meta property="og:description" content="Genuine Mobile Accessories & Spare Parts Hub in Kishanganj. Displays, Fast Chargers, Batteries & Covers.">
+<meta property="og:url" content="https://dsckishanganj.github.io/4starmobile/">
+<meta property="og:image" content="https://dsckishanganj.github.io/4starmobile/logo.png">
+<meta property="og:image:secure_url" content="https://dsckishanganj.github.io/4starmobile/logo.png">
+<meta property="og:image:type" content="image/png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="4 STAR MOBILE Official Logo">
 
-    .brand {
-      display: flex;
-      align-items: center;
-      gap: 10px;
-      font-family: 'Space Grotesk', sans-serif;
-      font-size: 1.25rem;
-      font-weight: 800;
-      background: linear-gradient(135deg, #38bdf8, #818cf8, #f472b6);
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
-    }
+<!-- Twitter Card Meta Tags -->
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="4 STAR MOBILE | Kishanganj">
+<meta name="twitter:description" content="20+ Years Trusted Mobile Accessories & Spare Parts Hub in Kishanganj.">
+<meta name="twitter:image" content="https://dsckishanganj.github.io/4starmobile/logo.png">
 
-    .voice-control-btn {
-      background: linear-gradient(135deg, rgba(99, 102, 241, 0.25), rgba(6, 182, 212, 0.25));
-      border: 1px solid #38bdf8;
-      color: #38bdf8;
-      padding: 7px 16px;
-      border-radius: 30px;
-      font-size: 12px;
-      font-weight: 700;
-      cursor: pointer;
-      display: inline-flex;
-      align-items: center;
-      gap: 8px;
-      box-shadow: 0 0 15px rgba(56, 189, 248, 0.35);
-      transition: all 0.25s;
-    }
-    .voice-control-btn.muted {
-      border-color: #64748b;
-      color: #94a3b8;
-      box-shadow: none;
-    }
+<!-- Targeted SEO Keywords -->
+<meta name="keywords" content="4 star mobile, 4 star mobile kishanganj, mobile accessories kishanganj, mobile shop in kishanganj, best mobile shop kishanganj, mobile spare parts kishanganj, mobile display combo kishanganj, lcd display replacement kishanganj, touch screen folder kishanganj, mobile battery original kishanganj, mobile charger shop kishanganj, fast charger type c kishanganj, tempered glass 11d kishanganj, back cover mobile kishanganj, designer phone cases kishanganj, bluetooth earbuds kishanganj, wireless neckband kishanganj, power bank shop kishanganj, data cable type c kishanganj, iphone accessories kishanganj, samsung mobile spare parts kishanganj, vivo spare parts kishanganj, oppo spare parts kishanganj, realme spare parts kishanganj, redmi mi spare parts kishanganj, mobile repairing parts kishanganj, charging jack connector kishanganj, mobile camera lens glass kishanganj, mobile speaker mic kishanganj, mahavir marg mobile shop, fal chowk mobile accessories, ghas patti masjid mobile store, gandhi chowk mobile shop kishanganj, wholesale mobile accessories kishanganj, retail mobile accessories bihar, mobile accessories hub seemanchal, airpods earbuds shop kishanganj, boat neckband chargers kishanganj, otg adapter connector kishanganj, mobile stand holder kishanganj, aux cable audio jack kishanganj, sim tray pin kishanganj, gorilla glass screen protector, matte tempered glass kishanganj, original phone accessories store, mobile tools and spares kishanganj, mobile body housing panel kishanganj, uv tempered glass kishanganj, wireless car charger kishanganj, smartwatch straps accessories kishanganj">
 
-    .lab-banner {
-      background: linear-gradient(135deg, rgba(20, 27, 60, 0.88), rgba(12, 17, 34, 0.88));
-      border: 1px solid rgba(99, 102, 241, 0.35);
-      border-radius: 20px;
-      padding: 22px;
-      margin-bottom: 22px;
-      box-shadow: 0 10px 30px rgba(0,0,0,0.4), inset 0 0 20px rgba(99, 102, 241, 0.15);
-    }
+<meta name="robots" content="index, follow">
+<meta name="author" content="4 STAR MOBILE">
+<meta name="geo.region" content="IN-BR">
+<meta name="geo.placename" content="Kishanganj">
+<meta name="geo.position" content="26.095;87.947">
+<meta name="ICBM" content="26.095, 87.947">
 
-    .banner-text h2 {
-      font-size: 1.5rem;
-      font-weight: 800;
-      background: linear-gradient(135deg, #ffffff, #93c5fd);
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
-      margin-bottom: 6px;
-    }
-    .banner-text p { font-size: 13px; color: #cbd5e1; max-width: 720px; line-height: 1.5; }
+<link rel="stylesheet" href="style.css">
 
-    .challenge-pills { display: flex; gap: 10px; flex-wrap: wrap; margin-top: 14px; }
-    .preset-pill {
-      background: rgba(255, 255, 255, 0.06);
-      border: 1px solid rgba(255, 255, 255, 0.15);
-      color: #f1f5f9;
-      padding: 7px 15px;
-      border-radius: 25px;
-      font-size: 12px;
-      font-weight: 700;
-      cursor: pointer;
-      display: inline-flex;
-      align-items: center;
-      gap: 6px;
-      transition: all 0.25s;
-    }
-    .preset-pill:hover {
-      background: linear-gradient(135deg, #6366f1, #06b6d4);
-      border-color: #38bdf8;
-      box-shadow: 0 0 18px rgba(56, 189, 248, 0.6);
-      transform: translateY(-2px);
-    }
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
 
-    .tabs-strip-container {
-      background: rgba(15, 23, 42, 0.75);
-      border-bottom: 1px solid rgba(255, 255, 255, 0.08);
-      padding: 10px 16px;
-    }
-    .tabs-strip { display: flex; gap: 10px; max-width: 1240px; margin: 0 auto; overflow-x: auto; scrollbar-width: none; }
-    .tabs-strip::-webkit-scrollbar { display: none; }
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
 
-    .tab-item {
-      background: rgba(255, 255, 255, 0.04);
-      border: 1px solid rgba(255, 255, 255, 0.1);
-      color: #94a3b8;
-      padding: 10px 18px;
-      border-radius: 14px;
-      font-size: 13px;
-      font-weight: 700;
-      cursor: pointer;
-      display: flex;
-      align-items: center;
-      gap: 8px;
-      white-space: nowrap;
-      transition: all 0.25s;
+<!-- Google Schema SEO (JSON-LD) Dedicated for logo.png Thumbnail -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "WebSite",
+      "@id": "https://dsckishanganj.github.io/4starmobile/#website",
+      "url": "https://dsckishanganj.github.io/4starmobile/",
+      "name": "4 STAR MOBILE",
+      "publisher": {
+        "@id": "https://dsckishanganj.github.io/4starmobile/#store"
+      }
+    },
+    {
+      "@type": "MobilePhoneStore",
+      "@id": "https://dsckishanganj.github.io/4starmobile/#store",
+      "name": "4 STAR MOBILE",
+      "url": "https://dsckishanganj.github.io/4starmobile/",
+      "logo": {
+        "@type": "ImageObject",
+        "@id": "https://dsckishanganj.github.io/4starmobile/#logo",
+        "url": "https://dsckishanganj.github.io/4starmobile/logo.png",
+        "contentUrl": "https://dsckishanganj.github.io/4starmobile/logo.png",
+        "caption": "4 STAR MOBILE Official Logo"
+      },
+      "image": [
+        "https://dsckishanganj.github.io/4starmobile/logo.png"
+      ],
+      "telephone": "+91-9473371370",
+      "email": "4starmobile786@gmail.com",
+      "priceRange": "₹₹",
+      "hasMap": "https://maps.app.goo.gl/3uQMuZLJXKo3T6PT7",
+      "keywords": "4 star mobile, mobile accessories kishanganj, mobile spare parts kishanganj, LCD display kishanganj, mobile battery kishanganj, fast charger, tempered glass, phone covers, earbuds kishanganj",
+      "address": {
+        "@type": "PostalAddress",
+        "streetAddress": "Ground Floor, Mahavir Marg, near CONGRESS OFFICE",
+        "addressLocality": "Kishanganj",
+        "addressRegion": "Bihar",
+        "postalCode": "855107",
+        "addressCountry": "IN"
+      },
+      "geo": {
+        "@type": "GeoCoordinates",
+        "latitude": 26.095,
+        "longitude": 87.947
+      },
+      "openingHoursSpecification": {
+        "@type": "OpeningHoursSpecification",
+        "dayOfWeek": ["Monday","Tuesday","Wednesday","Thursday","Friday","Saturday","Sunday"],
+        "opens": "10:00",
+        "closes": "21:00"
+      },
+      "aggregateRating": {
+        "@type": "AggregateRating",
+        "ratingValue": "5.0",
+        "bestRating": "5",
+        "worstRating": "1",
+        "reviewCount": "22"
+      },
+      "department": [
+        {
+          "@type": "MobilePhoneStore",
+          "name": "4 Star Mobile - Main Branch",
+          "address": {
+            "@type": "PostalAddress",
+            "streetAddress": "Ground Floor, Mahavir Marg, Near Congress Office",
+            "addressLocality": "Kishanganj",
+            "addressRegion": "Bihar",
+            "postalCode": "855107",
+            "addressCountry": "IN"
+          },
+          "telephone": "+91-9473185145"
+        },
+        {
+          "@type": "MobilePhoneStore",
+          "name": "4 Star Mobile - Branch 2",
+          "address": {
+            "@type": "PostalAddress",
+            "streetAddress": "Fal Chowk, Ghas Patti Masjid",
+            "addressLocality": "Kishanganj",
+            "addressRegion": "Bihar",
+            "postalCode": "855107",
+            "addressCountry": "IN"
+          },
+          "telephone": "+91-9308865738"
+        },
+        {
+          "@type": "MobilePhoneStore",
+          "name": "4 Star Mobile - Branch 3",
+          "address": {
+            "@type": "PostalAddress",
+            "streetAddress": "Gandhi Chowk, Opposite Goyal Drugs House, Kishanganj Bazar",
+            "addressLocality": "Kishanganj",
+            "addressRegion": "Bihar",
+            "postalCode": "855107",
+            "addressCountry": "IN"
+          },
+          "telephone": "+91-9473371371"
+        }
+      ]
     }
-    .tab-item.active {
-      background: linear-gradient(135deg, #6366f1, #3b82f6);
-      color: #fff;
-      border-color: #818cf8;
-      box-shadow: 0 0 20px rgba(99, 102, 241, 0.55);
-      transform: translateY(-1px);
-    }
+  ]
+}
+</script>
 
-    main {
-      flex: 1;
-      max-width: 1240px;
-      width: 100%;
-      margin: 0 auto;
-      padding: 22px 14px 60px 14px;
-    }
+<style>
+/* Global Overflow & Box-Sizing Fix */
+*, *::before, *::after {
+  box-sizing: border-box;
+}
 
-    .tab-pane { display: none; animation: tabFadeIn 0.3s ease; }
-    .tab-pane.active { display: block; }
-    @keyframes tabFadeIn { from { opacity: 0; transform: translateY(6px); } to { opacity: 1; transform: translateY(0); } }
+html, body {
+  width: 100%;
+  max-width: 100%;
+  margin: 0;
+  padding: 0;
+  overflow-x: hidden;
+  background-color: #0b1120;
+}
 
-    .studio-grid { display: grid; grid-template-columns: 1.1fr 0.9fr; gap: 22px; }
-    @media (max-width: 900px) { .studio-grid { grid-template-columns: 1fr; } }
+/* Breaking News Ticker Bar */
+.news-ticker-bar {
+  background: #0f172a;
+  color: #fff;
+  display: flex;
+  align-items: center;
+  overflow: hidden;
+  font-size: 13px;
+  font-weight: 500;
+  border-bottom: 2px solid #ef4444;
+  width: 100%;
+}
+.ticker-badge {
+  background: #ef4444;
+  color: #fff;
+  padding: 8px 14px;
+  font-weight: 700;
+  white-space: nowrap;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  z-index: 2;
+  font-size: 12px;
+  letter-spacing: 0.5px;
+}
+.ticker-content {
+  white-space: nowrap;
+  overflow: hidden;
+  box-sizing: border-box;
+  width: 100%;
+}
+.ticker-text {
+  display: inline-block;
+  padding-left: 100%;
+  animation: tickerScroll 25s linear infinite;
+}
+.ticker-text:hover {
+  animation-play-state: paused;
+}
+.ticker-text a {
+  color: #f8fafc;
+  text-decoration: none;
+  margin-right: 40px;
+}
+.ticker-text a:hover {
+  color: #38bdf8;
+  text-decoration: underline;
+}
+@keyframes tickerScroll {
+  0% { transform: translate3d(0, 0, 0); }
+  100% { transform: translate3d(-100%, 0, 0); }
+}
 
-    .glass-panel {
-      background: var(--card-bg);
-      backdrop-filter: blur(16px);
-      border: 1px solid var(--card-border);
-      border-radius: 20px;
-      padding: 22px;
-      box-shadow: 0 12px 30px rgba(0,0,0,0.35);
-    }
+/* Clean Header Style */
+.header {
+  width: 100%;
+  background-color: #0b1120;
+  padding: 15px 10px;
+  text-align: center;
+}
 
-    .glass-panel-title {
-      font-size: 1.1rem;
-      font-weight: 800;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      margin-bottom: 18px;
-      padding-bottom: 12px;
-      border-bottom: 1px solid rgba(255, 255, 255, 0.08);
-      color: #fff;
-    }
+.header-logo-wrap {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  margin-bottom: 12px;
+}
+.header-logo-img {
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  object-fit: cover;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.15);
+}
 
-    .ai-radar-card {
-      background: linear-gradient(135deg, rgba(26, 19, 58, 0.95), rgba(15, 27, 54, 0.95));
-      border: 1.5px solid #a855f7;
-      border-radius: 18px;
-      padding: 16px 20px;
-      margin-bottom: 22px;
-      display: flex;
-      gap: 16px;
-      align-items: flex-start;
-      box-shadow: 0 0 25px rgba(168, 85, 247, 0.3);
-    }
+/* Nav Menu: Original Clean Look + Desktop Cut Prevention */
+nav {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  gap: 12px 18px;
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 6px 10px;
+}
 
-    .speaking-pulse {
-      width: 58px;
-      height: 58px;
-      border-radius: 50%;
-      background: conic-gradient(#10b981 var(--score-deg, 270deg), rgba(255,255,255,0.1) 0deg);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      flex-shrink: 0;
-      box-shadow: 0 0 16px rgba(16, 185, 129, 0.4);
-      cursor: pointer;
-    }
-    .speaking-inner {
-      width: 44px;
-      height: 44px;
-      background: #0f172a;
-      border-radius: 50%;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-weight: 800;
-      font-size: 14px;
-      color: #fff;
-    }
+nav a {
+  color: #ffffff;
+  text-decoration: none;
+  font-size: 14px;
+  font-weight: 500;
+  white-space: nowrap;
+  transition: color 0.2s ease;
+}
 
-    .ai-radar-info h4 {
-      font-size: 15px;
-      font-weight: 800;
-      color: #c084fc;
-      display: flex;
-      align-items: center;
-      gap: 8px;
-      margin-bottom: 4px;
-    }
-    .ai-radar-info p { font-size: 13px; color: #e2e8f0; line-height: 1.5; }
+nav a:hover {
+  color: #38bdf8;
+}
 
-    .ai-action-row {
-      display: flex;
-      gap: 10px;
-      align-items: center;
-      margin-top: 10px;
-      flex-wrap: wrap;
-    }
+/* ================= MODERN DYNAMIC HERO SECTION ================= */
+.hero-phone-bg {
+  position: relative;
+  background-color: #0b1120;
+  background-size: cover !important;
+  background-position: center center !important;
+  background-repeat: no-repeat !important;
+  color: #fff;
+  padding: 55px 15px 75px 15px;
+  text-align: center;
+  transition: background-image 1.2s ease-in-out;
+  overflow: hidden;
+  width: 100%;
+}
 
-    .speak-now-btn {
-      background: #8b5cf6;
-      color: white;
-      border: none;
-      padding: 6px 14px;
-      border-radius: 15px;
-      font-size: 12px;
-      font-weight: 700;
-      cursor: pointer;
-      display: inline-flex;
-      align-items: center;
-      gap: 6px;
-      transition: all 0.2s;
-    }
-    .speak-now-btn:hover { background: #7c3aed; transform: scale(1.03); }
+.hero-phone-bg::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(180deg, rgba(11, 17, 32, 0.88) 0%, rgba(15, 23, 42, 0.75) 50%, rgba(11, 17, 32, 0.92) 100%);
+  z-index: 1;
+}
 
-    .autofix-btn {
-      background: linear-gradient(135deg, #10b981, #059669);
-      color: white;
-      border: none;
-      padding: 6px 14px;
-      border-radius: 15px;
-      font-size: 12px;
-      font-weight: 800;
-      cursor: pointer;
-      display: inline-flex;
-      align-items: center;
-      gap: 6px;
-      box-shadow: 0 0 12px rgba(16, 185, 129, 0.4);
-      transition: all 0.25s;
-    }
+.hero-content {
+  position: relative;
+  z-index: 2;
+  max-width: 900px;
+  margin: 0 auto;
+  width: 100%;
+}
 
-    .input-block { margin-bottom: 16px; }
-    .input-block label { display: flex; justify-content: space-between; font-size: 13px; font-weight: 700; color: #cbd5e1; margin-bottom: 6px; }
-    .input-block input, .input-block textarea, .input-block select {
-      width: 100%;
-      background: rgba(3, 7, 18, 0.7);
-      border: 1.5px solid rgba(255, 255, 255, 0.12);
-      border-radius: 12px;
-      padding: 11px 15px;
-      color: #fff;
-      font-size: 14px;
-      font-family: inherit;
-      outline: none;
-      transition: all 0.25s;
-    }
-    .input-block input:focus, .input-block textarea:focus, .input-block select:focus {
-      border-color: #38bdf8;
-      box-shadow: 0 0 15px rgba(56, 189, 248, 0.35);
-      background: rgba(15, 23, 42, 0.85);
-    }
+/* Branch Quick Switcher Chips */
+.branch-pill-bar {
+  display: flex;
+  justify-content: center;
+  gap: 8px;
+  flex-wrap: wrap;
+  margin-bottom: 18px;
+}
+.branch-pill {
+  background: rgba(255, 255, 255, 0.12);
+  backdrop-filter: blur(8px);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  color: #f1f5f9;
+  font-size: 11px;
+  font-weight: 600;
+  padding: 5px 12px;
+  border-radius: 20px;
+  text-decoration: none;
+  transition: all 0.2s ease;
+}
+.branch-pill:hover {
+  background: #0066cc;
+  border-color: #0066cc;
+  color: #fff;
+}
 
-    .preview-canvas {
-      background: #f8fafc;
-      border-radius: 16px;
-      padding: 18px;
-      color: #0f172a;
-      box-shadow: 0 8px 25px rgba(0,0,0,0.3);
-    }
-    .google-snippet { font-family: 'Roboto', Arial, sans-serif; }
-    .gs-head { display: flex; align-items: center; gap: 8px; font-size: 13px; color: #202124; margin-bottom: 4px; }
-    .gs-fav { width: 22px; height: 22px; border-radius: 50%; background: #e8f0fe; display: flex; align-items: center; justify-content: center; color: #1a73e8; font-size: 11px; }
-    .gs-title { font-size: 18px; color: #1a0dab; text-decoration: none; font-weight: 400; line-height: 1.35; margin: 4px 0 6px 0; display: block; cursor: pointer; }
-    .gs-desc { font-size: 13px; color: #4d5156; line-height: 1.45; }
+/* Dynamic Live Animated Text */
+#dynamicHeroTitle {
+  color: #fff;
+  font-size: 2.2rem;
+  font-weight: 800;
+  min-height: 55px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: opacity 0.4s ease;
+}
+#dynamicHeroDesc {
+  color: #cbd5e1;
+  max-width: 680px;
+  margin: 10px auto 20px auto;
+  font-size: 1rem;
+  line-height: 1.5;
+  min-height: 48px;
+  transition: opacity 0.4s ease;
+}
 
-    .meta-box { background: #ffffff; border-radius: 14px; overflow: hidden; border: 1px solid #e4e6eb; font-family: system-ui, sans-serif; }
-    .meta-head { display: flex; align-items: center; padding: 12px 14px; gap: 10px; }
-    .meta-avatar { width: 42px; height: 42px; border-radius: 50%; background: linear-gradient(135deg, #3b82f6, #06b6d4); color: white; display: flex; align-items: center; justify-content: center; font-weight: 800; }
-    .meta-author h5 { font-size: 14px; margin: 0; font-weight: 700; color: #050505; }
-    .meta-author span { font-size: 12px; color: #65676b; }
-    .meta-body-text { padding: 0 14px 12px 14px; font-size: 13px; line-height: 1.45; color: #050505; white-space: pre-wrap; }
-    .meta-media-img { width: 100%; height: 220px; object-fit: cover; display: block; background: #e2e8f0; }
-    .meta-bottom-bar { background: #f0f2f5; padding: 10px 14px; display: flex; justify-content: space-between; align-items: center; }
-    .meta-cta-btn { background: #0866ff; color: white; padding: 8px 16px; border-radius: 8px; border: none; font-size: 13px; font-weight: 700; cursor: pointer; }
+/* Model Search Box in Hero */
+.parts-search-container {
+  max-width: 520px;
+  width: 100%;
+  margin: 0 auto 22px auto;
+  display: flex;
+  box-shadow: 0 8px 24px rgba(0,0,0,0.3);
+  border-radius: 30px;
+  overflow: hidden;
+  border: 2px solid rgba(255,255,255,0.25);
+  background: #fff;
+}
+.parts-search-container input {
+  flex: 1;
+  min-width: 0;
+  border: none;
+  outline: none;
+  padding: 12px 18px;
+  font-size: 14px;
+}
+.parts-search-container button {
+  background: #25D366;
+  color: #fff;
+  border: none;
+  padding: 0 18px;
+  font-size: 14px;
+  font-weight: 700;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  white-space: nowrap;
+  transition: background 0.2s ease;
+}
+.parts-search-container button:hover {
+  background: #1eb855;
+}
 
-    .ai-diag-card {
-      margin-top: 16px;
-      padding: 14px;
-      border-radius: 12px;
-      font-size: 13px;
-      line-height: 1.5;
-      border-left: 5px solid;
-    }
-    .ai-diag-card.pass { background: rgba(16, 185, 129, 0.12); border-color: var(--neon-green); color: #34d399; }
-    .ai-diag-card.warn { background: rgba(245, 158, 11, 0.12); border-color: var(--neon-yellow); color: #fbbf24; }
-    .ai-diag-card.fail { background: rgba(239, 68, 68, 0.12); border-color: #ef4444; color: #f87171; }
+/* Hero Action Buttons */
+.hero-buttons {
+  display: flex;
+  justify-content: center;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+.hero-buttons .btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 12px 22px;
+  border-radius: 25px;
+  text-decoration: none;
+  font-weight: 700;
+  font-size: 14px;
+}
+.hero-buttons .btn.call {
+  background: #f59e0b;
+  color: #fff;
+}
+.hero-buttons .btn.whatsapp {
+  background: #25D366;
+  color: #fff;
+}
 
-    .glow-btn {
-      background: linear-gradient(135deg, #6366f1, #06b6d4);
-      color: white;
-      border: none;
-      padding: 11px 22px;
-      border-radius: 12px;
-      font-size: 14px;
-      font-weight: 700;
-      cursor: pointer;
-      display: inline-flex;
-      align-items: center;
-      gap: 8px;
-      box-shadow: 0 0 20px rgba(99, 102, 241, 0.45);
-      transition: all 0.25s;
-    }
-    .glow-btn:hover { transform: translateY(-2px); box-shadow: 0 0 28px rgba(6, 182, 212, 0.6); }
+/* Quick Action Highlights */
+.quick-action-strip {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 15px;
+  max-width: 1100px;
+  margin: -30px auto 30px auto;
+  padding: 0 15px;
+  position: relative;
+  z-index: 10;
+  width: 100%;
+}
+.action-box {
+  background: #ffffff;
+  padding: 16px 20px;
+  border-radius: 10px;
+  box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  text-decoration: none;
+  color: inherit;
+  border-left: 4px solid #0066cc;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+.action-box:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 8px 20px rgba(0,0,0,0.15);
+}
+.action-box.red-border { border-left-color: #ef4444; }
+.action-box.green-border { border-left-color: #10b981; }
+.action-icon {
+  font-size: 28px;
+}
+.action-title {
+  font-weight: 700;
+  font-size: 15px;
+  color: #0f172a;
+}
+.action-desc {
+  font-size: 12px;
+  color: #64748b;
+  margin-top: 2px;
+}
 
-    /* ================= AI CHATBOT WIDGET ================= */
-    .chat-bubble-btn {
-      position: fixed;
-      bottom: 25px;
-      right: 25px;
-      width: 62px;
-      height: 62px;
-      border-radius: 50%;
-      background: linear-gradient(135deg, #2563eb, #a855f7);
-      color: white;
-      border: 2px solid #38bdf8;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-size: 26px;
-      box-shadow: 0 8px 30px rgba(37, 99, 235, 0.6);
-      cursor: pointer;
-      z-index: 9999;
-      transition: all 0.3s;
-    }
-    .chat-bubble-btn:hover { transform: scale(1.1); }
+/* Product image card styles */
+.product-card-img {
+  width: 100%;
+  height: 180px;
+  object-fit: cover;
+  border-radius: 8px 8px 0 0;
+  display: block;
+}
+.card {
+  overflow: hidden;
+  border-radius: 10px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+  background: #fff;
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+  cursor: pointer;
+  position: relative;
+}
+.card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 20px rgba(0,0,0,0.12);
+}
+.card-content {
+  padding: 15px;
+}
 
-    .chat-widget-box {
-      display: none;
-      position: fixed;
-      bottom: 95px;
-      right: 25px;
-      width: 380px;
-      max-width: calc(100vw - 32px);
-      height: 520px;
-      background: #0b1120;
-      border: 1.5px solid #38bdf8;
-      border-radius: 20px;
-      box-shadow: 0 20px 45px rgba(0,0,0,0.8), 0 0 25px rgba(56, 189, 248, 0.3);
-      z-index: 9999;
-      flex-direction: column;
-      overflow: hidden;
-      animation: chatFade 0.25s ease;
-    }
-    @keyframes chatFade { from { opacity: 0; transform: translateY(15px); } to { opacity: 1; transform: translateY(0); } }
+.view-folder-btn {
+  display: inline-block;
+  margin-top: 10px;
+  color: #0066cc;
+  font-weight: 600;
+  font-size: 14px;
+}
 
-    .chat-header {
-      background: linear-gradient(135deg, #1e1b4b, #0f172a);
-      padding: 12px 16px;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      border-bottom: 1px solid rgba(255, 255, 255, 0.1);
-    }
-    .chat-header h4 { font-size: 14px; font-weight: 800; color: #38bdf8; display: flex; align-items: center; gap: 8px; }
-    
-    .chat-messages {
-      flex: 1;
-      padding: 16px;
-      overflow-y: auto;
-      display: flex;
-      flex-direction: column;
-      gap: 12px;
-      font-size: 13px;
-    }
-    .chat-msg {
-      max-width: 90%;
-      padding: 12px 14px;
-      border-radius: 14px;
-      line-height: 1.5;
-    }
-    .chat-msg.bot {
-      background: #1e293b;
-      color: #e2e8f0;
-      align-self: flex-start;
-      border: 1px solid rgba(255, 255, 255, 0.08);
-      border-bottom-left-radius: 4px;
-    }
-    .chat-msg.user {
-      background: linear-gradient(135deg, #2563eb, #1d4ed8);
-      color: white;
-      align-self: flex-end;
-      border-bottom-right-radius: 4px;
-    }
+.whatsapp-order-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  width: 100%;
+  background: #25D366;
+  color: white;
+  padding: 10px 0;
+  border-radius: 6px;
+  text-decoration: none;
+  font-weight: 600;
+  font-size: 0.95rem;
+  margin-top: 10px;
+}
 
-    .chat-quick-tags {
-      padding: 8px 12px;
-      display: flex;
-      gap: 6px;
-      overflow-x: auto;
-      background: #070d18;
-      border-top: 1px solid rgba(255, 255, 255, 0.05);
-      scrollbar-width: none;
-    }
-    .chat-tag-pill {
-      background: rgba(56, 189, 248, 0.15);
-      border: 1px solid rgba(56, 189, 248, 0.4);
-      color: #7dd3fc;
-      font-size: 11px;
-      padding: 5px 11px;
-      border-radius: 15px;
-      cursor: pointer;
-      white-space: nowrap;
-    }
+/* Category Modal / Popup View */
+.modal-overlay {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0,0,0,0.7);
+  z-index: 99999;
+  overflow-y: auto;
+  padding: 20px 10px;
+}
+.modal-content {
+  background: #fff;
+  max-width: 900px;
+  margin: 30px auto;
+  border-radius: 12px;
+  padding: 20px;
+  position: relative;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+}
+.modal-close-btn {
+  position: absolute;
+  top: 15px;
+  right: 15px;
+  background: #f1f5f9;
+  border: none;
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  font-size: 18px;
+  font-weight: bold;
+  cursor: pointer;
+}
+.folder-header {
+  border-bottom: 2px solid #edf2f7;
+  padding-bottom: 12px;
+  margin-bottom: 20px;
+}
 
-    .chat-input-bar {
-      padding: 12px;
-      background: #0f172a;
-      border-top: 1px solid rgba(255, 255, 255, 0.1);
-      display: flex;
-      gap: 8px;
-    }
-    .chat-input-bar input {
-      flex: 1;
-      background: #1e293b;
-      border: 1px solid rgba(255, 255, 255, 0.15);
-      border-radius: 20px;
-      padding: 9px 15px;
-      color: white;
-      font-size: 13px;
-      outline: none;
-    }
-    .chat-send-btn {
-      background: #2563eb;
-      color: white;
-      border: none;
-      width: 38px;
-      height: 38px;
-      border-radius: 50%;
-      cursor: pointer;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-    }
-
-    footer {
-      border-top: 1px solid rgba(255, 255, 255, 0.08);
-      text-align: center;
-      padding: 18px;
-      font-size: 13px;
-      color: var(--text-muted);
-      background: rgba(7, 9, 19, 0.95);
-    }
-  </style>
+/* Protected Admin Section Styling */
+#admin-panel {
+  display: none;
+  background: #f1f5f9;
+  padding: 40px 15px;
+  border-top: 2px dashed #0066cc;
+}
+.admin-section {
+  max-width: 650px;
+  margin: 0 auto;
+  background: #ffffff;
+  padding: 25px;
+  border-radius: 12px;
+  box-shadow: 0 4px 15px rgba(0,0,0,0.08);
+  border: 1px solid #e2e8f0;
+}
+.admin-section input, .admin-section select {
+  width: 100%;
+  padding: 11px;
+  margin: 8px 0;
+  border: 1px solid #cbd5e1;
+  border-radius: 6px;
+  font-size: 15px;
+}
+.admin-btn {
+  width: 100%;
+  background: #0066cc;
+  color: white;
+  padding: 12px;
+  border: none;
+  border-radius: 6px;
+  font-weight: bold;
+  font-size: 16px;
+  cursor: pointer;
+  margin-top: 10px;
+}
+.admin-manage-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px 0;
+  border-bottom: 1px solid #f1f5f9;
+}
+.del-btn {
+  background: #dc3545;
+  color: white;
+  border: none;
+  padding: 5px 12px;
+  border-radius: 4px;
+  cursor: pointer;
+}
+.logout-btn {
+  background: #64748b;
+  color: white;
+  border: none;
+  padding: 6px 14px;
+  border-radius: 4px;
+  font-size: 13px;
+  cursor: pointer;
+  float: right;
+}
+</style>
 </head>
+
 <body>
 
-  <header>
-    <div class="top-header">
-      <div class="brand">
-        <i class="fa-solid fa-bolt-lightning" style="color: #38bdf8;"></i> MarketingOS
-        <span style="font-size: 11px; color: #38bdf8; border: 1px solid #38bdf8; padding: 2px 8px; border-radius: 20px; font-weight: 700;">AI SMART TUTOR</span>
-      </div>
-      <div style="display: flex; gap: 10px; align-items: center;">
-        <button id="voiceToggleBtn" class="voice-control-btn" onclick="toggleVoiceMute()">
-          <i class="fa-solid fa-volume-high"></i> AI Voice: ON
-        </button>
-        <button class="glow-btn" style="padding: 6px 14px; font-size: 12px;" onclick="location.reload()">
-          <i class="fa-solid fa-arrows-rotate"></i> Reset
-        </button>
-      </div>
+<!-- 🔴 LIVE BREAKING NEWS TICKER -->
+<div class="news-ticker-bar">
+  <div class="ticker-badge">🔴 BREAKING NEWS</div>
+  <div class="ticker-content">
+    <div class="ticker-text">
+      <a href="news.html">⚡ <strong>Live Updates:</strong> Naye 5G Smartphones, Fast Chargers aur Technology ki taaza khabrein padhne ke liye click karein! →</a>
+      <a href="course.html">🎓 <strong>Free Video Classes:</strong> Ghar baithe Mobile Hardware & Repairing Course seekhein bilkul muft! Yahan dekhein →</a>
+      <a href="services/mobile-repair-spare-parts.html">🔧 <strong>Testing Counter:</strong> Dukan par display aur battery fit hone se pehle live check karne ki suvidha uplabdh hai! →</a>
     </div>
+  </div>
+</div>
 
-    <div class="tabs-strip-container">
-      <div class="tabs-strip">
-        <button class="tab-item active" onclick="activateTab('seo')">
-          <i class="fa-solid fa-magnifying-glass-chart" style="color: #38bdf8;"></i> 1. SEO Studio & Voice Guide
-        </button>
-        <button class="tab-item" onclick="activateTab('gads')">
-          <i class="fa-brands fa-google" style="color: #f87171;"></i> 2. Google Search Ads
-        </button>
-        <button class="tab-item" onclick="activateTab('meta')">
-          <i class="fa-brands fa-meta" style="color: #60a5fa;"></i> 3. Meta / Instagram Ads
-        </button>
-        <button class="tab-item" onclick="activateTab('ga4')">
-          <i class="fa-solid fa-chart-pie" style="color: #fbbf24;"></i> 4. Live GA4 Dashboard
-        </button>
-        <button class="tab-item" onclick="activateTab('landing')">
-          <i class="fa-solid fa-bullseye-arrow" style="color: #34d399;"></i> 5. Landing Funnel CRO
-        </button>
-        <button class="tab-item" onclick="activateTab('ai')">
-          <i class="fa-solid fa-wand-magic-sparkles" style="color: #c084fc;"></i> 6. AI Copy Engine
-        </button>
-      </div>
-    </div>
-  </header>
+<header class="header">
+<div class="logo header-logo-wrap">
+  <img src="logo-round.png" alt="4 Star Mobile Logo" class="header-logo-img">
+  <div>
+    <h1 style="color: #fff; margin: 0; font-size: 1.6rem; font-weight: 800;">★ 4 STAR MOBILE ★</h1>
+    <p style="color: #94a3b8; margin: 2px 0 0 0; font-size: 13px;">20+ Years Trusted Mobile Accessories Hub</p>
+  </div>
+</div>
 
-  <main>
-    <div class="lab-banner">
-      <div class="banner-text">
-        <h2>🚀 AI Live Lab • Smart Marketing Mentor</h2>
-        <p>Aap practice karein, aur AI aawaz mein guide karega! Niche right side wale <strong>AI Chatbot</strong> par click karke digital marketing ka koi bhi sawal poochhein, turant jawab milega!</p>
-        <div class="challenge-pills">
-          <span style="font-size: 12px; color: #a5b4fc; font-weight: 700; align-self: center;">One-Click Challenges:</span>
-          <button class="preset-pill" onclick="loadScenario('mobile')">📱 4 Star Mobile Shop</button>
-          <button class="preset-pill" onclick="loadScenario('agency')">💻 Digital Agency Kishanganj</button>
-          <button class="preset-pill" onclick="loadScenario('ecommerce')">⚡ E-Commerce Mega Sale</button>
-        </div>
-      </div>
-    </div>
+<!-- Clean Nav Links -->
+<nav>
+<a href="#home">Home</a>
+<a href="#products">Categories</a>
+<a href="services/mobile-repair-spare-parts.html" style="color: #38bdf8; font-weight: 600;">🔧 Spares Directory</a>
+<a href="news.html" style="color: #ef4444; font-weight: 600;">● Tech News</a>
+<a href="course.html" style="color: #10b981; font-weight: 600;">🎓 Free Course</a>
+<a href="digital-marketing/" style="color: #60a5fa; font-weight: 600;">📱 Digital Marketing</a>
+<a href="blog/original-vs-duplicate-display.html">Tech Guide</a>
+<a href="about.html">About Us</a>
+<a href="faq.html">FAQ</a>
+<a href="enquiry.html">Enquiry</a>
+<a href="#contact">Contact</a>
+</nav>
+</header>
 
-    <!-- TAB 1: SEO STUDIO -->
-    <section id="pane-seo" class="tab-pane active">
-      <div class="ai-radar-card">
-        <div class="speaking-pulse" id="seoGauge" style="--score-deg: 324deg;">
-          <div class="speaking-inner" id="seoScoreVal">90%</div>
-        </div>
-        <div class="ai-radar-info">
-          <h4><i class="fa-solid fa-robot"></i> AI SEO Coach Live Guide:</h4>
-          <p id="seoRadarMsg">Loading advice...</p>
-          <div class="ai-action-row">
-            <button class="speak-now-btn" onclick="speakCurrentAdvice('seo')">
-              <i class="fa-solid fa-volume-high"></i> AI Advice Suniye
-            </button>
-            <button id="seoAutoFixBtn" class="autofix-btn" style="display: none;" onclick="applySeoFix()">
-              <i class="fa-solid fa-wand-magic-sparkles"></i> ⚡ Apply AI Fix
-            </button>
-          </div>
-        </div>
-      </div>
+<!-- ================= HERO BANNER ================= -->
+<section id="home" class="hero hero-phone-bg">
+<div class="hero-content">
 
-      <div class="studio-grid">
-        <div class="glass-panel">
-          <div class="glass-panel-title">
-            <span><i class="fa-solid fa-sliders" style="color: #38bdf8;"></i> Meta Inputs</span>
-            <span style="font-size: 11px; background: rgba(56, 189, 248, 0.15); color: #38bdf8; padding: 4px 10px; border-radius: 8px;">LIVE AUDIT</span>
-          </div>
-
-          <div class="input-block">
-            <label><span>Focus Keyword (Target)</span></label>
-            <input type="text" id="seoKw" value="mobile spare parts kishanganj" oninput="auditSeo(true)">
-          </div>
-
-          <div class="input-block">
-            <label><span>SEO Title Tag</span><span id="seoTitleCount">0 / 60 Chars</span></label>
-            <input type="text" id="seoTitle" value="Best Mobile Spare Parts Store | 4 Star Mobile" oninput="auditSeo(true)">
-          </div>
-
-          <div class="input-block">
-            <label><span>Destination Slug URL</span></label>
-            <input type="text" id="seoSlug" value="https://4starmobile.in/spare-parts" oninput="auditSeo(true)">
-          </div>
-
-          <div class="input-block">
-            <label><span>Meta Description</span><span id="seoDescCount">0 / 158 Chars</span></label>
-            <textarea id="seoDesc" rows="3" oninput="auditSeo(true)">Buy 100% genuine mobile spare parts, original batteries, 80W fast chargers, and LCD folder combos with express counter testing support.</textarea>
-          </div>
-        </div>
-
-        <div class="glass-panel">
-          <div class="glass-panel-title">
-            <span><i class="fa-brands fa-google" style="color: #f87171;"></i> Google Search Snippet (SERP)</span>
-          </div>
-
-          <div class="preview-canvas">
-            <div class="google-snippet">
-              <div class="gs-head">
-                <div class="gs-fav"><i class="fa-solid fa-globe"></i></div>
-                <div>
-                  <strong id="serpDomain">4starmobile.in</strong>
-                  <div style="font-size: 12px; color: #4d5156;" id="serpUrlPreview">https://4starmobile.in › spare-parts</div>
-                </div>
-              </div>
-              <a class="gs-title" id="serpTitlePreview">Best Mobile Spare Parts & Accessories Store | 4 Star Mobile</a>
-              <div class="gs-desc" id="serpDescPreview">
-                Buy 100% genuine mobile spare parts, original batteries, 80W fast chargers, and LCD folder combos with express counter testing support.
-              </div>
-            </div>
-          </div>
-          <div id="seoDiagnostic" class="ai-diag-card pass"></div>
-        </div>
-      </div>
-    </section>
-
-    <!-- TAB 2: GOOGLE ADS -->
-    <section id="pane-gads" class="tab-pane">
-      <div class="ai-radar-card">
-        <div class="speaking-pulse" id="gadsGauge" style="--score-deg: 360deg;">
-          <div class="speaking-inner" id="gadsScoreVal">100%</div>
-        </div>
-        <div class="ai-radar-info">
-          <h4><i class="fa-solid fa-robot"></i> Google Ads Policy & CTR Coach:</h4>
-          <p id="gadsRadarMsg">Headlines policy standards ke mutabik hain!</p>
-          <div class="ai-action-row">
-            <button class="speak-now-btn" onclick="speakCurrentAdvice('gads')">
-              <i class="fa-solid fa-volume-high"></i> AI Advice Suniye
-            </button>
-            <button id="gadsAutoFixBtn" class="autofix-btn" style="display: none;" onclick="applyGadsFix()">
-              <i class="fa-solid fa-wand-magic-sparkles"></i> ⚡ Apply AI Fix
-            </button>
-          </div>
-        </div>
-      </div>
-
-      <div class="studio-grid">
-        <div class="glass-panel">
-          <div class="glass-panel-title">
-            <span><i class="fa-solid fa-bullhorn" style="color: #f87171;"></i> Search Ad Creatives</span>
-          </div>
-          <div class="input-block">
-            <label><span>Headline 1 (Benefit)</span> <span id="h1Len">0/30</span></label>
-            <input type="text" id="gAdH1" value="Genuine Mobile Spare Parts" oninput="auditGAds(true)">
-          </div>
-          <div class="input-block">
-            <label><span>Headline 2 (Offer)</span> <span id="h2Len">0/30</span></label>
-            <input type="text" id="gAdH2" value="Tested LCD Display & Battery" oninput="auditGAds(true)">
-          </div>
-          <div class="input-block">
-            <label><span>Headline 3 (Action)</span> <span id="h3Len">0/30</span></label>
-            <input type="text" id="gAdH3" value="Fast Doorstep Delivery" oninput="auditGAds(true)">
-          </div>
-          <div class="input-block">
-            <label><span>Display Path</span></label>
-            <input type="text" id="gAdPath" value="4starmobile.in/offers/parts" oninput="auditGAds(true)">
-          </div>
-          <div class="input-block">
-            <label><span>Description</span> <span id="descLen">0/90</span></label>
-            <textarea id="gAdDesc" rows="2" oninput="auditGAds(true)">Get 100% original phone displays, chargers & certified batteries with warranty.</textarea>
-          </div>
-        </div>
-
-        <div class="glass-panel">
-          <div class="glass-panel-title">
-            <span><i class="fa-brands fa-google" style="color: #f87171;"></i> Live Sponsored Search Ad</span>
-          </div>
-          <div class="preview-canvas">
-            <div class="google-snippet">
-              <div class="gs-head">
-                <span style="background: #e8eaed; font-size: 11px; font-weight: 700; padding: 2px 5px; border-radius: 4px;">Sponsored</span>
-                <div style="font-size: 12px; color: #4d5156;" id="gAdUrlPreview">https://4starmobile.in/offers/parts</div>
-              </div>
-              <a class="gs-title" id="gAdTitlePreview" style="font-weight: 500;">
-                Genuine Mobile Spare Parts | Tested LCD Display & Battery | Fast Doorstep Delivery
-              </a>
-              <div class="gs-desc" id="gAdDescPreview">
-                Get 100% original phone displays, chargers & certified batteries with warranty.
-              </div>
-            </div>
-          </div>
-          <div id="gadsDiagnostic" class="ai-diag-card pass"></div>
-        </div>
-      </div>
-    </section>
-
-    <!-- TAB 3: META ADS -->
-    <section id="pane-meta" class="tab-pane">
-      <div class="studio-grid">
-        <div class="glass-panel">
-          <div class="glass-panel-title">
-            <span><i class="fa-brands fa-meta" style="color: #60a5fa;"></i> Meta / Instagram Campaign</span>
-          </div>
-          <div class="input-block">
-            <label>Brand Page Name</label>
-            <input type="text" id="metaBrand" value="4 STAR MOBILE" oninput="auditMeta()">
-          </div>
-          <div class="input-block">
-            <label>Primary Hook Text</label>
-            <textarea id="metaCopy" rows="3" oninput="auditMeta()">🔥 Phone display crack ho gaya ya battery drain ho rahi hai? Duplicate ke chakkar mein mat pado! 100% Original tested folder combos & batteries 6-month backup warranty ke saath lein. WhatsApp par rate check karein!</textarea>
-          </div>
-          <div class="input-block">
-            <label>Creative Image URL</label>
-            <input type="text" id="metaImg" value="https://images.unsplash.com/photo-1583863788434-e58a36330cf0?w=600&q=80" oninput="auditMeta()">
-          </div>
-          <div class="input-block">
-            <label>Headline</label>
-            <input type="text" id="metaHeadline" value="Flat 20% OFF on Replacement Combos" oninput="auditMeta()">
-          </div>
-          <div class="input-block">
-            <label>CTA Button</label>
-            <select id="metaCta" onchange="auditMeta()">
-              <option value="Send WhatsApp Message">Send WhatsApp Message</option>
-              <option value="Shop Now">Shop Now</option>
-              <option value="Order Now">Order Now</option>
-            </select>
-          </div>
-        </div>
-
-        <div class="glass-panel">
-          <div class="glass-panel-title"><span><i class="fa-solid fa-mobile-screen" style="color: #60a5fa;"></i> Feed Preview</span></div>
-          <div class="meta-box">
-            <div class="meta-head">
-              <div class="meta-avatar"><i class="fa-solid fa-star"></i></div>
-              <div class="meta-author"><h5 id="metaBrandPreview">4 STAR MOBILE</h5><span>Sponsored</span></div>
-            </div>
-            <div class="meta-body-text" id="metaCopyPreview"></div>
-            <img class="meta-media-img" id="metaImgPreview" src="" alt="Media">
-            <div class="meta-bottom-bar">
-              <div style="max-width: 65%;">
-                <small style="color: #65676b; font-size: 11px;">4starmobile.in</small>
-                <div style="font-size: 14px; font-weight: 700; color: #050505;" id="metaHeadlinePreview"></div>
-              </div>
-              <button class="meta-cta-btn" id="metaCtaPreview">Send WhatsApp Message</button>
-            </div>
-          </div>
-          <div id="metaDiagnostic" class="ai-diag-card pass"></div>
-        </div>
-      </div>
-    </section>
-
-    <!-- TAB 4: GA4 DASHBOARD -->
-    <section id="pane-ga4" class="tab-pane">
-      <div class="glass-panel">
-        <div class="glass-panel-title">
-          <span><i class="fa-solid fa-chart-line" style="color: #fbbf24;"></i> GA4 Traffic Simulator</span>
-          <button class="glow-btn" style="padding: 6px 14px; font-size: 12px;" onclick="simulateTraffic()"><i class="fa-solid fa-bolt"></i> Boost Traffic</button>
-        </div>
-        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(140px, 1fr)); gap: 14px;">
-          <div style="background: rgba(3, 7, 18, 0.6); padding: 16px; border-radius: 14px; text-align: center;">
-            <div style="font-size: 12px; color: var(--text-muted);">Users</div>
-            <div style="font-size: 1.8rem; font-weight: 800; color: #38bdf8;" id="gaUsers">5,420</div>
-          </div>
-          <div style="background: rgba(3, 7, 18, 0.6); padding: 16px; border-radius: 14px; text-align: center;">
-            <div style="font-size: 12px; color: var(--text-muted);">Real-Time Live</div>
-            <div style="font-size: 1.8rem; font-weight: 800; color: #10b981;" id="gaLive">24</div>
-          </div>
-          <div style="background: rgba(3, 7, 18, 0.6); padding: 16px; border-radius: 14px; text-align: center;">
-            <div style="font-size: 12px; color: var(--text-muted);">Leads</div>
-            <div style="font-size: 1.8rem; font-weight: 800; color: #f59e0b;" id="gaLeads">168</div>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- TAB 5: LANDING CRO -->
-    <section id="pane-landing" class="tab-pane">
-      <div class="glass-panel" style="max-width: 600px; margin: 0 auto;">
-        <div class="glass-panel-title"><span><i class="fa-solid fa-bullseye-arrow" style="color: #34d399;"></i> Lead Funnel</span></div>
-        <form onsubmit="handleFunnelSubmit(event)" style="background: rgba(3, 7, 18, 0.7); padding: 20px; border-radius: 14px;">
-          <div class="input-block"><label>Customer Name</label><input type="text" id="fname" placeholder="Rahul Sharma" required></div>
-          <div class="input-block"><label>WhatsApp Number</label><input type="tel" id="fphone" placeholder="9473371370" required></div>
-          <button type="submit" class="glow-btn" style="width: 100%; justify-content: center; padding: 12px;"><i class="fa-brands fa-whatsapp"></i> Trigger WhatsApp Lead</button>
-        </form>
-      </div>
-    </section>
-
-    <!-- TAB 6: AI COPY ENGINE -->
-    <section id="pane-ai" class="tab-pane">
-      <div class="glass-panel">
-        <div class="glass-panel-title"><span><i class="fa-solid fa-wand-magic-sparkles" style="color: #c084fc;"></i> Copy Generator</span></div>
-        <div class="input-block" style="max-width: 550px;"><label>Topic / Product</label><input type="text" id="aiTopic" value="Mobile Display & Battery Hub"></div>
-        <button class="glow-btn" onclick="generateAiIdeas()"><i class="fa-solid fa-microchip"></i> Generate Copy</button>
-        <div id="aiOutputBlock" style="margin-top: 20px; display: grid; gap: 14px;"></div>
-      </div>
-    </section>
-  </main>
-
-  <!-- ================= AI CHATBOT WIDGET ================= -->
-  <div class="chat-bubble-btn" onclick="toggleChatWidget()" title="AI Marketing Tutor">
-    <i class="fa-solid fa-robot"></i>
+  <!-- Branch Switcher Chips -->
+  <div class="branch-pill-bar">
+    <a href="tel:9473185145" class="branch-pill">🏬 Main Branch (Mahavir Marg)</a>
+    <a href="tel:9308865738" class="branch-pill">🔧 Display & Battery Hub (Fal Chowk)</a>
+    <a href="tel:9473371371" class="branch-pill">📱 Glass & Cover (Gandhi Chowk)</a>
   </div>
 
-  <div class="chat-widget-box" id="chatWidget">
-    <div class="chat-header">
-      <h4><i class="fa-solid fa-brain" style="color: #38bdf8;"></i> AI Marketing Tutor</h4>
-      <button onclick="toggleChatWidget()" style="background: transparent; border: none; color: #cbd5e1; font-size: 16px; cursor: pointer;">✕</button>
+  <div style="background: rgba(255, 193, 7, 0.25); border: 1px solid #ffc107; color: #ffeb3b; display: inline-block; padding: 6px 16px; border-radius: 30px; margin-bottom: 12px; font-weight: 600; font-size: 13px;">
+    ⭐ 5.0 Rating (22+ Reviews) • 🔬 Testing Counter Live
+  </div>
+
+  <h2 id="dynamicHeroTitle">★ 4 STAR MOBILE ★</h2>
+  <p id="dynamicHeroDesc">
+    20+ Years Trusted Mobile Accessories & Genuine Spare Parts Hub in Kishanganj.
+  </p>
+
+  <!-- Instant Model Stock Checker -->
+  <div class="parts-search-container">
+    <input type="text" id="modelSearchInput" placeholder="Apna Phone Model likhein (e.g. Redmi 12, Vivo Y20)...">
+    <button type="button" onclick="searchModelOnWhatsApp()">
+      <i class="fa-brands fa-whatsapp"></i> Rate Check
+    </button>
+  </div>
+
+  <div class="hero-buttons">
+    <a class="btn call" href="tel:9473371370"><i class="fa-solid fa-phone"></i> Call Primary</a>
+    <a class="btn whatsapp" href="https://wa.me/919473371370?text=Hello%204%20STAR%20MOBILE,%20mujhe%20enquiry%20karni%20hai" target="_blank"><i class="fa-brands fa-whatsapp"></i> WhatsApp</a>
+  </div>
+</div>
+</section>
+
+<!-- Quick Feature Boxes -->
+<div class="quick-action-strip">
+  <a href="news.html" class="action-box red-border">
+    <div class="action-icon">📰</div>
+    <div>
+      <div class="action-title">Daily Tech & Mobile News</div>
+      <div class="action-desc">Naye phone launch aur market rate updates roz dekhein →</div>
     </div>
+  </a>
+
+  <a href="course.html" class="action-box green-border">
+    <div class="action-icon">🎓</div>
+    <div>
+      <div class="action-title">Free Mobile Repairing Course</div>
+      <div class="action-desc">Hardware testing, motherboard & folder fit karna seekhein →</div>
+    </div>
+  </a>
+
+  <a href="services/mobile-repair-spare-parts.html" class="action-box">
+    <div class="action-icon">🔧</div>
+    <div>
+      <div class="action-title">Original Spare Parts Center</div>
+      <div class="action-desc">Folder combos, original batteries & CC charging boards →</div>
+    </div>
+  </a>
+</div>
+
+<!-- Interactive Product Categories Folders -->
+<section id="products" class="products">
+<h2>Shop by Category (Click to Open Folder)</h2>
+<p style="text-align: center; color: #666; margin-bottom: 25px;">Kisi bhi category par click karein uske saare models aur items dekhne ke liye</p>
+
+<div class="product-grid">
+
+  <!-- Category 1: Fast Chargers -->
+  <div class="card" onclick="openCategoryFolder('Fast Chargers')">
+    <img class="product-card-img" src="https://images.unsplash.com/photo-1583863788434-e58a36330cf0?w=600&q=80" alt="Fast Mobile Charger Kishanganj">
+    <div class="card-content">
+      <h3>⚡ Fast Chargers</h3>
+      <p>33W / 65W / 80W Type-C Super Fast Adapters</p>
+      <span class="view-folder-btn"><i class="fa-solid fa-folder-open"></i> Open Chargers Folder →</span>
+    </div>
+  </div>
+
+  <!-- Category 2: Mobile Covers -->
+  <div class="card" onclick="openCategoryFolder('Mobile Covers')">
+    <img class="product-card-img" src="https://images.unsplash.com/photo-1601784551446-20c9e07cdbdb?w=600&q=80" alt="Premium Mobile Covers Kishanganj">
+    <div class="card-content">
+      <h3>📱 Mobile Covers</h3>
+      <p>Shockproof, Silicone, Matte & Designer Cases</p>
+      <span class="view-folder-btn"><i class="fa-solid fa-folder-open"></i> Open Covers Folder →</span>
+    </div>
+  </div>
+
+  <!-- Category 3: Tempered Glass -->
+  <div class="card" onclick="openCategoryFolder('Tempered Glass')">
+    <img class="product-card-img" src="https://images.unsplash.com/photo-1580910051074-3eb694886505?w=600&q=80" alt="Tempered Glass Screen Protector Kishanganj">
+    <div class="card-content">
+      <h3>🛡️ Tempered Glass</h3>
+      <p>11D / 9D Full Glue HD Screen & Privacy Glass</p>
+      <span class="view-folder-btn"><i class="fa-solid fa-folder-open"></i> Open Glass Folder →</span>
+    </div>
+  </div>
+
+  <!-- Category 4: Earbuds & Neckband -->
+  <div class="card" onclick="openCategoryFolder('Earbuds & Neckband')">
+    <img class="product-card-img" src="https://images.unsplash.com/photo-1590658268037-6bf12165a8df?w=600&q=80" alt="Bluetooth Earbuds and Neckbands Kishanganj">
+    <div class="card-content">
+      <h3>🎧 Bluetooth Earbuds</h3>
+      <p>TWS Wireless Earbuds & Long Battery Neckbands</p>
+      <span class="view-folder-btn"><i class="fa-solid fa-folder-open"></i> Open Audio Folder →</span>
+    </div>
+  </div>
+
+  <!-- Category 5: Power Banks -->
+  <div class="card" onclick="openCategoryFolder('Power Banks')">
+    <img class="product-card-img" src="https://commons.wikimedia.org/wiki/Special:FilePath/Power_bank.JPG" alt="Power Bank Fast Charging Kishanganj">
+    <div class="card-content">
+      <h3>🔋 Power Banks</h3>
+      <p>10,000mAh & 20,000mAh High Capacity Packs</p>
+      <span class="view-folder-btn"><i class="fa-solid fa-folder-open"></i> Open Power Banks Folder →</span>
+    </div>
+  </div>
+
+  <!-- Category 6: Battery & Spares -->
+  <div class="card" onclick="openCategoryFolder('Battery & Spares')">
+    <img class="product-card-img" src="https://images.unsplash.com/photo-1598327105666-5b89351aff97?w=600&q=80" alt="Original Replacement Mobile Battery Kishanganj">
+    <div class="card-content">
+      <h3>🔋 Mobile Batteries</h3>
+      <p>Original Battery Replacements with 6-month backup</p>
+      <span class="view-folder-btn"><i class="fa-solid fa-folder-open"></i> Open Battery Folder →</span>
+    </div>
+  </div>
+
+  <!-- Category 7: LCD Displays -->
+  <div class="card" onclick="openCategoryFolder('LCD Displays')">
+    <img class="product-card-img" src="https://images.unsplash.com/photo-1565849904461-04a58ad377e0?w=600&q=80" alt="Original LCD Display Combo Kishanganj">
+    <div class="card-content">
+      <h3>📲 LCD Displays</h3>
+      <p>Original & Premium Touch Display Combos</p>
+      <span class="view-folder-btn"><i class="fa-solid fa-folder-open"></i> Open Display Folder →</span>
+    </div>
+  </div>
+
+  <!-- Category 8: Data Cables -->
+  <div class="card" onclick="openCategoryFolder('Data Cables')">
+    <img class="product-card-img" src="https://commons.wikimedia.org/wiki/Special:FilePath/USB-C_cable_2017_A.jpg" alt="Braided Fast Data Cables Kishanganj">
+    <div class="card-content">
+      <h3>🔌 Data Cables</h3>
+      <p>Braided Type-C, iPhone Lightning & Fast Cables</p>
+      <span class="view-folder-btn"><i class="fa-solid fa-folder-open"></i> Open Cables Folder →</span>
+    </div>
+  </div>
+
+  <!-- Category 9: Spare Parts & Tools (YAHAN FIT KIYA GAYA HAI) -->
+  <div class="card" onclick="openCategoryFolder('Spares & Tools')">
+    <img class="product-card-img" src="https://images.unsplash.com/photo-1581092160607-ee22621dd758?w=600&q=80" alt="Mobile Motherboard SMD Machine Repair Tools Kishanganj">
+    <div class="card-content">
+      <h3>🔧 Spares & Tools</h3>
+      <p>SMD Machine, Soldering Iron, Motherboard, CC Jack & Tools</p>
+      <span class="view-folder-btn"><i class="fa-solid fa-folder-open"></i> Open Tools Folder →</span>
+    </div>
+  </div>
+
+</div>
+</section>
+
+<!-- Category Folder Pop-up Modal Window -->
+<div id="categoryModal" class="modal-overlay">
+  <div class="modal-content">
+    <button class="modal-close-btn" onclick="closeCategoryFolder()">✕</button>
+    <div class="folder-header">
+      <h2 id="modalTitle" style="color: #0066cc; margin: 0;">Category Folder</h2>
+      <p id="modalSubtitle" style="color: #64748b; margin: 4px 0 0 0; font-size: 14px;">Showing in-stock items</p>
+    </div>
+    <div id="modalProductsGrid" class="product-grid"></div>
+  </div>
+</div>
+
+<!-- Store Highlights Section -->
+<section id="gallery" class="products" style="background: #f8f9fa;">
+<h2>Store Highlights & Services</h2>
+<div class="product-grid">
+  <div class="card">
+    <img class="product-card-img" src="https://images.unsplash.com/photo-1505740420928-5e560c06d30e?auto=format&fit=crop&w=600&q=80" alt="Huge Accessories Stock Kishanganj">
+    <div class="card-content">
+      <h3>Huge Accessories Stock</h3>
+      <p>All phone model accessories available in wholesale & retail.</p>
+    </div>
+  </div>
+
+  <a href="services/mobile-repair-spare-parts.html" style="text-decoration: none; color: inherit; display: block;">
+    <div class="card" style="border: 2px solid #0066cc;">
+      <img class="product-card-img" src="https://images.unsplash.com/photo-1581092160607-ee22621dd758?auto=format&fit=crop&w=600&q=80" alt="Genuine Spare Parts Kishanganj">
+      <div class="card-content">
+        <h3 style="color: #0066cc;">Genuine Spare Parts →</h3>
+        <p>500+ LCD folder combos, original batteries, tempered glass & charging CC boards search karein!</p>
+        <span class="view-folder-btn"><i class="fa-solid fa-magnifying-glass"></i> Open Parts Directory Page →</span>
+      </div>
+    </div>
+  </a>
+
+  <div class="card">
+    <img class="product-card-img" src="https://images.unsplash.com/photo-1531482615713-2afd69097998?auto=format&fit=crop&w=600&q=80" alt="20+ Years Trust Kishanganj">
+    <div class="card-content">
+      <h3>20+ Years Trust</h3>
+      <p>Direct support across 3 convenient branch locations in Kishanganj.</p>
+    </div>
+  </div>
+</div>
+</section>
+
+<section id="services" class="services">
+<h2>Why Choose 4 STAR MOBILE?</h2>
+<div class="service-grid">
+  <div class="service-box">
+    <i class="fa-solid fa-award"></i>
+    <h3>20+ Years Trusted</h3>
+    <p>Serving customers with genuine products and reliable service for over 20 years.</p>
+  </div>
+  <div class="service-box">
+    <i class="fa-solid fa-mobile-screen-button"></i>
+    <h3>All Accessories</h3>
+    <p>Mobile Covers, Chargers, Batteries, Displays, Earbuds, Neckbands and more.</p>
+  </div>
+  <div class="service-box">
+    <i class="fa-solid fa-screwdriver-wrench"></i>
+    <h3>Spare Parts Hub</h3>
+    <p>Quality mobile spare parts for many popular smartphone brands.</p>
+  </div>
+  <div class="service-box">
+    <i class="fa-solid fa-shield-halved"></i>
+    <h3>Tested Quality</h3>
+    <p>We focus on genuine products and 100% customer satisfaction.</p>
+  </div>
+</div>
+</section>
+
+<section class="reviews">
+<h2>Customer Reviews</h2>
+<div class="review-grid">
+  <div class="review">
+    <span style="color: #ffb400; font-size: 1.2rem;">⭐⭐⭐⭐⭐</span>
+    <p>"Best mobile accessories shop in Kishanganj."</p>
+    <h4>Happy Customer</h4>
+  </div>
+  <div class="review">
+    <span style="color: #ffb400; font-size: 1.2rem;">⭐⭐⭐⭐⭐</span>
+    <p>"Good quality products at reasonable prices."</p>
+    <h4>Regular Customer</h4>
+  </div>
+  <div class="review">
+    <span style="color: #ffb400; font-size: 1.2rem;">⭐⭐⭐⭐⭐</span>
+    <p>"Friendly service and genuine accessories."</p>
+    <h4>Customer</h4>
+  </div>
+</div>
+</section>
+
+<section id="contact" class="contact">
+<h2>Contact 4 STAR MOBILE</h2>
+<p><strong>20+ Years Trusted Mobile Accessories & Spare Parts Hub</strong></p>
+
+<h3>☎ Primary Contact (All Branches)</h3>
+<p style="font-size: 1.3rem; font-weight: bold; margin-bottom: 25px;">
+  <a href="tel:9473371370" style="color: inherit; text-decoration: none;">📞 9473371370</a>
+</p>
+
+<div class="product-grid" style="text-align: left; margin: 30px auto; max-width: 1000px;">
+  <div class="card" style="padding: 20px;">
+    <h3>🏬 Branch 1 (Main Branch - Accessories)</h3>
+    <p>📍 Ground Floor, Mahavir Marg, Near Congress Office, Kishanganj - 855107</p>
+    <p><strong>📞 9473185145</strong></p>
+    <a class="btn call" href="tel:9473185145" style="display: inline-block; margin-top: 10px; padding: 6px 12px; font-size: 0.85rem;">Call Branch 1</a>
+  </div>
+
+  <div class="card" style="padding: 20px;">
+    <h3>🏬 Branch 2 (Display, Battery & Parts Hub)</h3>
+    <p>📍 Fal Chowk, Ghas Patti Masjid, Kishanganj - 855107</p>
+    <p><strong>📞 9308865738</strong></p>
+    <a class="btn call" href="tel:9308865738" style="display: inline-block; margin-top: 10px; padding: 6px 12px; font-size: 0.85rem;">Call Branch 2</a>
+  </div>
+
+  <div class="card" style="padding: 20px;">
+    <h3>🏬 Branch 3 (Tempered Glass & Covers)</h3>
+    <p>📍 Gandhi Chowk, Opposite Goyal Drugs House, Kishanganj Bazar - 855107</p>
+    <p><strong>📞 9473371371</strong></p>
+    <a class="btn call" href="tel:9473371371" style="display: inline-block; margin-top: 10px; padding: 6px 12px; font-size: 0.85rem;">Call Branch 3</a>
+  </div>
+</div>
+
+<p>✉ Email: <strong>4starmobile786@gmail.com</strong></p>
+
+<div class="contact-buttons" style="margin-top: 25px;">
+  <a class="btn call" href="tel:9473371370"><i class="fa-solid fa-phone"></i> Call Primary</a>
+  <a class="btn whatsapp" href="https://wa.me/919473371370?text=Hello%204%20STAR%20MOBILE,%20mujhe%20enquiry%20karni%20hai" target="_blank"><i class="fa-brands fa-whatsapp"></i> WhatsApp Us</a>
+  <a class="btn" href="https://maps.app.goo.gl/3uQMuZLJXKo3T6PT7" target="_blank" style="background: #1a73e8; color: white;">
+    <i class="fa-solid fa-location-dot"></i> View on Google Maps
+  </a>
+</div>
+</section>
+
+<!-- Password Protected Admin Section -->
+<section id="admin-panel">
+  <div class="admin-section">
+    <button class="logout-btn" onclick="lockAdminPanel()">🔒 Lock & Hide</button>
+    <h3 style="color: #0066cc; margin: 0 0 5px 0;">★ 4 STAR MOBILE — Store Admin Panel ★</h3>
+    <p style="font-size: 13px; color: #64748b; margin-bottom: 20px;">Only authenticated owners can view and manage this section.</p>
     
-    <div class="chat-messages" id="chatMsgContainer">
-      <div class="chat-msg bot">
-        Namaste! Main aapka **AI Marketing Tutor** hoon. Google Ads strategy, SEO ranking, Meta Pixel, Quality Score ya digital marketing par jo chahein sawaal poochhein, main guide karunga!
-      </div>
-    </div>
-
-    <!-- Quick Tags -->
-    <div class="chat-quick-tags">
-      <div class="chat-tag-pill" onclick="askQuickQuestion('Mobile repair shop ke liye Google Ads strategy batao')">Local Ads Plan?</div>
-      <div class="chat-tag-pill" onclick="askQuickQuestion('Quality Score 10/10 kaise karein?')">Quality Score?</div>
-      <div class="chat-tag-pill" onclick="askQuickQuestion('Meta Pixel kya hota hai aur kaise kaam karta hai?')">Meta Pixel?</div>
-      <div class="chat-tag-pill" onclick="askQuickQuestion('SEO Title aur Meta Description ka golden formula kya hai?')">SEO Formula?</div>
-    </div>
-
-    <form class="chat-input-bar" onsubmit="handleUserChat(event)">
-      <input type="text" id="chatUserInput" placeholder="Apna digital marketing sawal yahan likhein..." required>
-      <button type="submit" class="chat-send-btn" id="sendBtn"><i class="fa-solid fa-paper-plane"></i></button>
+    <form id="productForm">
+      <input type="text" id="pTitle" placeholder="Product Name (e.g. Quick 850A SMD Machine / Iron Bit)" required>
+      <input type="number" id="pPrice" placeholder="Price in ₹ (e.g. 499)" required>
+      <select id="pCategory">
+        <option value="Fast Chargers">Fast Chargers</option>
+        <option value="Mobile Covers">Mobile Covers</option>
+        <option value="Tempered Glass">Tempered Glass</option>
+        <option value="Earbuds & Neckband">Earbuds & Neckband</option>
+        <option value="Power Banks">Power Banks</option>
+        <option value="Battery & Spares">Battery & Spares</option>
+        <option value="LCD Displays">LCD Displays</option>
+        <option value="Data Cables">Data Cables</option>
+        <option value="Spares & Tools">Spares & Tools</option>
+      </select>
+      <input type="url" id="pImageUrl" placeholder="Direct Image URL (.jpg / .png / .webp)" required>
+      <button type="submit" class="admin-btn">+ Add Product to Folder</button>
     </form>
+
+    <h4 style="margin: 25px 0 10px 0; color: #334155;">Active Uploaded Products</h4>
+    <div id="adminProductList">Loading...</div>
   </div>
+</section>
 
-  <footer>
-    MarketingOS Simulator • Interactive AI Learning Lab
-  </footer>
+<footer>
+<h3>★ 4 STAR MOBILE ★</h3>
+<p>20+ Years Trusted Mobile Accessories & Spare Parts Hub</p>
 
-  <script>
-    let isVoiceMuted = false;
-    let voiceDebounceTimer = null;
-    let currentSeoFixValue = "";
-    let currentGadsFixValue = "";
+<div style="margin: 15px 0; font-size: 13px;">
+  <a href="about.html" style="color: #cbd5e1; margin: 0 8px; text-decoration: none;">About Us</a> |
+  <a href="services/mobile-repair-spare-parts.html" style="color: #cbd5e1; margin: 0 8px; text-decoration: none;">Services & Spares</a> |
+  <a href="news.html" style="color: #ef4444; font-weight: bold; margin: 0 8px; text-decoration: none;">Tech News</a> |
+  <a href="course.html" style="color: #10b981; font-weight: bold; margin: 0 8px; text-decoration: none;">Free Course</a> |
+  <a href="digital-marketing/" style="color: #38bdf8; font-weight: bold; margin: 0 8px; text-decoration: none;">Digital Marketing</a> |
+  <a href="blog/original-vs-duplicate-display.html" style="color: #cbd5e1; margin: 0 8px; text-decoration: none;">Tech Guide</a> |
+  <a href="faq.html" style="color: #cbd5e1; margin: 0 8px; text-decoration: none;">FAQ</a> |
+  <a href="enquiry.html" style="color: #cbd5e1; margin: 0 8px; text-decoration: none;">Spare Parts Enquiry</a> |
+  <a href="terms.html" style="color: #cbd5e1; margin: 0 8px; text-decoration: none;">Rules & Warranty</a>
+</div>
 
-    function speakText(text) {
-      if (isVoiceMuted || !('speechSynthesis' in window)) return;
-      window.speechSynthesis.cancel();
-      const utterance = new SpeechSynthesisUtterance(text);
-      utterance.lang = 'hi-IN';
-      utterance.rate = 1.0;
-      utterance.pitch = 1.05;
-      window.speechSynthesis.speak(utterance);
+<p>© 2026 All Rights Reserved.</p>
+<div style="margin-top: 15px; opacity: 0.6;">
+  <span onclick="promptAdminLogin()" style="font-size: 11px; color: #aaa; cursor: pointer; text-decoration: none;">🔒 Staff Portal</span>
+</div>
+</footer>
+
+<!-- Primary Floating WhatsApp Button -->
+<a href="https://wa.me/919473371370?text=Hello%204%20STAR%20MOBILE,%20mujhe%20enquiry%20karni%20hai" class="floating-whatsapp" target="_blank" aria-label="WhatsApp">
+<i class="fa-brands fa-whatsapp"></i>
+</a>
+
+<!-- Firebase Backend Integration -->
+<script type="module">
+  import { initializeApp } from "https://www.gstatic.com/firebasejs/10.8.0/firebase-app.js";
+  import { getFirestore, collection, addDoc, getDocs, deleteDoc, doc } from "https://www.gstatic.com/firebasejs/10.8.0/firebase-firestore.js";
+
+  const firebaseConfig = {
+    apiKey: "AIzaSyC-CAUchZ-IgmV463l3JBBmrYWD40uR6RQ",
+    authDomain: "star-mobile-864c2.firebaseapp.com",
+    projectId: "star-mobile-864c2",
+    storageBucket: "star-mobile-864c2.firebasestorage.app",
+    messagingSenderId: "720705354769",
+    appId: "1:720705354769:web:16ce5c6b7f652c739f05b0"
+  };
+
+  const app = initializeApp(firebaseConfig);
+  const db = getFirestore(app);
+
+  let cachedProducts = [];
+
+  const ADMIN_SECRET_PIN = "7860";
+
+  function getCategoryWhatsAppNumber(categoryName) {
+    if (categoryName === "Tempered Glass" || categoryName === "Mobile Covers") {
+      return "919473371371";
+    } else if (categoryName === "LCD Displays" || categoryName === "Battery & Spares" || categoryName === "Spares & Tools") {
+      return "919308865738";
+    } else {
+      return "919473185145";
     }
+  }
 
-    function toggleVoiceMute() {
-      isVoiceMuted = !isVoiceMuted;
-      const btn = document.getElementById('voiceToggleBtn');
-      if (isVoiceMuted) {
-        window.speechSynthesis.cancel();
-        btn.className = "voice-control-btn muted";
-        btn.innerHTML = `<i class="fa-solid fa-volume-xmark"></i> AI Voice: OFF`;
-      } else {
-        btn.className = "voice-control-btn";
-        btn.innerHTML = `<i class="fa-solid fa-volume-high"></i> AI Voice: ON`;
-        speakText("AI Voice Guide on ho gaya hai.");
-      }
+  window.promptAdminLogin = function() {
+    const inputPin = prompt("Enter 4 STAR MOBILE Admin PIN:");
+    if (inputPin === ADMIN_SECRET_PIN) {
+      document.getElementById("admin-panel").style.display = "block";
+      document.getElementById("admin-panel").scrollIntoView({ behavior: 'smooth' });
+      syncProducts();
+      alert("Welcome Admin! Panel unlocked.");
+    } else if (inputPin !== null) {
+      alert("Galat Password! Access Denied.");
     }
+  };
 
-    function speakCurrentAdvice(type) {
-      const text = document.getElementById(type === 'seo' ? 'seoRadarMsg' : 'gadsRadarMsg').innerText;
-      speakText(text);
-    }
+  window.lockAdminPanel = function() {
+    document.getElementById("admin-panel").style.display = "none";
+    alert("Admin panel locked.");
+  };
 
-    function activateTab(tabKey) {
-      document.querySelectorAll('.tab-pane').forEach(p => p.classList.remove('active'));
-      document.querySelectorAll('.tab-item').forEach(b => b.classList.remove('active'));
-      const targetPane = document.getElementById('pane-' + tabKey);
-      if (targetPane) targetPane.classList.add('active');
-      const activeBtn = Array.from(document.querySelectorAll('.tab-item')).find(b => b.getAttribute('onclick').includes(tabKey));
-      if (activeBtn) activeBtn.classList.add('active');
-    }
+  async function syncProducts() {
+    const adminList = document.getElementById("adminProductList");
+    try {
+      const snapshot = await getDocs(collection(db, "products"));
+      cachedProducts = [];
+      if (adminList) adminList.innerHTML = "";
 
-    function loadScenario(type) {
-      if (type === 'mobile') {
-        document.getElementById('seoKw').value = "mobile spare parts kishanganj";
-        document.getElementById('seoTitle').value = "Best Mobile Spare Parts Store | 4 Star Mobile";
-        document.getElementById('seoDesc').value = "Buy 100% genuine mobile spare parts, original batteries, 80W fast chargers, and LCD folder combos with express counter testing support.";
-        document.getElementById('gAdH1').value = "Genuine Mobile Spare Parts";
-        document.getElementById('gAdH2').value = "Tested LCD Display & Battery";
-        document.getElementById('metaBrand').value = "4 STAR MOBILE";
-        document.getElementById('metaCopy').value = "🔥 Phone display toot gaya? Duplicate ke chakkar mein mat pado! 100% tested original combos with 6-month warranty.";
-      } else if (type === 'agency') {
-        document.getElementById('seoKw').value = "digital marketing agency bihar";
-        document.getElementById('seoTitle').value = "Top Digital Marketing Agency | 10X ROI";
-        document.getElementById('seoDesc').value = "Scale your local brand with high-converting Google Ads, Facebook lead campaigns, and top rank local SEO strategies today.";
-        document.getElementById('gAdH1').value = "Scale Your Business 10X";
-        document.getElementById('gAdH2').value = "Google & Meta Ads Experts";
-        document.getElementById('metaBrand').value = "Growth Marketing Lab";
-        document.getElementById('metaCopy').value = "Struggling to get quality sales leads? Get 50+ verified high-intent customer leads every week with our performance marketing system.";
-      } else if (type === 'ecommerce') {
-        document.getElementById('seoKw').value = "fast chargers online offer";
-        document.getElementById('seoTitle').value = "65W & 80W Fast Chargers | Flat 40% Off";
-        document.getElementById('seoDesc').value = "Shop braided Type-C high speed data cables and warp chargers with 1-year replacement warranty. Free shipping across India.";
-        document.getElementById('gAdH1').value = "65W Super Fast Chargers";
-        document.getElementById('gAdH2').value = "Flat 40% Off Diwali Sale";
-        document.getElementById('metaBrand').value = "PowerGear Store";
-        document.getElementById('metaCopy').value = "⚡ Charge your phone 0 to 80% in just 25 minutes! Certified heavy duty chargers with overload safety protection. Order now before stock runs out!";
-      }
-      auditSeo(false);
-      auditGAds(false);
-      auditMeta();
-    }
-
-    function auditSeo(allowVoice) {
-      const kw = document.getElementById('seoKw').value.trim().toLowerCase();
-      const title = document.getElementById('seoTitle').value;
-      const desc = document.getElementById('seoDesc').value;
-      const slug = document.getElementById('seoSlug').value;
-
-      document.getElementById('seoTitleCount').innerText = `${title.length} / 60 Chars`;
-      document.getElementById('seoDescCount').innerText = `${desc.length} / 158 Chars`;
-      document.getElementById('serpTitlePreview').innerText = title;
-      document.getElementById('serpDescPreview').innerText = desc;
-      document.getElementById('serpUrlPreview').innerText = slug;
-
-      let score = 100;
-      let speechMessage = "";
-      let fixBtn = document.getElementById('seoAutoFixBtn');
-      const radarMsg = document.getElementById('seoRadarMsg');
-      const diag = document.getElementById('seoDiagnostic');
-
-      if (title.length > 60) {
-        score -= 30;
-        currentSeoFixValue = title.substring(0, 56) + "...";
-        speechMessage = "AI Guide: Title 60 characters se lamba hai. Isko 55 characters ke andar rakhein.";
-        radarMsg.innerHTML = `<strong>AI Guide:</strong> Title 60 char se zyada hai. Solution: Title ko concise banayein.`;
-        fixBtn.style.display = "inline-flex";
-      } else if (kw && !title.toLowerCase().includes(kw)) {
-        score -= 25;
-        currentSeoFixValue = `${kw.charAt(0).toUpperCase() + kw.slice(1)} | 4 Star Mobile`;
-        speechMessage = `AI Guide: Focus keyword '${kw}' title mein missing hai.`;
-        radarMsg.innerHTML = `<strong>AI Guide:</strong> Keyword missing! Solution: Title mein <em>'${kw}'</em> shamil karein.`;
-        fixBtn.style.display = "inline-flex";
-      } else {
-        radarMsg.innerText = "AI Guide: SEO Title aur Meta Description Google standard ke mutabik bilkul perfect hain!";
-        fixBtn.style.display = "none";
+      if (snapshot.empty) {
+        if (adminList) adminList.innerHTML = '<p style="color: #64748b;">Abhi koi product upload nahi hai.</p>';
+        return;
       }
 
-      if (score < 0) score = 0;
-      document.getElementById('seoGauge').style.setProperty('--score-deg', `${(score / 100) * 360}deg`);
-      document.getElementById('seoScoreVal').innerText = `${score}%`;
-      diag.className = "ai-diag-card " + (score >= 80 ? "pass" : "fail");
-      diag.innerHTML = score >= 80 ? `✓ <strong>Optimal Configuration (${score}%):</strong> Title & snippet ranking ready hain!` : `❌ <strong>Guidance Alert (${score}%):</strong> Title ko optimize karein.`;
+      snapshot.forEach((docSnap) => {
+        const item = docSnap.data();
+        const docId = docSnap.id;
+        cachedProducts.push({ id: docId, ...item });
 
-      if (allowVoice && speechMessage) {
-        clearTimeout(voiceDebounceTimer);
-        voiceDebounceTimer = setTimeout(() => { speakText(speechMessage); }, 1400);
-      }
+        if (adminList) {
+          const row = document.createElement("div");
+          row.className = "admin-manage-item";
+          row.innerHTML = `
+            <div>
+              <strong>${item.title}</strong> — ₹${item.price} <small style="color: #0066cc;">[${item.category}]</small>
+            </div>
+          `;
+          const delBtn = document.createElement("button");
+          delBtn.className = "del-btn";
+          delBtn.innerText = "Delete";
+          delBtn.onclick = async () => {
+            if (confirm(`"${item.title}" ko delete karna chahte hain?`)) {
+              await deleteDoc(doc(db, "products", docId));
+              syncProducts();
+            }
+          };
+          row.appendChild(delBtn);
+          adminList.appendChild(row);
+        }
+      });
+    } catch (e) {
+      console.error(e);
+      if (adminList) adminList.innerHTML = '<p style="color: red;">Error loading products.</p>';
     }
+  }
 
-    function applySeoFix() {
-      if (currentSeoFixValue) {
-        document.getElementById('seoTitle').value = currentSeoFixValue;
-        auditSeo(true);
-        speakText("AI Fix apply kar diya gaya hai!");
-      }
-    }
+  window.openCategoryFolder = function(categoryName) {
+    const modal = document.getElementById("categoryModal");
+    const title = document.getElementById("modalTitle");
+    const grid = document.getElementById("modalProductsGrid");
 
-    function auditGAds(allowVoice) {
-      const h1 = document.getElementById('gAdH1').value;
-      const h2 = document.getElementById('gAdH2').value;
-      const h3 = document.getElementById('gAdH3').value;
-      const desc = document.getElementById('gAdDesc').value;
+    title.innerText = `📁 ${categoryName}`;
+    grid.innerHTML = "";
 
-      document.getElementById('h1Len').innerText = `${h1.length}/30`;
-      document.getElementById('h2Len').innerText = `${h2.length}/30`;
-      document.getElementById('h3Len').innerText = `${h3.length}/30`;
-      document.getElementById('descLen').innerText = `${desc.length}/90`;
-      document.getElementById('gAdTitlePreview').innerText = `${h1} | ${h2} | ${h3}`;
-      document.getElementById('gAdDescPreview').innerText = desc;
+    const filtered = cachedProducts.filter(p => p.category === categoryName);
+    const targetWhatsApp = getCategoryWhatsAppNumber(categoryName);
 
-      const fixBtn = document.getElementById('gadsAutoFixBtn');
-      const radar = document.getElementById('gadsRadarMsg');
-      const diag = document.getElementById('gadsDiagnostic');
-      let speechMessage = "";
-
-      if (h1.length > 30) {
-        currentGadsFixValue = "Genuine Mobile Spares";
-        speechMessage = "AI Guide: Headline 1 30 characters se lambi hai. Iski jagah 'Genuine Mobile Spares' likhiye.";
-        radar.innerHTML = `<strong>AI Guide:</strong> Headline 1 exceeds 30 chars. Shorten to 30 chars.`;
-        fixBtn.style.display = "inline-flex";
-        diag.className = "ai-diag-card fail";
-        diag.innerHTML = "❌ <strong>Policy Violation:</strong> Headline 1 exceeds 30 characters.";
-      } else {
-        fixBtn.style.display = "none";
-        diag.className = "ai-diag-card pass";
-        diag.innerHTML = "✓ <strong>Google Ad Approved:</strong> High Quality Score expected!";
-        radar.innerText = "AI Guide: Headlines Google policy ke standard par hain. Quality Score 10/10 rahega!";
-      }
-
-      if (allowVoice && speechMessage) {
-        clearTimeout(voiceDebounceTimer);
-        voiceDebounceTimer = setTimeout(() => { speakText(speechMessage); }, 1400);
-      }
-    }
-
-    function applyGadsFix() {
-      if (currentGadsFixValue) {
-        document.getElementById('gAdH1').value = currentGadsFixValue;
-        auditGAds(true);
-        speakText("Google Ads headline auto-correct ho gayi hai.");
-      }
-    }
-
-    function auditMeta() {
-      const brand = document.getElementById('metaBrand').value;
-      const copy = document.getElementById('metaCopy').value;
-      const img = document.getElementById('metaImg').value;
-      const h = document.getElementById('metaHeadline').value;
-      const cta = document.getElementById('metaCta').value;
-
-      document.getElementById('metaBrandPreview').innerText = brand;
-      document.getElementById('metaCopyPreview').innerText = copy;
-      document.getElementById('metaImgPreview').src = img;
-      document.getElementById('metaHeadlinePreview').innerText = h;
-      document.getElementById('metaCtaPreview').innerText = cta;
-
-      const diag = document.getElementById('metaDiagnostic');
-      if (!copy.includes("?") && !copy.includes("!")) {
-        diag.className = "ai-diag-card warn";
-        diag.innerHTML = "💡 <strong>AI Guide:</strong> Pehli line mein sawaal jaise 'Display toot gaya?' likhein taaki scrolling ruk sake.";
-      } else {
-        diag.className = "ai-diag-card pass";
-        diag.innerHTML = "✓ <strong>High CTR Hook:</strong> Visual question hook active!";
-      }
-    }
-
-    function simulateTraffic() {
-      const u = document.getElementById('gaUsers');
-      const l = document.getElementById('gaLive');
-      const leads = document.getElementById('gaLeads');
-      u.innerText = (parseInt(u.innerText.replace(',', '')) + 64).toLocaleString();
-      l.innerText = Math.floor(Math.random() * 35) + 20;
-      leads.innerText = parseInt(leads.innerText) + 3;
-      speakText("Traffic spike detected! GA4 stats updated.");
-      alert("🔥 Real-Time Traffic Spike Activated! GA4 stats updated.");
-    }
-
-    function handleFunnelSubmit(e) {
-      e.preventDefault();
-      const n = document.getElementById('fname').value;
-      const p = document.getElementById('fphone').value;
-      speakText(`Shabash! ${n} naam ke customer ki lead receive ho gayi hai.`);
-      alert(`🎯 Lead Captured!\nCustomer: ${n}\nPhone: ${p}\n\nAuto-synced with CRM & WhatsApp!`);
-    }
-
-    function generateAiIdeas() {
-      const topic = document.getElementById('aiTopic').value.trim() || "Mobile Accessories";
-      const block = document.getElementById('aiOutputBlock');
-      speakText(`${topic} ke liye ad headlines generate ho gayi hain.`);
-
-      block.innerHTML = `
-        <div style="background: rgba(99, 102, 241, 0.15); border: 1px solid rgba(99, 102, 241, 0.4); padding: 16px; border-radius: 14px;">
-          <h4 style="color: #a5b4fc; font-size: 14px; margin-bottom: 6px;">💡 Google Search Ad Angles:</h4>
-          <p style="font-size: 13px; color: #e2e8f0;">1. "100% Genuine ${topic} | Same Day Dispatch"</p>
-        </div>
-        <div style="background: rgba(16, 185, 129, 0.15); border: 1px solid rgba(16, 185, 129, 0.4); padding: 16px; border-radius: 14px;">
-          <h4 style="color: #34d399; font-size: 14px; margin-bottom: 6px;">📱 Meta Social Hook:</h4>
-          <p style="font-size: 13px; color: #e2e8f0;">"Phone baar-baar heat ho raha hai? Upgrade to certified ${topic} with 6-month warranty. Tap WhatsApp below!"</p>
+    if (filtered.length === 0) {
+      grid.innerHTML = `
+        <div style="grid-column: 1 / -1; text-align: center; padding: 40px 20px; color: #64748b;">
+          <h3>Is folder me abhi online stock update hona baaki hai!</h3>
+          <p>Direct WhatsApp par item availability check karein:</p>
+          <a href="https://wa.me/${targetWhatsApp}?text=Hello%204%20STAR%20MOBILE,%20mujhe%20${encodeURIComponent(categoryName)}%20ke%20bare%20mein%20enquiry%20karni%20hai" target="_blank" class="whatsapp-order-btn" style="max-width: 280px; margin: 15px auto;">
+            <i class="fa-brands fa-whatsapp"></i> WhatsApp Enquiry Karein
+          </a>
         </div>
       `;
+    } else {
+      filtered.forEach((p) => {
+        const card = document.createElement("div");
+        card.className = "card";
+        const msg = encodeURIComponent(`Hello 4 STAR MOBILE, mujhe ye purchase/enquiry karna hai: ${p.title} (Price: Rs. ${p.price}). Available hai?`);
+        
+        card.innerHTML = `
+          <img class="product-card-img" src="${p.imageUrl || 'logo.png'}" alt="${p.title}" onerror="this.src='logo.png';">
+          <div class="card-content">
+            <h3 style="font-size: 1.1rem; color: #111; margin-bottom: 5px;">${p.title}</h3>
+            <p style="font-size: 1.2rem; font-weight: 700; color: #0066cc; margin: 4px 0;">₹${p.price}</p>
+            <a href="https://wa.me/${targetWhatsApp}?text=${msg}" target="_blank" class="whatsapp-order-btn">
+              <i class="fa-brands fa-whatsapp"></i> Order on WhatsApp
+            </a>
+          </div>
+        `;
+        grid.appendChild(card);
+      });
     }
 
-    /* ================= ZERO-ERROR INTEGRATED AI TUTOR ================= */
-    function toggleChatWidget() {
-      const chat = document.getElementById('chatWidget');
-      chat.style.display = (chat.style.display === 'flex') ? 'none' : 'flex';
-      if (chat.style.display === 'flex') {
-        speakText("AI Marketing Tutor hazir hai. Apna sawal poochhein.");
-      }
+    modal.style.display = "block";
+    document.body.style.overflow = "hidden";
+  };
+
+  window.closeCategoryFolder = function() {
+    const modal = document.getElementById("categoryModal");
+    modal.style.display = "none";
+    document.body.style.overflow = "auto";
+  };
+
+  window.onclick = function(event) {
+    const modal = document.getElementById("categoryModal");
+    if (event.target == modal) {
+      closeCategoryFolder();
     }
+  };
 
-    function appendChatMessage(sender, text) {
-      const container = document.getElementById('chatMsgContainer');
-      const div = document.createElement('div');
-      div.className = `chat-msg ${sender}`;
-      div.innerHTML = text;
-      container.appendChild(div);
-      container.scrollTop = container.scrollHeight;
-      return div;
+  const productForm = document.getElementById("productForm");
+  productForm.addEventListener("submit", async (e) => {
+    e.preventDefault();
+    const title = document.getElementById("pTitle").value;
+    const price = document.getElementById("pPrice").value;
+    const category = document.getElementById("pCategory").value;
+    const imageUrl = document.getElementById("pImageUrl").value;
+
+    try {
+      await addDoc(collection(db, "products"), {
+        title,
+        price,
+        category,
+        imageUrl,
+        createdAt: new Date()
+      });
+      alert(`Product "${title}" ${category} folder me add ho gaya!`);
+      productForm.reset();
+      syncProducts();
+    } catch (err) {
+      alert("Error: " + err.message);
     }
+  });
 
-    function generateSmartMarketingResponse(q) {
-      const query = q.toLowerCase();
+  syncProducts();
+</script>
 
-      if (query.includes('mobile repair') || query.includes('repair shop') || query.includes('4 star') || query.includes('दुकान')) {
-        return `<strong>Mobile Repair Shop ke liye High-Converting Strategy:</strong><br>
-        1. <strong>Call-Only Ads:</strong> Google par 'Screen repair near me' aur 'Original battery replacement' jaise keywords par direct call asset chalayein.<br>
-        2. <strong>Negative Keywords:</strong> 'Free repair', 'repair course', 'tools' ko negative daalein taaki bekar clicks ke paise na katein.<br>
-        3. <strong>Local Trust Hook:</strong> Ad headline mein '30-Minute Express Replacement' aur 'Warranty with Invoice' zaroor likhein.`;
-      }
+<script src="script.js"></script>
 
-      if (query.includes('pixel') || query.includes('पिक्सेल')) {
-        return `<strong>Meta Pixel kya hota hai:</strong><br>
-        • Pixel Facebook ka ek JavaScript tracking code hai jo aapki website par aane wale har visitor ki activity (page views, button click, leads) track karta hai.<br>
-        • <strong>Fayda:</strong> Isse aap un logon ko dobara ad dikha sakte hain (Retargeting) jinhone pehle aapka page dekha par contact nahi kiya. Isse ad cost 50% tak kam ho jati hai!`;
-      }
-
-      if (query.includes('quality score') || query.includes('क्वालिटी')) {
-        return `<strong>Quality Score 10/10 karne ka Tareeqa:</strong><br>
-        1. <strong>Keyword-Headline Match:</strong> Jo keyword ad group mein hai, wahi Headline 1 mein hona chahiye.<br>
-        2. <strong>High Expected CTR:</strong> Emotional hook ya offer (jaise 'Flat 20% Off') add karein.<br>
-        3. <strong>Fast Landing Page:</strong> Page 3 seconds ke andar mobile par open hona chahiye. Isse cost per click bohot kam ho jata hai!`;
-      }
-
-      if (query.includes('seo') || query.includes('ranking') || query.includes('title')) {
-        return `<strong>SEO Title & Ranking Strategy:</strong><br>
-        • <strong>Title Formula:</strong> [Primary Keyword] + [Key Benefit] + [Brand Name] (50-60 characters).<br>
-        • <strong>Example:</strong> Original Mobile Spare Parts Store | 4 Star Mobile<br>
-        • Description mein guarantee aur call-to-action shamil karein taaki organic click rate (CTR) badhe.`;
-      }
-
-      if (query.includes('budget') || query.includes('bidding') || query.includes('cpc')) {
-        return `<strong>Bidding aur Ad Budget Guide:</strong><br>
-        • Shuruat mein ₹250-₹400 daily budget se 'Maximize Clicks' par test karein.<br>
-        • Jab 15-20 leads ya phone calls aa jayein, tab campaign ko 'Maximize Conversions' par switch karein.<br>
-        • High-performing location radius 5 se 10 KM ke andar hi rakhein.`;
-      }
-
-      if (query.includes('naam') || query.includes('who are you') || query.includes('koun ho')) {
-        return `Main aapka dedicated <strong>MarketingOS AI Coach</strong> hoon! Main digital marketing campaigns, Google Ads policy, high CTR copywriting aur SEO ranking optimize karne mein aapki live madad karta hoon.`;
-      }
-
-      return `<strong>Marketing Coach Action Plan:</strong><br>
-      1. '${q}' ke liye pehle apne target audience ka exact search intent pehchanein.<br>
-      2. Ad creatives mein clear hook, WhatsApp call-to-action aur limited period discount offer karein.<br>
-      3. Upar diye gaye simulator par headlines aur meta tags live test karke score audit karein!`;
+<!-- ================= DYNAMIC SYNCED HERO ROTATOR & SEARCH LOGIC ================= -->
+<script>
+  const heroSlides = [
+    {
+      img: 'https://images.unsplash.com/photo-1511707171634-5f897ff02aa9?w=1600&q=80',
+      title: '⚡ Latest 5G Smartphones & Gadgets',
+      desc: 'All Brands Mobile Accessories, Neckbands, Premium Covers & 11D Full Glue Tempered Glass in Kishanganj.'
+    },
+    {
+      img: 'https://images.unsplash.com/photo-1565849904461-04a58ad377e0?w=1600&q=80',
+      title: '📲 Original LCD Display & Folder Combos',
+      desc: 'OLED, INCELL & Original Quality Displays with Live Testing Counter facility before fitting!'
+    },
+    {
+      img: 'https://images.unsplash.com/photo-1588508065123-287b28e013da?w=1600&q=80',
+      title: '⚡ 33W, 65W & 80W Super Fast Chargers',
+      desc: 'Braided Type-C Fast Data Cables, Heavy Power Banks & Original Adapters with warranty support.'
+    },
+    {
+      img: 'https://images.unsplash.com/photo-1598327105666-5b89351aff97?w=1600&q=80',
+      title: '🔋 High-Backup Original Mobile Batteries',
+      desc: 'Long life certified replacement batteries for Redmi, Realme, Samsung, Vivo, Oppo & iPhone.'
+    },
+    {
+      img: 'https://images.unsplash.com/photo-1597740985671-2a8a3b80532e?w=1600&q=80',
+      title: '🔧 Professional Spares & IC Hardware Tools',
+      desc: 'Motherboard spares, CC charging boards, camera lens, OCA tools & genuine technical parts center.'
     }
+  ];
 
-    async function handleUserChat(e) {
-      e.preventDefault();
-      const input = document.getElementById('chatUserInput');
-      const question = input.value.trim();
-      if (!question) return;
+  let currentSlideIndex = Math.floor(Math.random() * heroSlides.length);
 
-      appendChatMessage('user', question);
-      input.value = "";
+  function syncHeroSlide() {
+    const heroEl = document.getElementById('home');
+    const titleEl = document.getElementById('dynamicHeroTitle');
+    const descEl = document.getElementById('dynamicHeroDesc');
 
-      const thinkingMsg = appendChatMessage('bot', "<em>AI soch raha hai...</em>");
+    if (!heroEl || !titleEl || !descEl) return;
 
-      setTimeout(() => {
-        const response = generateSmartMarketingResponse(question);
-        thinkingMsg.innerHTML = response;
-        speakText(response.replace(/<[^>]*>?/gm, ''));
-      }, 400);
+    titleEl.style.opacity = '0';
+    descEl.style.opacity = '0';
+
+    setTimeout(() => {
+      const slide = heroSlides[currentSlideIndex];
+      heroEl.style.backgroundImage = "url('" + slide.img + "')";
+      titleEl.innerText = slide.title;
+      descEl.innerText = slide.desc;
+
+      titleEl.style.opacity = '1';
+      descEl.style.opacity = '1';
+
+      currentSlideIndex = (currentSlideIndex + 1) % heroSlides.length;
+    }, 300);
+  }
+
+  function searchModelOnWhatsApp() {
+    const inputVal = document.getElementById('modelSearchInput').value.trim();
+    if (!inputVal) {
+      alert("Kripya apna phone model likhein (e.g. Redmi Note 10)");
+      return;
     }
+    const targetMsg = encodeURIComponent(`Hello 4 STAR MOBILE, mujhe "${inputVal}" ke liye Display Combo / Battery / Cover / Parts ka stock aur price check karna hai.`);
+    window.open(`https://wa.me/919473371370?text=${targetMsg}`, '_blank');
+  }
 
-    function askQuickQuestion(text) {
-      appendChatMessage('user', text);
-      const thinkingMsg = appendChatMessage('bot', "<em>AI soch raha hai...</em>");
-      setTimeout(() => {
-        const response = generateSmartMarketingResponse(text);
-        thinkingMsg.innerHTML = response;
-        speakText(response.replace(/<[^>]*>?/gm, ''));
-      }, 350);
+  document.getElementById('modelSearchInput').addEventListener('keypress', function(e) {
+    if (e.key === 'Enter') {
+      searchModelOnWhatsApp();
     }
+  });
 
-    window.addEventListener('DOMContentLoaded', () => {
-      auditSeo(false);
-      auditGAds(false);
-      auditMeta();
-    });
-  </script>
+  window.addEventListener('DOMContentLoaded', () => {
+    syncHeroSlide();
+    setInterval(syncHeroSlide, 5000);
+  });
+</script>
 </body>
 </html>

@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Interactive Service & Pricing Estimator - DSC Kishanganj</title>
+<meta name="description" content="Calculate estimated costs for digital marketing, web development, SEO, and Digital Signature Certificate (DSC) services.">
+<style>
+  *{margin:0;padding:0;box-sizing:border-box;font-family:'Poppins',sans-serif;}
+  body{background:#f8fafc;color:#0f172a;line-height:1.7;}
+
+  /* Header */
+  header{background:#001c38;color:#ffffff;padding:15px 5%;display:flex;justify-content:space-between;align-items:center;position:sticky;top:0;z-index:1000;box-shadow:0 4px 12px rgba(0,0,0,.25);}
+  .logo-container{display:flex;align-items:center;gap:12px;}
+  .logo{font-size:20px;font-weight:800;color:#ffffff;}
+  nav a{color:#ffffff;text-decoration:none;margin-left:18px;font-weight:600;font-size:14px;transition:0.3s;}
+  nav a:hover, nav a.active{color:#ffd700;}
+
+  /* Page Banner */
+  .page-banner{background:linear-gradient(135deg, #001932 0%, #0d47a1 100%);color:#ffffff;text-align:center;padding:50px 20px;}
+  .page-banner h1{font-size:30px;margin-bottom:10px;font-weight:800;}
+  .page-banner p{font-size:14px;max-width:800px;margin:auto;color:#e2e8f0;}
+
+  /* Estimator Box */
+  .container{width:90%;max-width:800px;margin:40px auto;}
+  .calc-box{background:#ffffff;padding:35px;border-radius:16px;box-shadow:0 6px 20px rgba(0,0,0,0.06);border-top:4px solid #0d47a1;}
+  .calc-box h2{color:#001c38;font-size:22px;margin-bottom:20px;font-weight:700;}
+  
+  .form-group{margin-bottom:20px;}
+  label{display:block;font-weight:600;margin-bottom:8px;color:#334155;font-size:14px;}
+  select, input{width:100%;padding:12px;border:1px solid #cbd5e1;border-radius:8px;font-size:15px;outline:none;background:#f8fafc;}
+  select:focus, input:focus{border-color:#0d47a1;background:#fff;}
+
+  .result-section{background:#f1f5f9;padding:20px;border-radius:10px;margin-top:25px;text-align:center;}
+  .result-section h3{font-size:18px;color:#0f172a;margin-bottom:8px;}
+  .price-display{font-size:28px;font-weight:800;color:#0d47a1;margin-bottom:15px;}
+
+  .btn-whatsapp{display:inline-block;background:#25d366;color:#ffffff;padding:12px 28px;border-radius:30px;text-decoration:none;font-weight:700;font-size:15px;transition:0.3s;}
+  .btn-whatsapp:hover{background:#1ebe57;}
+
+  /* Footer */
+  footer{background:#000d1a;color:#ffffff;text-align:center;padding:35px 20px;margin-top:50px;font-size:13px;}
+  footer a{color:#ffd700;text-decoration:none;margin:0 10px;font-weight:700;}
+</style>
+<script>
+  function calculatePrice() {
+    let service = document.getElementById('serviceType').value;
+    let urgency = document.getElementById('urgencyLevel').value;
+    let basePrice = parseInt(service);
+    let multiplier = parseFloat(urgency);
+    
+    let finalPrice = Math.round(basePrice * multiplier);
+    document.getElementById('estimatedPrice').innerText = "₹ " + finalPrice.toLocaleString('en-IN');
+  }
+</script>
+</head>
+<body onload="calculatePrice()">
+
+<!-- Universal Navigation Header with Home Link -->
+<header>
+  <div class="logo-container">
+    <div class="logo">DSC KISHANGANJ - ESTIMATOR</div>
+  </div>
+  <nav>
+    <a href="index.html">🏠 Home</a>
+    <a href="learning/index.html">Learning Hub</a>
+    <a href="tools/index.html">Marketing Tools</a>
+    <a href="estimator.html" class="active">Estimator</a>
+    <a href="contact.html">Contact</a>
+  </nav>
+</header>
+
+<div class="page-banner">
+  <h1>Interactive Service & Pricing Estimator</h1>
+  <p>Select your required digital or documentation service to instantly estimate costs and inquire via WhatsApp.</p>
+</div>
+
+<div class="container">
+  <div class="calc-box">
+    <h2>Calculate Your Service Investment</h2>
+    
+    <div class="form-group">
+      <label for="serviceType">Select Service Category:</label>
+      <select id="serviceType" onchange="calculatePrice()">
+        <option value="1500">Class 3 Digital Signature Certificate (DSC) - 2 Years</option>
+        <option value="5000">Custom Business Website (GitHub/WordPress)</option>
+        <option value="8000">Complete Local SEO & GSC Setup Package</option>
+        <option value="4000">Social Media Marketing & Meta Ads Setup</option>
+      </select>
+    </div>
+
+    <div class="form-group">
+      <label for="urgencyLevel">Processing Speed / Package Level:</label>
+      <select id="urgencyLevel" onchange="calculatePrice()">
+        <option value="1.0">Standard Speed (Normal Delivery)</option>
+        <option value="1.3">Express / Priority Service</option>
+      </select>
+    </div>
+
+    <div class="result-section">
+      <h3>Estimated Service Cost:</h3>
+      <div class="price-display" id="estimatedPrice">₹ 1,500</div>
+      <a href="https://wa.me/919473371370?text=Hello,%20I%20calculated%20an%20estimate%20on%20your%20website%20and%20want%20to%20proceed." target="_blank" rel="noopener" class="btn-whatsapp">💬 Inquire & Book via WhatsApp ➔</a>
+    </div>
+  </div>
+</div>
+
+<footer>
+  <p>© 2026 DSC Kishanganj (4 Star Mobile) | Service Pricing Estimator.</p>
+  <p style="margin-top:10px;"><a href="index.html">Home</a> | <a href="contact.html">Contact Us</a></p>
+</footer>
+
+</body>
+</html>

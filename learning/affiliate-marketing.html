@@ -189,7 +189,7 @@
     <p>Flipkart bhi India ka ek bada e-commerce platform hai jiska affiliate program kaafi popular hai:</p>
     <ul>
       <li><strong>Step 1:</strong> Flipkart Affiliate ki website par jayein aur apna registration complete karein.</li>
-      <li><strong>Step 2:</strong> Apni website aur details submit karne ke baad Flipkart aapke application ko review karta hai aur approval deta hai.</li>
+      <li><strong>Step 2:</strong> Apne website aur details submit karne ke baad Flipkart aapke application ko review karta hai aur approval deta hai.</li>
       <li><strong>Step 3:</strong> Approval milne ke baad aap dashboard se kisi bhi product ka tracking link generate kar sakte hain.</li>
     </ul>
 
@@ -231,39 +231,44 @@
   <p style="margin-top:10px;"><a href="../index.html">Home</a> | <a href="index.html">Learning Hub</a> | <a href="../contact.html">Contact Us</a></p>
 </footer>
 
-<!-- Text-to-Speech Audio Script -->
+<!-- Enhanced Fixed Text-to-Speech Audio Script -->
 <script>
-  let synth = window.speechSynthesis;
-  let utterance = null;
-
   function playAudio() {
-    if (synth.paused && utterance) {
-      synth.resume();
-      return;
-    }
-    synth.cancel(); // Stop any ongoing speech
-    let textToSpeech = document.getElementById('readable-content').innerText;
-    utterance = new SpeechSynthesisUtterance(textToSpeech);
-    utterance.rate = 0.9; // Normal comfortable reading speed
-    utterance.pitch = 1.0;
-    
-    // Automatically detect language if translated
-    let htmlLang = document.documentElement.lang || 'hi';
-    utterance.lang = htmlLang;
+    if ('speechSynthesis' in window) {
+      window.speechSynthesis.cancel(); // Stop any stuck speech
+      
+      let textToSpeech = document.getElementById('readable-content').innerText;
+      let utterance = new SpeechSynthesisUtterance(textToSpeech);
+      utterance.rate = 0.9; // Normal comfortable listening speed
+      utterance.pitch = 1.0;
+      
+      // Force loading voices and setting language
+      let voices = window.speechSynthesis.getVoices();
+      utterance.lang = 'hi-IN'; // Default to Hindi/Hinglish audio support
 
-    synth.speak(utterance);
+      window.speechSynthesis.speak(utterance);
+    } else {
+      alert("Aapka browser audio speech support nahi karta hai.");
+    }
   }
 
   function pauseAudio() {
-    if (synth.speaking && !synth.paused) {
-      synth.pause();
+    if ('speechSynthesis' in window && window.speechSynthesis.speaking) {
+      window.speechSynthesis.pause();
     }
   }
 
   function stopAudio() {
-    if (synth.speaking || synth.paused) {
-      synth.cancel();
+    if ('speechSynthesis' in window) {
+      window.speechSynthesis.cancel();
     }
+  }
+
+  // Preload voices for mobile/desktop browsers
+  if ('speechSynthesis' in window) {
+    window.speechSynthesis.onvoiceschanged = function() {
+      window.speechSynthesis.getVoices();
+    };
   }
 </script>
 

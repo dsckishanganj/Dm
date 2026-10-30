@@ -1,0 +1,6 @@
+User-agent: *
+Disallow: /wp-admin/
+Disallow: /cart/
+Disallow: /thank-you/
+Allow: /wp-admin/admin-ajax.php
+Sitemap: https://www.example.com/sitemap.xml

@@ -149,7 +149,7 @@
   <div class="audio-btns">
     <button class="audio-btn" onclick="playAudio()">▶ Play Audio</button>
     <button class="audio-btn" onclick="pauseAudio()">⏸ Pause</button>
-    <button class="audio-btn stop" onclick="stopAudio()">⏹ Stop</button>
+    <button class="audio-btn stop" onclick="stopAudio()">📊 Stop</button>
   </div>
 </div>
 
@@ -231,25 +231,46 @@
   <p style="margin-top:10px;"><a href="../index.html">Home</a> | <a href="index.html">Learning Hub</a> | <a href="../contact.html">Contact Us</a></p>
 </footer>
 
-<!-- Enhanced Fixed Text-to-Speech Audio Script -->
+<!-- Bulletproof Direct Audio Reader Script -->
 <script>
   function playAudio() {
-    if ('speechSynthesis' in window) {
-      window.speechSynthesis.cancel(); // Stop any stuck speech
-      
-      let textToSpeech = document.getElementById('readable-content').innerText;
-      let utterance = new SpeechSynthesisUtterance(textToSpeech);
-      utterance.rate = 0.9; // Normal comfortable listening speed
-      utterance.pitch = 1.0;
-      
-      // Force loading voices and setting language
-      let voices = window.speechSynthesis.getVoices();
-      utterance.lang = 'hi-IN'; // Default to Hindi/Hinglish audio support
-
-      window.speechSynthesis.speak(utterance);
-    } else {
+    if (!('speechSynthesis' in window)) {
       alert("Aapka browser audio speech support nahi karta hai.");
+      return;
     }
+
+    // Stop any ongoing speech first
+    window.speechSynthesis.cancel();
+
+    // Get text directly from the container
+    let textElement = document.getElementById('readable-content');
+    if (!textElement) {
+      alert("Content nahi mila!");
+      return;
+    }
+
+    let textToSpeech = textElement.innerText;
+    
+    // Create speech utterance
+    let utterance = new SpeechSynthesisUtterance(textToSpeech);
+    utterance.rate = 0.9;  // Comfort speed
+    utterance.pitch = 1.0; // Normal pitch
+
+    // Handle voice selection for best pronunciation
+    let voices = window.speechSynthesis.getVoices();
+    let hindiVoice = voices.find(v => v.lang.includes('hi') || v.lang.includes('IN'));
+    if (hindiVoice) {
+      utterance.voice = hindiVoice;
+    }
+
+    // Error handling event
+    utterance.onerror = function(event) {
+      console.error('Speech synthesis error', event);
+      alert("Audio play karne mein kuch samasya aayi.");
+    };
+
+    // Speak out loud
+    window.speechSynthesis.speak(utterance);
   }
 
   function pauseAudio() {
@@ -264,7 +285,7 @@
     }
   }
 
-  // Preload voices for mobile/desktop browsers
+  // Ensure voices are loaded
   if ('speechSynthesis' in window) {
     window.speechSynthesis.onvoiceschanged = function() {
       window.speechSynthesis.getVoices();
